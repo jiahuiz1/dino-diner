@@ -2,20 +2,22 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Menu.Entrees
+namespace DinoDiner.Menu.Entrees
 {
     public class DinoNuggets
     {
+        private int count = 6;
 
         public double Price { get; set; }
 
         public uint Calories { get; set; }
 
-        public string Ingredients
+        public List<string> Ingredients
         {
             get
             {
-                return "6 chicken nuggets";
+                List<string> ingredients = new List<string> {  count.ToString() + " chicken nuggets" };
+                return ingredients;
             }
         }
 
@@ -27,6 +29,7 @@ namespace Menu.Entrees
 
         public void AddNugget()
         {
+            count += 1;
             Price = this.Price + 0.25;
             Calories = this.Calories + 59;
         }

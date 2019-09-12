@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Menu.Entrees
+namespace DinoDiner.Menu.Entrees
 {
-    public class SteakosaurusBurger
+    public class TRexKingBurger
     {
         private bool bun = true;
         private bool lettuce = true;
@@ -24,7 +24,7 @@ namespace Menu.Entrees
             get
             {
                 List<string> ingredients = new List<string> { "three steakburger patties" };
-                if (bun) ingredients.Add("whole wheat bun");
+                if (bun) ingredients.Add("a whole wheat bun");
                 if (lettuce) ingredients.Add("lettuce");
                 if (tomato) ingredients.Add("tomato");
                 if (onion) ingredients.Add("onion");
@@ -34,6 +34,52 @@ namespace Menu.Entrees
                 if (mayo) ingredients.Add("mayo");
                 return ingredients;
             }
+        }
+
+        public TRexKingBurger()
+        {
+            this.Price = 8.45;
+            this.Calories = 728;
+        }
+
+        public void HoldBun()
+        {
+            this.bun = false;
+        }
+
+        public void HoldLettuce()
+        {
+            this.lettuce = false;
+        }
+
+        public void HoldTomato()
+        {
+            this.tomato = false;
+        }
+
+        public void HoldOnion()
+        {
+            this.onion = false;
+        }
+
+        public void HoldPickle()
+        {
+            this.pickle = false;
+        }
+
+        public void HoldKetchup()
+        {
+            this.ketchup = false;
+        }
+
+        public void HoldMustard()
+        {
+            this.mustard = false;
+        }
+
+        public void HoldMayo()
+        {
+            this.mayo = false;
         }
     }
 }
