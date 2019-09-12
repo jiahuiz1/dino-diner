@@ -43,7 +43,7 @@ namespace Menu.Entrees
             this.peppers = false;
         }
 
-        public void HoldOnions()
+        public void HoldOnion()
         {
             this.onions = false;
         }
