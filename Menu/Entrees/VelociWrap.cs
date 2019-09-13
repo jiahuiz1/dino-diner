@@ -18,11 +18,11 @@ namespace DinoDiner.Menu.Entrees
         {
             get
             {
-                List<string> ingredients = new List<string> { "flour tortilla" };
-                ingredients.Add("chicken breast");
-                if (lettuce) ingredients.Add("romaine lettuce");
-                if (dressing) ingredients.Add("Ceasar dressing");
-                if (cheese) ingredients.Add("parmesan cheese");
+                List<string> ingredients = new List<string> { "Flour Tortilla" };
+                ingredients.Add("Chicken Breast");
+                if (lettuce) ingredients.Add("Romaine Lettuce");
+                if (dressing) ingredients.Add("Ceasar Dressing");
+                if (cheese) ingredients.Add("Parmesan Cheese");
                 return ingredients;
             }
         }

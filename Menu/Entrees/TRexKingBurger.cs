@@ -6,6 +6,8 @@ namespace DinoDiner.Menu.Entrees
 {
     public class TRexKingBurger
     {
+        private int count = 3;
+
         private bool bun = true;
         private bool lettuce = true;
         private bool tomato = true;
@@ -23,15 +25,20 @@ namespace DinoDiner.Menu.Entrees
         {
             get
             {
-                List<string> ingredients = new List<string> { "three steakburger patties" };
-                if (bun) ingredients.Add("a whole wheat bun");
-                if (lettuce) ingredients.Add("lettuce");
-                if (tomato) ingredients.Add("tomato");
-                if (onion) ingredients.Add("onion");
-                if (pickle) ingredients.Add("pickle");
-                if (ketchup) ingredients.Add("ketchup");
-                if (mustard) ingredients.Add("mustard");
-                if (mayo) ingredients.Add("mayo");
+                List<string> ingredients = new List<string>();
+                for(int i = 0; i < count; i++)
+                {
+                    ingredients.Add("Steakburger Pattie");
+                }
+
+                if (bun) ingredients.Add("Whole Wheat Bun");
+                if (lettuce) ingredients.Add("Lettuce");
+                if (tomato) ingredients.Add("Tomato");
+                if (onion) ingredients.Add("Onion");
+                if (pickle) ingredients.Add("Pickle");
+                if (ketchup) ingredients.Add("Ketchup");
+                if (mustard) ingredients.Add("Mustard");
+                if (mayo) ingredients.Add("Mayo");
                 return ingredients;
             }
         }
