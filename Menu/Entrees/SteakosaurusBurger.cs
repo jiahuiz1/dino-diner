@@ -1,20 +1,50 @@
-﻿using System;
+﻿/* Author: Jiahui Zhao
+ * Project1: menu
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace DinoDiner.Menu.Entrees
 {
+    /// <summary>
+    /// Steakosaurus Burger(A 1/2 pound steakburger)
+    /// </summary>
     public class SteakosaurusBurger
     {
-        private bool bun = true;      
+        /// <summary>
+        /// Whether the Steakosaurus Burger has bun
+        /// </summary>
+        private bool bun = true;
+
+        /// <summary>
+        /// Wheter the Steakosaurus Burger has pickle
+        /// </summary>
         private bool pickle = true;
+
+        /// <summary>
+        /// Whether the Steakosaurus Burger has ketchup
+        /// </summary>
         private bool ketchup = true;
+
+        /// <summary>
+        /// Whether the Steakosaurus Burger has mustard
+        /// </summary>
         private bool mustard = true;
 
+        /// <summary>
+        /// The price of the Steakosaurus Burger
+        /// </summary>
         public double Price { get; set; }
 
+        /// <summary>
+        /// The calories of the Steakosaurus Burger
+        /// </summary>
         public uint Calories { get; set; }
 
+        /// <summary>
+        /// The ingredients of the Steakosaurus Burger(StreakBurger pattie, whole wheat bun, pickle, ketchup, mustard)
+        /// </summary>
         public List<string> Ingredients
         {
             get
@@ -29,26 +59,42 @@ namespace DinoDiner.Menu.Entrees
             }
         }
 
+        /// <summary>
+        /// The constructor that initializes the price and calories
+        /// </summary>
         public SteakosaurusBurger()
         {
             this.Price = 5.15;
             this.Calories = 621;
         }
 
+        /// <summary>
+        /// Remove the bun from the Steakosaurus Burger
+        /// </summary>
         public void HoldBun()
         {
             this.bun = false;
         }
+
+        /// <summary>
+        /// Remove the pickle from the Steakosaurus Burger
+        /// </summary>
         public void HoldPickle()
         {
             this.pickle = false;
         }
 
+        /// <summary>
+        /// Remove the ketchup from the Steakosaurus Burger
+        /// </summary>
         public void HoldKetchup()
         {
             this.ketchup = false;
         }
 
+        /// <summary>
+        /// Remove the mustard from the Steakosaurus Burger
+        /// </summary>
         public void HoldMustard()
         {
             this.mustard = false;

@@ -1,4 +1,7 @@
-﻿using System;
+﻿/* Author: Jiahui Zhao
+ * Project1: menu
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 

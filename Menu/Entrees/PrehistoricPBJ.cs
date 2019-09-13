@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿/* Author: Jiahui Zhao
+ * Project1: menu
+ */
+using System.Collections.Generic;
 
 namespace DinoDiner.Menu.Entrees
 {
