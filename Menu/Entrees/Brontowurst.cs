@@ -10,7 +10,7 @@ using System.Text;
 /// </summary>
 namespace DinoDiner.Menu.Entrees
 {
-    public class Brontowurst
+    public class Brontowurst : EntreeBaseClass
     {
         /// <summary>
         /// Whether the Brontowurst has a bun
@@ -27,20 +27,12 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         private bool onions = true;
 
-        /// <summary>
-        /// The price of the Brontowurst
-        /// </summary>
-        public double Price { get; set; }
-
-        /// <summary>
-        /// The calories of the Brontowurst
-        /// </summary>
-        public uint Calories { get; set; }
+        
 
         /// <summary>
         /// The ingredients of the Brontowurst, include brautwurst, whole wheat bun, peppers and onions
         /// </summary>
-        public List<string> Ingredients
+        public override List<string> Ingredients
         {
             get
             {

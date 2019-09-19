@@ -10,27 +10,18 @@ namespace DinoDiner.Menu.Entrees
     /// <summary>
     /// The DinoNuggets(six crispy fried breaded chicken nuggets)
     /// </summary>
-    public class DinoNuggets
+    public class DinoNuggets : EntreeBaseClass
     {
         /// <summary>
         /// The number of how many chicken nuggets in the entree
         /// </summary>
         private int count = 6;
 
-        /// <summary>
-        /// The price of the DinoNuggets
-        /// </summary>
-        public double Price { get; set; }
-
-        /// <summary>
-        /// The calories of the DinoNuggets
-        /// </summary>
-        public uint Calories { get; set; }
 
         /// <summary>
         /// The ingredients of the DinoNuggets(only chicken nugget)
         /// </summary>
-        public List<string> Ingredients
+        public override List<string> Ingredients
         {
             get
             {

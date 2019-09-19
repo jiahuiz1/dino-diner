@@ -8,7 +8,7 @@ namespace DinoDiner.Menu.Entrees
     /// <summary>
     /// The PrehistoricPBJ(A peanut butter & jelly sandwich)
     /// </summary>
-    public class PrehistoricPBJ
+    public class PrehistoricPBJ : EntreeBaseClass
     {
         /// <summary>
         /// Whether the PrehistoricPBJ has peanutbutter
@@ -21,20 +21,11 @@ namespace DinoDiner.Menu.Entrees
         private bool jelly = true;
 
 
-        /// <summary>
-        /// The price of the PrehistoricPBJ
-        /// </summary>
-        public double Price { get; set; }
-
-        /// <summary>
-        /// The calories of the PrehistoricPBJ
-        /// </summary>
-        public uint Calories { get; set; }
 
         /// <summary>
         /// The ingredients of the PrehistoricPBJ, include the bread, peanutbutter and jelly
         /// </summary>
-        public List<string> Ingredients
+        public override List<string> Ingredients
         {
             get
             {

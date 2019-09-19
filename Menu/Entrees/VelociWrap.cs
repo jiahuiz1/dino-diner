@@ -10,7 +10,7 @@ namespace DinoDiner.Menu.Entrees
     /// <summary>
     /// Veloci wrap(A chicken ceasar wrap)
     /// </summary>
-    public class VelociWrap
+    public class VelociWrap : EntreeBaseClass
     {
         /// <summary>
         /// Whether the VelociWrap has dressing
@@ -27,20 +27,12 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         private bool cheese = true;
 
-        /// <summary>
-        /// The price of the VelociWrap
-        /// </summary>
-        public double Price { get; set; }
-
-        /// <summary>
-        /// The calories of the VelociWrap
-        /// </summary>
-        public uint Calories { get; set; }
+        
 
         /// <summary>
         /// The ingredients of the VelociWrap(flour tortilla, chicken breast, romaine lettuce, ceasar dressing, parmesan cheese)
         /// </summary>
-        public List<string> Ingredients
+        public override List<string> Ingredients
         {
             get
             {
