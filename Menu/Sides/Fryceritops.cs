@@ -2,11 +2,22 @@
 using System.Collections.Generic;
 using System.Text;
 
+
 namespace DinoDiner.Menu.Sides
 {
+    /// <summary>
+    /// The Fryceritops side(French Fries) 
+    /// </summary>
     public class Fryceritops : Side
     {
+        /// <summary>
+        /// The size of the Fryceritops
+        /// </summary>
         private Size size;
+
+        /// <summary>
+        /// Determine the size of the Fryceritops and set its price and calories, and also gets the size
+        /// </summary>
         public override Size Size
         {
             get { return size; }
@@ -32,6 +43,9 @@ namespace DinoDiner.Menu.Sides
             }
         }
 
+        /// <summary>
+        /// Gets the ingredients of the Fryceritops
+        /// </summary>
         public override List<string> Ingredients
         {
             get
@@ -40,6 +54,9 @@ namespace DinoDiner.Menu.Sides
             }
         }
 
+        /// <summary>
+        /// The constructor that sets the default price, calories and ingredients
+        /// </summary>
         public Fryceritops()
         {
             Price = 0.99;

@@ -4,9 +4,19 @@ using System.Text;
 
 namespace DinoDiner.Menu.Sides
 {
+    /// <summary>
+    /// The MezzorellaSticks side(Fried Breaded Mozzarella Sticks)
+    /// </summary>
     public class MezzorellaSticks : Side
     {
+        /// <summary>
+        /// The size of MezzorellaSticks
+        /// </summary>
         private Size size;
+
+        /// <summary>
+        /// Determine the size of MezzorellaSticks and sets the price and calories, and also gets the size
+        /// </summary>
         public override Size Size
         {
             get { return size; }
