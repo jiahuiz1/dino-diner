@@ -8,9 +8,9 @@ namespace DinoDiner.Menu.Drinks
     {
         private Size size;
 
-        public bool Sweet { get; set; }
+        public bool Sweet { get; set; } = false;
 
-        public bool Lemon { get; set; }
+        public bool Lemon { get; set; } = false;
 
         public override Size Size
         {
@@ -18,32 +18,32 @@ namespace DinoDiner.Menu.Drinks
 
             set
             {
-                switch (size)
+               if(size == Size.Small)
                 {
-                    case Size.Small:
-                        Price = 0.99;
-                        Calories = 8;
-                        if (Sweet)
-                        {
-                            Calories = 2 * Calories;
-                        }
-                        break;
-                    case Size.Medium:
-                        Price = 1.49;
-                        Calories = 16;
-                        if (Sweet)
-                        {
-                            Calories = 2 * Calories;
-                        }
-                        break;
-                    case Size.Large:
-                        Price = 1.99;
-                        Calories = 32;
-                        if (Sweet)
-                        {
-                            Calories = 2 * Calories;
-                        }
-                        break;
+                    Price = 0.99;
+                    Calories = 8;
+                    if (Sweet)
+                    {
+                        Calories = Calories * 2;
+                    }
+                }
+               else if(size == Size.Medium)
+                {
+                    Price = 1.49;
+                    Calories = 16;
+                    if (Sweet)
+                    {
+                        Calories = Calories * 2;
+                    }
+                }
+               else if(size == Size.Large)
+                {
+                    Price = 1.99;
+                    Calories = 32;
+                    if (Sweet)
+                    {
+                        Calories = Calories * 2;
+                    }
                 }
             }
         }
@@ -64,8 +64,9 @@ namespace DinoDiner.Menu.Drinks
 
         public Tyrannotea()
         {
-            Sweet = false;
-            Lemon = false;
+            Price = 0.99;
+            Calories = 8;
+            Ice = true;          
             ingredients.Add("Water");
             ingredients.Add("Tea");
             if (Lemon)

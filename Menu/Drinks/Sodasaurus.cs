@@ -2,48 +2,49 @@
 using System.Collections.Generic;
 using System.Text;
 
+
 namespace DinoDiner.Menu.Drinks
 {
-    public enum SodasaurusFlavor
-    {
-        Cola,
-        Orange,
-        Vanilla,
-        Chocolate,
-        RootBeer,
-        Cherry,
-        Lime
-    }
 
     public class Sodasaurus : DrinkBaseClass
-    {
+    {     
+
+        private SodaSaurusFlavor flavor;
         private Size size;
 
-        public SodasaurusFlavor Flavor { get; set; }
+        public SodaSaurusFlavor Flavor
+        {
+            get
+            { return flavor; }
+            set
+            { flavor = value; }
+        }
 
-        public override Size Size
+       public override Size Size
         {
             get { return size; }
-
             set
             {
-                switch (size)
+                size = value;
+                if(size == Size.Small)
                 {
-                    case Size.Small:
-                        Price = 1.50;
-                        Calories = 12;
-                        break;
-                    case Size.Medium:
-                        Price = 2.00;
-                        Calories = 156;
-                        break;
-                    case Size.Large:
-                        Price = 2.50;
-                        Calories = 208;
-                        break;
+                    Price = 1.50;
+                    Calories = 112;
+                }
+                else if (size == Size.Medium)
+                {
+                    Price = 2.00;
+                    Calories = 156;
+                }
+                else if(size == Size.Large)
+                {
+                    Price = 2.50;
+                    Calories = 208;
                 }
             }
         }
+
+       
 
         public override List<string> Ingredients
         {
@@ -55,6 +56,9 @@ namespace DinoDiner.Menu.Drinks
 
         public Sodasaurus()
         {
+            Ice = true;
+            Price = 1.50;
+            Calories = 112;
             ingredients.Add("Water");
             ingredients.Add("Natural Flvaors");
             ingredients.Add("Cane Sugar");          
