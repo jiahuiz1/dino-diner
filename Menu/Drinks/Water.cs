@@ -6,13 +6,14 @@ namespace DinoDiner.Menu.Drinks
 {
     public class Water : DrinkBaseClass
     {
-        private Size size;
+        private Size size;       
 
         public override Size Size
         {
             get { return size; }
             set
             {
+                size = value;
                 if(size == Size.Small || size == Size.Medium || size == Size.Large)
                 {
                     Price = 0.10;
@@ -31,6 +32,10 @@ namespace DinoDiner.Menu.Drinks
         public bool AddLemon()
         {
             Lemon = true;
+            if (Lemon)
+            {
+                ingredients.Add("Lemon");
+            }
             return Lemon;
         }
 
@@ -40,10 +45,7 @@ namespace DinoDiner.Menu.Drinks
             Calories = 0;
             Ice = true;
             ingredients.Add("Water");
-            if (Lemon)
-            {
-                ingredients.Add("Lemon");
-            }
+            
         }
     }
 }

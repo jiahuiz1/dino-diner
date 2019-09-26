@@ -13,6 +13,7 @@ namespace DinoDiner.Menu.Drinks
             get { return size; }
             set
             {
+                size = value;
                 if(size == Size.Small)
                 {
                     Price = 0.59;

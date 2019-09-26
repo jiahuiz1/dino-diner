@@ -8,7 +8,18 @@ namespace DinoDiner.Menu.Drinks
     {
         private Size size;
 
-        public bool Sweet { get; set; } = false;
+        private bool sweet = false;
+        public bool Sweet {
+            get { return sweet; }
+            set
+            {
+                sweet = value;
+                if(sweet == true)
+                {
+                    ingredients.Add("Cane Sugar");
+                }
+            }
+        }
 
         public bool Lemon { get; set; } = false;
 
@@ -18,6 +29,7 @@ namespace DinoDiner.Menu.Drinks
 
             set
             {
+                size = value;
                if(size == Size.Small)
                 {
                     Price = 0.99;
@@ -59,6 +71,10 @@ namespace DinoDiner.Menu.Drinks
         public bool AddLemon()
         {
             Lemon = true;
+            if (Lemon)
+            {
+                ingredients.Add("Lemon");
+            }
             return Lemon;
         }
 
@@ -68,15 +84,7 @@ namespace DinoDiner.Menu.Drinks
             Calories = 8;
             Ice = true;          
             ingredients.Add("Water");
-            ingredients.Add("Tea");
-            if (Lemon)
-            {
-                ingredients.Add("Lemon");
-            }
-            if (Sweet)
-            {
-                ingredients.Add("Cane Sugar");
-            }
+            ingredients.Add("Tea");                       
         }
     }
 }

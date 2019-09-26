@@ -75,7 +75,7 @@ namespace MenuTest.Drinks
             Assert.Equal<double>(1.50, soda.Price);
         }
 
-        //The correct price and calories after changing to small
+        //The correct price  after changing to small
         [Fact]
         public void ShouldHaveCorrectPriceAfterSettingSmall()
         {
@@ -85,7 +85,7 @@ namespace MenuTest.Drinks
         }
 
         
-        //The correct price and calories after changing to medium
+        //The correct price after changing to medium
         [Fact]
         public void ShouldHaveCorrectPriceAfterSettingMedium()
         {
@@ -94,7 +94,7 @@ namespace MenuTest.Drinks
             Assert.Equal<double>(2.00, soda.Price);
         }
 
-        //The correct price and calories after changing to Large
+        //The correct price after changing to Large
         [Fact]
         public void ShouldHaveCorrectPriceAfterSettingLarge()
         {
@@ -103,6 +103,40 @@ namespace MenuTest.Drinks
             Assert.Equal<double>(2.50, soda.Price);
         }
 
+        //The correct default calories
+        [Fact]
+        public void ShouldHaveCorrectDefaultCalories()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            Assert.Equal<uint>(112, soda.Calories);
+        }
+
+        //The correct Calories after changing to small
+        [Fact]
+        public void ShouldHaveCorrectCaloriesAfterSettingToSmall()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            soda.Size = Size.Small;
+            Assert.Equal<uint>(112, soda.Calories);
+        }
+
+        //The correct Calories after changing to medium
+        [Fact]
+        public void ShouldHaveCorrectCaloriesAfterSettingToMedium()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            soda.Size = Size.Medium;
+            Assert.Equal<uint>(156, soda.Calories);
+        }
+
+        //The correct Calories after changing to Large
+        [Fact]
+        public void ShouldHaveCorrectCaloriesAfterSettingToLarge()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            soda.Size = Size.Large;
+            Assert.Equal<uint>(208, soda.Calories);
+        }
 
         //That invoking HoldIce() results in the Ice property being false.
         [Fact]
@@ -112,6 +146,13 @@ namespace MenuTest.Drinks
             Assert.True(soda.Ice);
         }
 
+        [Fact]
+        public void ShouldHaveDefaultSize()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            Assert.Equal<Size>(Size.Small, soda.Size);
+        }
+
         //That invoking HoldIce() results in the Ice property being false.
         [Fact]
         public void ShouldInvokeHoldIce()
@@ -119,6 +160,17 @@ namespace MenuTest.Drinks
             Sodasaurus soda = new Sodasaurus();
             soda.HoldIce();
             Assert.False(soda.Ice);
+        }
+
+        //The correct ingredients are given
+        [Fact]
+        public void ShouldHaveCorrectIngredients()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            Assert.Contains<string>("Water", soda.Ingredients);
+            Assert.Contains<string>("Natural Flvaors", soda.Ingredients);
+            Assert.Contains<string>("Cane Sugar", soda.Ingredients);
+            Assert.Equal<int>(3, soda.Ingredients.Count);
         }
     }
 }
