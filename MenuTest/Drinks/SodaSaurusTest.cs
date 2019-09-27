@@ -7,6 +7,9 @@ using Xunit;
 
 namespace MenuTest.Drinks
 {
+    /// <summary>
+    /// The test for the SodaSaurus class
+    /// </summary>
     public class SodaSaurusTest
     {
         //The [Fact] means to tell the TestExplorer, this code is a test 

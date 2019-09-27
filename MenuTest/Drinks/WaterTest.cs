@@ -7,8 +7,12 @@ using DinoDiner.Menu;
 
 namespace MenuTest.Drinks
 {
+    /// <summary>
+    /// The Test for the Water class
+    /// </summary>
     public class WaterTest
     {
+        //The correct default price
         [Fact]
         public void ShouldHaveCorrectDefaultPrice()
         {
@@ -16,6 +20,7 @@ namespace MenuTest.Drinks
             Assert.Equal<double>(0.10, w.Price);
         }
 
+        //The correct default calories
         [Fact]
         public void ShouldHaveCorrectDefaultCalories()
         {
@@ -23,6 +28,7 @@ namespace MenuTest.Drinks
             Assert.Equal<double>(0, w.Calories);
         }
 
+        //The correct default Ice set up 
         [Fact]
         public void ShouldHaveDefaultIce()
         {
@@ -30,6 +36,7 @@ namespace MenuTest.Drinks
             Assert.True(w.Ice);
         }
 
+        //The correct default size
         [Fact]
         public void ShouldHaveDefaultSize()
         {
@@ -37,6 +44,7 @@ namespace MenuTest.Drinks
             Assert.Equal<Size>(Size.Small, w.Size);
         }
 
+        //The correct default lemon set up
         [Fact]
         public void ShouldHaveDefaultLemon()
         {
@@ -44,6 +52,7 @@ namespace MenuTest.Drinks
             Assert.False(w.Lemon);
         }
 
+        //The correct price after setting the size to small
         [Fact]
         public void ShouldHaveCorrectPriceAfterSettingSizeToSmall()
         {
@@ -52,6 +61,7 @@ namespace MenuTest.Drinks
             Assert.Equal<double>(0.10, w.Price);
         }
 
+        //The correct price after setting the size to medium
         [Fact]
         public void ShouldHaveCorrectPriceAfterSettingSizeToMedium()
         {
@@ -60,6 +70,8 @@ namespace MenuTest.Drinks
             Assert.Equal<double>(0.10, w.Price);
         }
 
+
+        //The correct price after setting the size to large
         [Fact]
         public void ShouldHaveCorrectPriceAfterSettingSizeToLarge()
         {
@@ -68,6 +80,7 @@ namespace MenuTest.Drinks
             Assert.Equal<double>(0.10, w.Price);
         }
 
+        //The correct calories after setting the size to small
         [Fact]
         public void ShouldHaveCorrectCaloriesAfterSettingSizeToSmall()
         {
@@ -76,6 +89,7 @@ namespace MenuTest.Drinks
             Assert.Equal<uint>(0, w.Calories);
         }
 
+        //The correct calories after setting the size to medium
         [Fact]
         public void ShouldHaveCorrectCaloriesAfterSettingSizeToMedium()
         {
@@ -84,6 +98,7 @@ namespace MenuTest.Drinks
             Assert.Equal<uint>(0, w.Calories);
         }
 
+        //The correct calories after setting the size to large
         [Fact]
         public void ShouldHaveCorrectCaloriesAfterSettingSizeToLarge()
         {
@@ -92,6 +107,7 @@ namespace MenuTest.Drinks
             Assert.Equal<uint>(0, w.Calories);
         }
 
+        //That invoking HoldIce() results in the Ice property being false
         [Fact]
         public void ShouldInvokeHoldIce()
         {
@@ -100,6 +116,7 @@ namespace MenuTest.Drinks
             Assert.False(w.Ice);
         }
 
+        //That invoking AddLemon() sets results in the Lemon property being true
         [Fact]
         public void ShouldInvokeAddLemon()
         {
@@ -108,6 +125,7 @@ namespace MenuTest.Drinks
             Assert.True(w.Lemon);
         }
 
+        //The correct ingredients are given
         [Fact]
         public void ShouldHaveCorrectIngredients()
         {

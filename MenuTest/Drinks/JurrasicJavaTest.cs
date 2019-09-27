@@ -7,8 +7,12 @@ using DinoDiner.Menu;
 
 namespace MenuTest.Drinks
 {
+    /// <summary>
+    /// The Test for the JurrasicJava
+    /// </summary>
     public class JurrasicJavaTest
     {
+        //The correct default price
         [Fact]
         public void ShouldHaveCorrectDefaultPrice()
         {
@@ -16,6 +20,7 @@ namespace MenuTest.Drinks
             Assert.Equal<double>(0.59, jj.Price);
         }
 
+        //The correct default calories
         [Fact]
         public void ShouldhHaveCorrectDefaultCalories()
         {
@@ -23,6 +28,7 @@ namespace MenuTest.Drinks
             Assert.Equal<uint>(2, jj.Calories);
         }
 
+        //The correct default Ice set up
         [Fact]
         public void ShouldHaveDefaultIce()
         {
@@ -30,6 +36,7 @@ namespace MenuTest.Drinks
             Assert.False(jj.Ice);
         }
 
+        //The correct default size 
         [Fact]
         public void ShouldHaveDefaultSize()
         {
@@ -37,6 +44,7 @@ namespace MenuTest.Drinks
             Assert.Equal<Size>(Size.Small, jj.Size);
         }
 
+        //The correct default roomforcream set up
         [Fact]
         public void ShouldHaveDefaultRoomForCream()
         {
@@ -44,6 +52,7 @@ namespace MenuTest.Drinks
             Assert.False(jj.RoomForCream);
         }
 
+        //The correct default decaf
         [Fact]
         public void ShouldHaveDefaultDecaf()
         {
@@ -51,6 +60,7 @@ namespace MenuTest.Drinks
             Assert.False(jj.Decaf);
         }
 
+        //The correct price after setting the size to small
         [Fact]
         public void ShouldHaveCorrectPriceAfterSettingSizeToSmall()
         {
@@ -59,6 +69,7 @@ namespace MenuTest.Drinks
             Assert.Equal<double>(0.59, jj.Price);
         }
 
+        //The correct price after setting the size to medium
         [Fact]
         public void ShouldHaveCorrectPriceAfterSettingSizeToMedium()
         {
@@ -67,6 +78,7 @@ namespace MenuTest.Drinks
             Assert.Equal<double>(0.99, jj.Price);
         }
 
+        //The correct price after setting the size to large
         [Fact]
         public void ShouldHaveCorrectPriceAfterSettingSizeToLarge()
         {
@@ -75,6 +87,7 @@ namespace MenuTest.Drinks
             Assert.Equal<double>(1.49, jj.Price);
         }
 
+        //The correct calories after setting the size to small
         [Fact]
         public void ShouldHaveCorrectCaloriesAfterSettingSizeToSmall()
         {
@@ -83,6 +96,7 @@ namespace MenuTest.Drinks
             Assert.Equal<uint>(2, jj.Calories);
         }
 
+        //The correct calories after setting the size to medium
         [Fact]
         public void ShouldHaveCorrectCaloriesAfterSettingSizeToMedium()
         {
@@ -91,6 +105,7 @@ namespace MenuTest.Drinks
             Assert.Equal<uint>(4, jj.Calories);
         }
 
+        //The correct calories after setting the size to large
         [Fact]
         public void ShouldHaveCorrectCaloriesAfterSettingSizeToLarge()
         {
@@ -99,6 +114,7 @@ namespace MenuTest.Drinks
             Assert.Equal<uint>(8, jj.Calories);
         }
 
+        //That invoking AddIce() results in the Ice property being true
         [Fact]
         public void ShouldInvokeAddIce()
         {
@@ -107,6 +123,7 @@ namespace MenuTest.Drinks
             Assert.True(jj.Ice);
         }
 
+        //That invoking LeaveSpaceForCream() results in the SpaceForCream property being true
         [Fact]
         public void ShouldInvokeLeaveRoomForCream()
         {
@@ -114,8 +131,9 @@ namespace MenuTest.Drinks
             jj.LeaveRoomForCream();
             Assert.True(jj.RoomForCream);
         }
-       
 
+
+        //The correct ingredients are given
         [Fact]
         public void ShouldHaveCorrectIngredients()
         {

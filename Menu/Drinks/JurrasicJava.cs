@@ -4,10 +4,19 @@ using System.Text;
 
 namespace DinoDiner.Menu.Drinks
 {
+    /// <summary>
+    /// The JurrasicJava class that drived from DrinkBaseClass
+    /// </summary>
     public class JurrasicJava: DrinkBaseClass
     {
+        /// <summary>
+        /// The size of the drink
+        /// </summary>
         private Size size;
 
+        /// <summary>
+        /// Gets or sets the size of the drink(different size has different price and calories)
+        /// </summary>
         public override Size Size
         {
             get { return size; }
@@ -32,27 +41,47 @@ namespace DinoDiner.Menu.Drinks
             }
         }
 
+        /// <summary>
+        /// The ingredients of JurrasicJava that returns the protected field 
+        /// </summary>
         public override List<string> Ingredients
         {
             get { return ingredients; }
         }
 
+        /// <summary>
+        /// Whether there is room for cream
+        /// </summary>
         public bool RoomForCream { get; set; } = false;
 
+        /// <summary>
+        /// Whether the drink is decaf
+        /// </summary>
         public bool Decaf { get; set; } = false;
 
+        /// <summary>
+        /// Leave some room for cream
+        /// </summary>
+        /// <returns></returns>
         public bool LeaveRoomForCream()
         {
             RoomForCream = true;
             return RoomForCream;
         }
 
+        /// <summary>
+        /// Add Ice to the drink
+        /// </summary>
+        /// <returns></returns>
         public bool AddIce()
         {
             Ice = true;
             return Ice;
         }
 
+        /// <summary>
+        /// The constructor, set default values
+        /// </summary>
         public JurrasicJava()
         {
             Price = 0.59;

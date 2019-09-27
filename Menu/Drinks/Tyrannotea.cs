@@ -4,11 +4,24 @@ using System.Text;
 
 namespace DinoDiner.Menu.Drinks
 {
+    /// <summary>
+    /// The tyrannotea class that derived from the DrinkBaseClass
+    /// </summary>
     public class Tyrannotea : DrinkBaseClass
     {
+        /// <summary>
+        /// The size of the drink
+        /// </summary>
         private Size size;
 
+        /// <summary>
+        /// Whether the drink is sweet
+        /// </summary>
         private bool sweet = false;
+
+        /// <summary>
+        /// Gets or sets the sweet of the drink
+        /// </summary>
         public bool Sweet {
             get { return sweet; }
             set
@@ -21,8 +34,14 @@ namespace DinoDiner.Menu.Drinks
             }
         }
 
+        /// <summary>
+        /// Whether the drink has lemon
+        /// </summary>
         public bool Lemon { get; set; } = false;
 
+        /// <summary>
+        /// Gets or sets the size of the drink(different size has different price and calories)
+        /// </summary>
         public override Size Size
         {
             get { return size; }
@@ -60,6 +79,9 @@ namespace DinoDiner.Menu.Drinks
             }
         }
 
+        /// <summary>
+        /// The ingredients of the drink that returns the protected field
+        /// </summary>
         public override List<string> Ingredients
         {
             get
@@ -68,6 +90,10 @@ namespace DinoDiner.Menu.Drinks
             }
         }
 
+        /// <summary>
+        /// Add lemon to the drink
+        /// </summary>
+        /// <returns>boolean</returns>
         public bool AddLemon()
         {
             Lemon = true;
@@ -78,6 +104,9 @@ namespace DinoDiner.Menu.Drinks
             return Lemon;
         }
 
+        /// <summary>
+        /// The constructor, sets the default values
+        /// </summary>
         public Tyrannotea()
         {
             Price = 0.99;

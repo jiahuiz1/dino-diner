@@ -4,6 +4,9 @@ using System.Text;
 
 namespace DinoDiner.Menu.Drinks
 {
+    /// <summary>
+    /// Mulitiple flavors of the drinks
+    /// </summary>
     public enum SodaSaurusFlavor
     {
         Cola,

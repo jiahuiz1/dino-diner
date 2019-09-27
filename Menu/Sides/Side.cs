@@ -1,19 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using DinoDiner.Menu;
 
 namespace DinoDiner.Menu.Sides
 {
-    /// <summary>
-    /// The different size of sides
-    /// </summary>
-    public enum Size
-    {
-        Small,
-        Medium,
-        Large
-    }
-    
+   
     /// <summary>
     /// The base clas of Sides
     /// </summary>

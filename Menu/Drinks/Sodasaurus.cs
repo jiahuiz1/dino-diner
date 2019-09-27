@@ -5,13 +5,24 @@ using System.Text;
 
 namespace DinoDiner.Menu.Drinks
 {
-
+    /// <summary>
+    /// The sodasaurus class derived from DrinkBaseClass
+    /// </summary>
     public class Sodasaurus : DrinkBaseClass
     {     
-
+        /// <summary>
+        /// The flavor of the drink
+        /// </summary>
         private SodaSaurusFlavor flavor;
+
+        /// <summary>
+        /// The size of the drink
+        /// </summary>
         private Size size;
 
+        /// <summary>
+        /// Gets the flavor or set up the flavor of the drink
+        /// </summary>
         public SodaSaurusFlavor Flavor
         {
             get
@@ -20,7 +31,10 @@ namespace DinoDiner.Menu.Drinks
             { flavor = value; }
         }
 
-       public override Size Size
+        /// <summary>
+        /// Gets the size or set up the size of the drink(different size has different price and calories)
+        /// </summary>
+        public override Size Size
         {
             get { return size; }
             set
@@ -45,7 +59,9 @@ namespace DinoDiner.Menu.Drinks
         }
 
        
-
+        /// <summary>
+        /// The ingredients that return the protected filed
+        /// </summary>
         public override List<string> Ingredients
         {
             get
@@ -54,6 +70,9 @@ namespace DinoDiner.Menu.Drinks
             }
         }
 
+        /// <summary>
+        /// The construtor, set the default values
+        /// </summary>
         public Sodasaurus()
         {
             Ice = true;
