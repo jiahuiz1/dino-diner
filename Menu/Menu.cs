@@ -4,47 +4,28 @@ using System.Text;
 
 namespace DinoDiner.Menu
 {
+    /// <summary>
+    /// The Menu class
+    /// </summary>
     public class Menu
     {
+        /// <summary>
+        /// Return all MenuItem Items as a list
+        /// </summary>
         public List<IMenuItem> AvailableMenuItems {
             get {
-                Brontowurst bt = new Brontowurst();
-                DinoNuggets dn = new DinoNuggets();
-                PrehistoricPBJ pbj = new PrehistoricPBJ();
-                PterodactylWings wings = new PterodactylWings();
-                SteakosaurusBurger burger = new SteakosaurusBurger();
-                TRexKingBurger trkb = new TRexKingBurger();
-                VelociWrap wrap = new VelociWrap();
-                Fryceritops ff = new Fryceritops();
-                MeteorMacAndCheese mmc = new MeteorMacAndCheese();
-                Triceritots tt = new Triceritots();
-                MezzorellaSticks ms = new MezzorellaSticks();
-                Sodasaurus ss = new Sodasaurus();
-                Tyrannotea ttea = new Tyrannotea();
-                JurassicJava jj = new JurassicJava();
-                Water water = new Water();
-
                 List<IMenuItem> list = new List<IMenuItem>();
-                list.Add(bt);
-                list.Add(dn);
-                list.Add(pbj);
-                list.Add(wings);
-                list.Add(burger);
-                list.Add(trkb);
-                list.Add(wrap);
-                list.Add(ff);
-                list.Add(mmc);
-                list.Add(tt);
-                list.Add(ms);
-                list.Add(ss);
-                list.Add(ttea);
-                list.Add(jj);
-                list.Add(water);
-
+                list.AddRange(AvailableEntrees);
+                list.AddRange(AvailableDrinks);
+                list.AddRange(AvailableSides);
+                list.AddRange(AvailableCombos);              
                 return list;
             }
         }
 
+        /// <summary>
+        /// Return all available entrees as a list 
+        /// </summary>
         public List<Entree> AvailableEntrees {
             get {
                 List<Entree> ingredients = new List<Entree>();
@@ -55,6 +36,7 @@ namespace DinoDiner.Menu
                 SteakosaurusBurger burger = new SteakosaurusBurger();
                 TRexKingBurger trkb = new TRexKingBurger();
                 VelociWrap wrap = new VelociWrap();
+
                 ingredients.Add(bt);
                 ingredients.Add(dn);
                 ingredients.Add(pbj);
@@ -67,6 +49,9 @@ namespace DinoDiner.Menu
             }
         }
 
+        /// <summary>
+        /// Return all available sides as a list
+        /// </summary>
         public List<Side> AvailableSides {
             get {
                 List<Side> list = new List<Side>();
@@ -83,6 +68,9 @@ namespace DinoDiner.Menu
             }
         }
 
+        /// <summary>
+        /// Return all available drinks as a list
+        /// </summary>
         public List<Drink> AvailableDrinks {
             get {
                 List<Drink> list = new List<Drink>();
@@ -99,6 +87,9 @@ namespace DinoDiner.Menu
             }
         }
 
+        /// <summary>
+        /// Return all available combos as a list
+        /// </summary>
         public List<CretaceousCombo> AvailableCombos {
             get {
                 List<CretaceousCombo> ingredients = new List<CretaceousCombo>();
@@ -132,9 +123,20 @@ namespace DinoDiner.Menu
             }
         }
 
+        /// <summary>
+        /// override the ToString() method that contains the string of all MenuItems
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
-            return $"{AvailableMenuItems.ToString()}";
+            StringBuilder sb = new StringBuilder();
+            foreach(object item in this.AvailableMenuItems)
+            {
+                sb.Append(item.ToString());
+                sb.Append("\n");
+            }
+
+            return sb.ToString();
         }
     }
 }

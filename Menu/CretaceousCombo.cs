@@ -8,7 +8,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// A class representing a combo meal
     /// </summary>
-    public class CretaceousCombo
+    public class CretaceousCombo: IMenuItem
     {
         // Backing Variables
         private Size size;
