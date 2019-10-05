@@ -1,18 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using DinoDiner.Menu;
 
-namespace DinoDiner.Menu.Sides
+namespace DinoDiner.Menu
 {
-   
     /// <summary>
-    /// The base clas of Sides
+    /// The base class of Entrees
     /// </summary>
-    public abstract class Side
+    public abstract class Entree: IMenuItem
     {
-        protected List<string> ingredients = new List<string>();
-
         /// <summary>
         /// Gets and sets the price
         /// </summary>
@@ -24,14 +20,8 @@ namespace DinoDiner.Menu.Sides
         public uint Calories { get; set; }
 
         /// <summary>
-        /// Gets the ingredients list
+        /// Gets the ingredients 
         /// </summary>
         public abstract List<string> Ingredients { get; }
-
-        /// <summary>
-        /// Gets or sets the size
-        /// </summary>
-        public abstract Size Size { get; set; }
-
     }
 }

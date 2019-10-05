@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Sides
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// The MeteorMacAndCheese side(Macaroni and Cheese with Sausages)
@@ -48,7 +48,11 @@ namespace DinoDiner.Menu.Sides
         {
             get
             {
-                return this.ingredients;
+                List<string> ingredients = new List<string>();
+                ingredients.Add("Macaroni Noodles");
+                ingredients.Add("Cheese Product");
+                ingredients.Add("Pork Sausage");
+                return ingredients;
             }
         }
 
@@ -58,10 +62,12 @@ namespace DinoDiner.Menu.Sides
         public MeteorMacAndCheese()
         {
             Price = 0.99;
-            Calories = 420;
-            ingredients.Add("Macaroni Noodles");
-            ingredients.Add("Cheese Product");
-            ingredients.Add("Pork Sausage");
+            Calories = 420;            
+        }
+
+        public override String ToString()
+        {
+            return $"{size.ToString()} Meteor Mac and Cheese";
         }
     }
 }

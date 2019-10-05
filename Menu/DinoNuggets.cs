@@ -5,12 +5,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// The DinoNuggets(six crispy fried breaded chicken nuggets)
     /// </summary>
-    public class DinoNuggets : EntreeBaseClass
+    public class DinoNuggets : Entree
     {
         /// <summary>
         /// The number of how many chicken nuggets in the entree
@@ -51,6 +51,11 @@ namespace DinoDiner.Menu.Entrees
             count += 1;
             Price = this.Price + 0.25;
             Calories = this.Calories + 59;
+        }
+
+        public override String ToString()
+        {
+            return "Dino-Nuggets";
         }
     }
 }

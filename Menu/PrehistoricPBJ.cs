@@ -2,13 +2,15 @@
  * Project1: menu
  */
 using System.Collections.Generic;
+using System;
+using System.Text;
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// The PrehistoricPBJ(A peanut butter & jelly sandwich)
     /// </summary>
-    public class PrehistoricPBJ : EntreeBaseClass
+    public class PrehistoricPBJ : Entree
     {
         /// <summary>
         /// Whether the PrehistoricPBJ has peanutbutter
@@ -59,6 +61,11 @@ namespace DinoDiner.Menu.Entrees
         public void HoldJelly()
         {
             this.jelly = false;
+        }
+
+        public override String ToString()
+        {
+            return "Prehistoric PB&J";
         }
     }
 }

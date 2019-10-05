@@ -2,20 +2,21 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Sides
+
+namespace DinoDiner.Menu
 {
     /// <summary>
-    /// The Triceritots of Side(Tater tots)
+    /// The Fryceritops side(French Fries) 
     /// </summary>
-    public class Triceritots : Side
+    public class Fryceritops : Side
     {
         /// <summary>
-        /// The size of Triceritots
+        /// The size of the Fryceritops
         /// </summary>
         private Size size;
 
         /// <summary>
-        /// Determine the size of Triceritots and set the price and calories, and also gets the size 
+        /// Determine the size of the Fryceritops and set its price and calories, and also gets the size
         /// </summary>
         public override Size Size
         {
@@ -28,41 +29,47 @@ namespace DinoDiner.Menu.Sides
                 {
                     case Size.Small:
                         Price = 0.99;
-                        Calories = 352;
+                        Calories = 222;
                         break;
                     case Size.Medium:
                         Price = 1.45;
-                        Calories = 410;
+                        Calories = 365;
                         break;
                     case Size.Large:
                         Price = 1.95;
-                        Calories = 590;
+                        Calories = 480;
                         break;
                 }
             }
         }
 
         /// <summary>
-        /// Gets the ingredients of Triceritots
+        /// Gets the ingredients of the Fryceritops
         /// </summary>
         public override List<string> Ingredients
         {
             get
             {
-                return this.ingredients;
+                List<string> _ingredients = new List<string>();
+                _ingredients.Add("Potato");
+                _ingredients.Add("Salt");
+                _ingredients.Add("Vegetable Oil");
+                return _ingredients;
             }
         }
 
         /// <summary>
         /// The constructor that sets the default price, calories and ingredients
         /// </summary>
-        public Triceritots()
+        public Fryceritops()
         {
             Price = 0.99;
-            Calories = 352;
-            ingredients.Add("Potato");
-            ingredients.Add("Salt");
-            ingredients.Add("Vegetable Oil");
+            Calories = 222;
+        }
+
+        public override String ToString()
+        {
+            return $"{size.ToString()} Friceritops";
         }
     }
 }

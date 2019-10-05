@@ -5,12 +5,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// Veloci wrap(A chicken ceasar wrap)
     /// </summary>
-    public class VelociWrap : EntreeBaseClass
+    public class VelociWrap : Entree
     {
         /// <summary>
         /// Whether the VelociWrap has dressing
@@ -76,6 +76,11 @@ namespace DinoDiner.Menu.Entrees
         public void HoldCheese()
         {
             this.cheese = false;
+        }
+
+        public override string ToString()
+        {
+            return "Veloci-Wrap";
         }
     }
 }

@@ -2,18 +2,18 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// The JurrasicJava class that drived from DrinkBaseClass
     /// </summary>
-    public class JurrasicJava: DrinkBaseClass
+    public class JurassicJava: Drink
     {
         /// <summary>
         /// The size of the drink
         /// </summary>
         private Size size;
-
+      
         /// <summary>
         /// Gets or sets the size of the drink(different size has different price and calories)
         /// </summary>
@@ -46,7 +46,12 @@ namespace DinoDiner.Menu.Drinks
         /// </summary>
         public override List<string> Ingredients
         {
-            get { return ingredients; }
+            get {
+                List<string> ingredients = new List<string>();
+                ingredients.Add("Water");
+                ingredients.Add("Coffee");
+                return ingredients;
+            }
         }
 
         /// <summary>
@@ -82,13 +87,23 @@ namespace DinoDiner.Menu.Drinks
         /// <summary>
         /// The constructor, set default values
         /// </summary>
-        public JurrasicJava()
+        public JurassicJava()
         {
             Price = 0.59;
             Calories = 2;
-            Ice = false;
-            ingredients.Add("Water");
-            ingredients.Add("Coffee");
+            Ice = false;           
+        }
+
+        public override String ToString()
+        {
+            if (Decaf)
+            {
+                return $"{size.ToString()} Decaf Jurassic Java";
+            }
+            else
+            {
+                return $"{size.ToString()} Jurassic Java";
+            }
         }
     }
 }

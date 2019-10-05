@@ -5,12 +5,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// Steakosaurus Burger(A 1/2 pound steakburger)
     /// </summary>
-    public class SteakosaurusBurger : EntreeBaseClass
+    public class SteakosaurusBurger : Entree
     {
         /// <summary>
         /// Whether the Steakosaurus Burger has bun
@@ -89,6 +89,11 @@ namespace DinoDiner.Menu.Entrees
         public void HoldMustard()
         {
             this.mustard = false;
+        }
+
+        public override string ToString()
+        {
+            return "Steakosaurus Burger";
         }
     }
 }

@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
+
     /// <summary>
     /// The tyrannotea class that derived from the DrinkBaseClass
     /// </summary>
-    public class Tyrannotea : DrinkBaseClass
+    public class Tyrannotea : Drink
     {
         /// <summary>
         /// The size of the drink
@@ -26,11 +27,7 @@ namespace DinoDiner.Menu.Drinks
             get { return sweet; }
             set
             {
-                sweet = value;
-                if(sweet == true)
-                {
-                    ingredients.Add("Cane Sugar");
-                }
+                sweet = value;               
             }
         }
 
@@ -86,6 +83,18 @@ namespace DinoDiner.Menu.Drinks
         {
             get
             {
+                List<string> ingredients = new List<string>();
+                if (Lemon)
+                {
+                    ingredients.Add("Lemon");
+                }
+                if (sweet == true)
+                {
+
+                    ingredients.Add("Cane Sugar");
+                }
+                ingredients.Add("Water");
+                ingredients.Add("Tea");
                 return ingredients;
             }
         }
@@ -96,11 +105,7 @@ namespace DinoDiner.Menu.Drinks
         /// <returns>boolean</returns>
         public bool AddLemon()
         {
-            Lemon = true;
-            if (Lemon)
-            {
-                ingredients.Add("Lemon");
-            }
+            Lemon = true;            
             return Lemon;
         }
 
@@ -111,9 +116,19 @@ namespace DinoDiner.Menu.Drinks
         {
             Price = 0.99;
             Calories = 8;
-            Ice = true;          
-            ingredients.Add("Water");
-            ingredients.Add("Tea");                       
+            Ice = true;                                   
+        }
+
+        public override String ToString()
+        {
+            if (sweet)
+            {
+                return $"{size.ToString()} Sweet Tyrannotea";
+            }
+            else
+            {
+                return $"{size.ToString()} Tyrannotea";
+            }
         }
     }
 }

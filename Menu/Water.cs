@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// The water class that derived from the DrinkBaseClass
     /// </summary>
-    public class Water : DrinkBaseClass
-    {
+    public class Water : Drink
+    {       
         /// <summary>
         /// The size of the drink
         /// </summary>
@@ -36,7 +36,14 @@ namespace DinoDiner.Menu.Drinks
         /// </summary>
         public override List<string> Ingredients
         {
-            get { return ingredients; }
+            get {
+                List<string> ingredients = new List<string>();
+                if (Lemon)
+                {
+                    ingredients.Add("Lemon");
+                }
+                ingredients.Add("Water");
+                return ingredients; }
         }
 
         /// <summary>
@@ -50,11 +57,7 @@ namespace DinoDiner.Menu.Drinks
         /// <returns>boolean</returns>
         public bool AddLemon()
         {
-            Lemon = true;
-            if (Lemon)
-            {
-                ingredients.Add("Lemon");
-            }
+            Lemon = true;            
             return Lemon;
         }
 
@@ -65,9 +68,12 @@ namespace DinoDiner.Menu.Drinks
         {
             Price = 0.10;
             Calories = 0;
-            Ice = true;
-            ingredients.Add("Water");
-            
+            Ice = true;           
+        }
+
+        public override String ToString()
+        {
+            return $"{size.ToString()} Water";
         }
     }
 }

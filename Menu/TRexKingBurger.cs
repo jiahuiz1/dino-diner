@@ -5,12 +5,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// The T-Rex King Burger(A triple 1/2 steakburger with all the fixings)
     /// </summary>
-    public class TRexKingBurger : EntreeBaseClass
+    public class TRexKingBurger : Entree
     {
         /// <summary>
         /// The number of how many steakburger patties 
@@ -153,6 +153,11 @@ namespace DinoDiner.Menu.Entrees
         public void HoldMayo()
         {
             this.mayo = false;
+        }
+
+        public override string ToString()
+        {
+            return "T-Rex King Burger";
         }
     }
 }

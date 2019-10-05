@@ -8,9 +8,9 @@ using System.Text;
 /// <summary>
 /// Brontowurst(with peppers and onions in a bun)
 /// </summary>
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
-    public class Brontowurst : EntreeBaseClass
+    public class Brontowurst : Entree
     {
         /// <summary>
         /// Whether the Brontowurst has a bun
@@ -76,6 +76,11 @@ namespace DinoDiner.Menu.Entrees
         public void HoldOnion()
         {
             this.onions = false;
+        }
+
+        public override String ToString()
+        {
+            return "Brontowurst";
         }
     }
 }

@@ -2,20 +2,15 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
   
     /// <summary>
     /// The base class of Drinks
     /// </summary>
-    public abstract class DrinkBaseClass
+    public abstract class Drink: IMenuItem
     {
        
-        /// <summary>
-        /// The protected ingredients that we will use in other drived classes
-        /// </summary>
-        protected List<string> ingredients = new List<string>();
-
         /// <summary>
         /// The Priec of the drink
         /// </summary>
@@ -54,9 +49,10 @@ namespace DinoDiner.Menu.Drinks
         /// <summary>
         /// The constructor
         /// </summary>
-        public DrinkBaseClass()
+        public Drink()
         {
             Size = Size.Small;
         }
+
     }
 }

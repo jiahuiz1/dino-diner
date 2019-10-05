@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// Mulitiple flavors of the drinks
     /// </summary>
-    public enum SodaSaurusFlavor
+    public enum SodasaurusFlavor
     {
         Cola,
         Orange,
