@@ -7,24 +7,26 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="EntreeSelection">
-
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <Button Width="150" Height="100" Grid.Row="0" Grid.Column="0">Brontowurst</Button>
-        <Button Width="150" Height="100" Grid.Row="0" Grid.Column="1">Dion-Nuggets</Button>
-        <Button Width="150" Height="100" Grid.Row="0" Grid.Column="2">Prehisotric PB&amp;J</Button>
-        <Button Width="150" Height="100" Grid.Row="1" Grid.Column="0">Pterodactyl Wings</Button>
-        <Button Width="150" Height="100" Grid.Row="1" Grid.Column="1">Steakosaurus Burger</Button>
-        <Button Width="150" Height="100" Grid.Row="1" Grid.Column="2">T-Rex Kingburger</Button>
-        <Button Width="150" Height="100" Grid.Row="2" Grid.Column="0">Veloci-Wrap</Button>
+        <TextBlock TextAlignment="Center">Add To Order</TextBlock>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Width="150" Height="100" Grid.Row="0" Grid.Column="0">Brontowurst</Button>
+            <Button Width="150" Height="100" Grid.Row="0" Grid.Column="1">Dion-Nuggets</Button>
+            <Button Width="150" Height="100" Grid.Row="0" Grid.Column="2">Prehisotric PB&amp;J</Button>
+            <Button Width="150" Height="100" Grid.Row="1" Grid.Column="0">Pterodactyl Wings</Button>
+            <Button Width="150" Height="100" Grid.Row="1" Grid.Column="1">Steakosaurus Burger</Button>
+            <Button Width="150" Height="100" Grid.Row="1" Grid.Column="2">T-Rex Kingburger</Button>
+            <Button Width="150" Height="100" Grid.Row="2" Grid.Column="0">Veloci-Wrap</Button>
+        </Grid>
     </Grid>
 </Page>

@@ -7,24 +7,27 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="CustomizeCombo">
-
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <Button Click="SelectSide" Width="160" Height="130" Grid.Row="0" Grid.Column="0">Friceritops</Button>
-        <Button Click="SelectDrink" Width="160" Height="130" Grid.Row="0" Grid.Column="1">Sodasaurus</Button>
-        <RadioButton Width="100" Height="80" Grid.Row="1" Grid.Column="0">Small</RadioButton>
-        <RadioButton Width="100" Height="80" Grid.Row="1" Grid.Column="1">Medium</RadioButton>
-        <RadioButton Width="100" Height="80" Grid.Row="1" Grid.Column="2">Large</RadioButton>
-        <Label Content="Side" HorizontalAlignment="Left" Margin="80,10,0,0" VerticalAlignment="Top" Width="96"/>
-        <Label Content="Drink" HorizontalAlignment="Left" Margin="80,10,0,0" VerticalAlignment="Top" Width="96" Grid.Column="1"/>
-        <Label Content="Size" HorizontalAlignment="Left" Margin="62,25,0,0" VerticalAlignment="Top" Width="96" Grid.Column="1" Grid.Row="1"/>
+        <TextBlock TextAlignment="Center">Add To Order</TextBlock>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Click="SelectSide" Width="160" Height="80" Grid.Row="0" Grid.Column="0">Friceritops</Button>
+            <Button Click="SelectDrink" Width="160" Height="80" Grid.Row="0" Grid.Column="1">Sodasaurus</Button>
+            <RadioButton Width="100" Height="80" Grid.Row="1" Grid.Column="0">Small</RadioButton>
+            <RadioButton Width="100" Height="80" Grid.Row="1" Grid.Column="1">Medium</RadioButton>
+            <RadioButton Width="100" Height="80" Grid.Row="1" Grid.Column="2">Large</RadioButton>
+            <Label Content="Side" HorizontalAlignment="Left" Margin="73,37,0,0" VerticalAlignment="Top" Width="96"/>
+            <Label Content="Drink" HorizontalAlignment="Left" Margin="72,37,0,0" VerticalAlignment="Top" Width="96" Grid.Column="1"/>
+            <Label Content="Size" HorizontalAlignment="Left" Margin="62,25,0,0" VerticalAlignment="Top" Width="96" Grid.Column="1" Grid.Row="1"/>
+        </Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="243,22,0,0" TextWrapping="Wrap" Text="Customize Combo" VerticalAlignment="Top" Width="102"/>
     </Grid>
 </Page>

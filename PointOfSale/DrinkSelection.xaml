@@ -7,31 +7,33 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="DrinkSelection">
-
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <Button Width="150" Height="60" Grid.Row="0" Grid.Column="0" Margin="0,25,0,10">Sodasaurus</Button>
-        <Button Width="150" Height="60" Grid.Row="1" Grid.Column="0" Margin="0,25,0,10">Tyrannotea</Button>
-        <Button Width="150" Height="60" Grid.Row="2" Grid.Column="0" Margin="0,25,0,10">Jurrasic Java</Button>
-        <Button Width="150" Height="60" Grid.Row="3" Grid.Column="0" Margin="0,25,0,10">Water</Button>
-        <RadioButton Width="150" Height="60" Grid.Row="0" Grid.Column="1" Margin="48,34,68,18">Small</RadioButton>
-        <RadioButton Width="150" Height="60" Grid.Row="1" Grid.Column="1" Margin="48,36,68,17">Medium</RadioButton>
-        <RadioButton Width="150" Height="60" Grid.Row="2" Grid.Column="1" Margin="48,33,68,19">Large</RadioButton>
-        <Button Click="SelectFlvaor" Width="150" Grid.Row="0" Grid.Column="2" Margin="0,25,0,5">Sweet/Decaf/Flavor</Button>
-        <Button Width="150" Height="60" Grid.Row="1" Grid.Column="2" Margin="0,25,0,5">AddLemon</Button>
-        <Button Width="150" Height="60" Grid.Row="2" Grid.Column="2" Margin="0,25,0,5">Hold Ice</Button>
-        <Label Content="Drink" HorizontalAlignment="Left" Margin="69,2,0,0" VerticalAlignment="Top" Height="26" Width="81"/>
-        <Label Content="Size" HorizontalAlignment="Left" Margin="48,-2,0,0" VerticalAlignment="Top" Height="26" Width="81" Grid.Column="1"/>
-        <Label Content="Special" HorizontalAlignment="Left" Margin="59,-2,0,0" VerticalAlignment="Top" Height="28" Width="80" Grid.Column="2"/>
+        <TextBlock TextAlignment="Center">Add To Order</TextBlock>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Width="150" Height="60" Grid.Row="0" Grid.Column="0" Margin="0,25,0,10">Sodasaurus</Button>
+            <Button Width="150" Height="60" Grid.Row="1" Grid.Column="0" Margin="0,25,0,10">Tyrannotea</Button>
+            <Button Width="150" Height="60" Grid.Row="2" Grid.Column="0" Margin="0,25,0,10">Jurrasic Java</Button>
+            <Button Width="150" Height="60" Grid.Row="3" Grid.Column="0" Margin="0,25,0,10">Water</Button>
+            <RadioButton Width="150" Height="60" Grid.Row="0" Grid.Column="1" Margin="48,52,68,0">Small</RadioButton>
+            <RadioButton Width="150" Height="60" Grid.Row="1" Grid.Column="1" Margin="48,53,68,0">Medium</RadioButton>
+            <RadioButton Width="150" Height="60" Grid.Row="2" Grid.Column="1" Margin="48,52,68,0">Large</RadioButton>
+            <Button Click="SelectFlvaor" Width="150" Grid.Row="0" Grid.Column="2" Margin="0,25,0,5">Sweet/Decaf/Flavor</Button>
+            <Button Width="150" Height="60" Grid.Row="1" Grid.Column="2" Margin="0,25,0,5">AddLemon</Button>
+            <Button Width="150" Height="60" Grid.Row="2" Grid.Column="2" Margin="0,25,0,5">Hold Ice</Button>
+            <Label Content="Drink" HorizontalAlignment="Left" Margin="69,2,0,0" VerticalAlignment="Top" Height="26" Width="81"/>
+            <Label Content="Size" HorizontalAlignment="Left" Margin="63,26,0,0" VerticalAlignment="Top" Height="26" Width="81" Grid.Column="1"/>
+            <Label Content="Special" HorizontalAlignment="Left" Margin="59,-2,0,0" VerticalAlignment="Top" Height="28" Width="80" Grid.Column="2"/>
+        </Grid>
     </Grid>
 </Page>

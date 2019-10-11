@@ -7,21 +7,23 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="MenuCategorySelection">
-
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
+        <TextBlock TextAlignment="Center">Add To Order</TextBlock>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
 
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <Button Click="SelectCombo"  Grid.Row="0" Grid.Column="0" Width="200" Height="150" >Combos</Button>
-        <Button Click="SelectEntree" Grid.Row="0" Grid.Column="1" Width="200" Height="150">Entrees</Button>
-        <Button Click="SelectSide"  Grid.Row="1" Grid.Column="0" Width="200" Height="150">Sides</Button>
-        <Button Click="SelectDrink" Grid.Row="1" Grid.Column="1" Width="200" Height="150">Drinks</Button>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Click="SelectCombo"  Grid.Row="0" Grid.Column="0" Width="200" Height="150" >Combos</Button>
+            <Button Click="SelectEntree" Grid.Row="0" Grid.Column="1" Width="200" Height="150">Entrees</Button>
+            <Button Click="SelectSide"  Grid.Row="1" Grid.Column="0" Width="200" Height="150">Sides</Button>
+            <Button Click="SelectDrink" Grid.Row="1" Grid.Column="1" Width="200" Height="150">Drinks</Button>
 
+        </Grid>
     </Grid>
 </Page>

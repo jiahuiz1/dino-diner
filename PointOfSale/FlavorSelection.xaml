@@ -9,23 +9,30 @@
       Title="FlavorSelection">
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="509*"/>
+            <ColumnDefinition Width="291*"/>
         </Grid.ColumnDefinitions>
-        <Button Width="150" Height="80" Grid.Row="0" Grid.Column="0">Cherry</Button>
-        <Button Width="150" Height="80" Grid.Row="0" Grid.Column="1">Chocolate</Button>
-        <Button Width="150" Height="80" Grid.Row="0" Grid.Column="2">Cola</Button>
-        <Button Width="150" Height="80" Grid.Row="1" Grid.Column="0">Lime</Button>
-        <Button Width="150" Height="80" Grid.Row="1" Grid.Column="1">Orange</Button>
-        <Button Width="150" Height="80" Grid.Row="1" Grid.Column="2">Root Bear</Button>
-        <Button Width="150" Height="80" Grid.Row="2" Grid.Column="0">Vanilla</Button>
-        <Label Content="Flavor" Grid.Column="1" HorizontalAlignment="Left" Margin="75,0,0,0" VerticalAlignment="Top" Width="97"/>
+        <TextBlock TextAlignment="Center" Grid.ColumnSpan="2">Add To Order</TextBlock>
+        <Grid Grid.ColumnSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Width="150" Height="60" Grid.Row="0" Grid.Column="0">Cherry</Button>
+            <Button Width="150" Height="60" Grid.Row="0" Grid.Column="1">Chocolate</Button>
+            <Button Width="150" Height="60" Grid.Row="0" Grid.Column="2">Cola</Button>
+            <Button Width="150" Height="60" Grid.Row="1" Grid.Column="0">Lime</Button>
+            <Button Width="150" Height="60" Grid.Row="1" Grid.Column="1">Orange</Button>
+            <Button Width="150" Height="60" Grid.Row="1" Grid.Column="2">Root Bear</Button>
+            <Button Width="150" Height="60" Grid.Row="2" Grid.Column="0">Vanilla</Button>
+            <Label Content="Flavor" Grid.Column="1" HorizontalAlignment="Left" Margin="78,14,0,0" VerticalAlignment="Top" Width="97"/>
+        </Grid>
     </Grid>
 </Page>

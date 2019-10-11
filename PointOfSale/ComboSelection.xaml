@@ -9,16 +9,18 @@
       Title="ComboSelection">
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+        <TextBlock TextAlignment="Center">Add To Order</TextBlock>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
             </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
             <Button Click="SelectCombo" Grid.Row="0" Grid.Column="0" Width="150" Height="100">Brontowurst Combo</Button>
             <Button Click="SelectCombo" Grid.Row="0" Grid.Column="1" Width="150" Height="100">Dion-Nuggets Combo</Button>
             <Button Click="SelectCombo" Grid.Row="0" Grid.Column="3" Width="150" Height="100">Steakosaurus Combo</Button>
@@ -26,5 +28,6 @@
             <Button Click="SelectCombo" Grid.Row="1" Grid.Column="1" Width="150" Height="100">Prehistoric PB&amp;J Combo</Button>
             <Button Click="SelectCombo" Grid.Row="1" Grid.Column="2" Width="150" Height="100">Pterodactyl Wings Combo</Button>
             <Button Click="SelectCombo" Grid.Row="2" Grid.Column="0" Width="150" Height="100">Veloci-Wrap Combo</Button>
+        </Grid>
     </Grid>
 </Page>
