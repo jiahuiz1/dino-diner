@@ -5,10 +5,29 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:PointOfSale"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="550" d:DesignWidth="800"
       Title="SideSelection">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button Width="150" Height="60" Grid.Row="0" Grid.Column="0" Margin="0,25,0,10">Fryceritops</Button>
+        <Button Width="150" Height="60" Grid.Row="1" Grid.Column="0" Margin="0,25,0,10">Meteor Mac &amp; Cheese</Button>
+        <Button Width="150" Height="60" Grid.Row="2" Grid.Column="0" Margin="0,25,0,10">Mezzorella Sticks</Button>
+        <Button Width="150" Height="60" Grid.Row="3" Grid.Column="0" Margin="0,25,0,10">Triceritots</Button>
+        <RadioButton Width="150" Height="60" Grid.Row="0" Grid.Column="1" Margin="19,46,97,32">Small</RadioButton>
+        <RadioButton Width="150" Height="80" Grid.Row="1" Grid.Column="1" Margin="19,46,97,11">Medium</RadioButton>
+        <RadioButton Width="150" Height="80" Grid.Row="2" Grid.Column="1" Margin="19,48,97,10">Large</RadioButton>
+        <Label Content="Size" Grid.Column="1" HorizontalAlignment="Left" Margin="19,0,0,0" VerticalAlignment="Top" Width="88"/>
+        <Label Content="Side" HorizontalAlignment="Left" Margin="67,0,0,0" VerticalAlignment="Top" Width="86"/>
     </Grid>
 </Page>

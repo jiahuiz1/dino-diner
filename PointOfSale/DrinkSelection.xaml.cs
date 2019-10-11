@@ -24,5 +24,9 @@ namespace PointOfSale
         {
             InitializeComponent();
         }
+        void SelectFlvaor(object sender, RoutedEventArgs args)
+        {
+            NavigationService.Navigate(new FlavorSelection());
+        }
     }
 }
