@@ -1,19 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// The JurrasicJava class that drived from DrinkBaseClass
     /// </summary>
-    public class JurassicJava: Drink
+    public class JurassicJava: Drink, IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
         /// The size of the drink
         /// </summary>
         private Size size;
-      
+
+        private bool roomForCream = false;
+
+        private bool decaf = false;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void NotifyPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         /// <summary>
         /// Gets or sets the size of the drink(different size has different price and calories)
         /// </summary>
@@ -41,6 +53,35 @@ namespace DinoDiner.Menu
             }
         }
 
+        public override string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (RoomForCream)
+                {
+                    special.Add("Leave Room For Cream");
+                }
+                if (Ice)
+                {
+                    special.Add("Add Ice");
+                }
+                if (Decaf)
+                {
+                    special.Add("Decaf");
+                }              
+                return special.ToArray();
+            }
+        }
+
         /// <summary>
         /// The ingredients of JurrasicJava that returns the protected field 
         /// </summary>
@@ -54,15 +95,38 @@ namespace DinoDiner.Menu
             }
         }
 
+
         /// <summary>
         /// Whether there is room for cream
         /// </summary>
-        public bool RoomForCream { get; set; } = false;
+        public bool RoomForCream
+        {
+            get
+            {
+                return roomForCream;
+            }
+            set
+            {
+                roomForCream = value;
+                NotifyPropertyChanged("Room For Cream");
+            }
+        }
 
         /// <summary>
         /// Whether the drink is decaf
         /// </summary>
-        public bool Decaf { get; set; } = false;
+        public bool Decaf
+        {
+            get
+            {
+                return decaf;
+            }
+            set
+            {
+                decaf = value;
+                NotifyPropertyChanged("Decaf");              
+            }
+        }
 
         /// <summary>
         /// Leave some room for cream
@@ -81,6 +145,7 @@ namespace DinoDiner.Menu
         public bool AddIce()
         {
             Ice = true;
+            NotifyPropertyChanged("Ice");          
             return Ice;
         }
 
