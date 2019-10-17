@@ -15,9 +15,6 @@ namespace DinoDiner.Menu
         /// </summary>
         private Size size;
 
-        private bool roomForCream = false;
-
-        private bool decaf = false;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -35,6 +32,9 @@ namespace DinoDiner.Menu
             set
             {
                 size = value;
+                NotifyPropertyChanged("Size");
+                NotifyPropertyChanged("Price");
+                NotifyPropertyChanged("Calories");
                 if(size == Size.Small)
                 {
                     Price = 0.59;
@@ -73,11 +73,7 @@ namespace DinoDiner.Menu
                 if (Ice)
                 {
                     special.Add("Add Ice");
-                }
-                if (Decaf)
-                {
-                    special.Add("Decaf");
-                }              
+                }                
                 return special.ToArray();
             }
         }
@@ -99,34 +95,12 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Whether there is room for cream
         /// </summary>
-        public bool RoomForCream
-        {
-            get
-            {
-                return roomForCream;
-            }
-            set
-            {
-                roomForCream = value;
-                NotifyPropertyChanged("Room For Cream");
-            }
-        }
+        public bool RoomForCream { get; set; } = false;
 
         /// <summary>
         /// Whether the drink is decaf
         /// </summary>
-        public bool Decaf
-        {
-            get
-            {
-                return decaf;
-            }
-            set
-            {
-                decaf = value;
-                NotifyPropertyChanged("Decaf");              
-            }
-        }
+        public bool Decaf { get; set; } = false;
 
         /// <summary>
         /// Leave some room for cream
@@ -135,6 +109,7 @@ namespace DinoDiner.Menu
         public bool LeaveRoomForCream()
         {
             RoomForCream = true;
+            NotifyPropertyChanged("Room For Cream");
             return RoomForCream;
         }
 

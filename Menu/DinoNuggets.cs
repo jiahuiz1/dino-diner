@@ -55,9 +55,14 @@ namespace DinoDiner.Menu
         {
             get
             {
-                List<string> list = new List<string>();
-
-                return list.ToArray();
+                List<string> special = new List<string>();
+                int i = count;
+                while(i - 6 > 0)
+                {
+                    special.Add("Chicken Nugget");
+                    i--;
+                }
+                return special.ToArray();
             }
         }
 

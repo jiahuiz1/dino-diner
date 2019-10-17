@@ -4,13 +4,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// The PterodactylWings(Chicken wings glazed with a signature hot sauce)
     /// </summary>
-    public class PterodactylWings : Entree
+    public class PterodactylWings : Entree, IOrderItem, INotifyPropertyChanged
     {
         
         /// <summary>
@@ -26,6 +27,22 @@ namespace DinoDiner.Menu
             }
         }
 
+        public override string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string> { "Chicken, Wing Sauce" };
+                return special.ToArray();
+            }
+        }
         /// <summary>
         /// The constructor that initializes the price and calories
         /// </summary>
@@ -33,6 +50,13 @@ namespace DinoDiner.Menu
         {
             this.Price = 7.21;
             this.Calories = 318;
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void NotifyPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         public override String ToString()

@@ -33,6 +33,9 @@ namespace DinoDiner.Menu
             set
             {
                 size = value;
+                NotifyPropertyChanged("Size");
+                NotifyPropertyChanged("Price");
+                NotifyPropertyChanged("Calories");
                 switch (size)
                 {
                     case Size.Small:
@@ -66,12 +69,12 @@ namespace DinoDiner.Menu
             }
         }
 
-        public string Description
+        public override string Description
         {
             get { return this.ToString(); }
         }
 
-        public string[] Special
+        public override string[] Special
         {
             get
             {

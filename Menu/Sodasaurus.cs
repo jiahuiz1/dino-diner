@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// The sodasaurus class derived from DrinkBaseClass
     /// </summary>
-    public class Sodasaurus : Drink
-    {     
+    public class Sodasaurus : Drink, IOrderItem, INotifyPropertyChanged
+    {
         /// <summary>
         /// The flavor of the drink
         /// </summary>
@@ -20,6 +20,13 @@ namespace DinoDiner.Menu
         /// </summary>
         private Size size;
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void NotifyPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         /// <summary>
         /// Gets the flavor or set up the flavor of the drink
         /// </summary>
@@ -28,7 +35,10 @@ namespace DinoDiner.Menu
             get
             { return flavor; }
             set
-            { flavor = value; }
+            {
+                flavor = value;
+                NotifyPropertyChanged("Flavor");
+            }
         }
 
         /// <summary>
@@ -40,7 +50,10 @@ namespace DinoDiner.Menu
             set
             {
                 size = value;
-                if(size == Size.Small)
+                NotifyPropertyChanged("Size");
+                NotifyPropertyChanged("Price");
+                NotifyPropertyChanged("Calories");
+                if (size == Size.Small)
                 {
                     Price = 1.50;
                     Calories = 112;
@@ -50,7 +63,7 @@ namespace DinoDiner.Menu
                     Price = 2.00;
                     Calories = 156;
                 }
-                else if(size == Size.Large)
+                else if (size == Size.Large)
                 {
                     Price = 2.50;
                     Calories = 208;
@@ -58,7 +71,7 @@ namespace DinoDiner.Menu
             }
         }
 
-       
+
         /// <summary>
         /// The ingredients that return the protected filed
         /// </summary>
@@ -71,6 +84,23 @@ namespace DinoDiner.Menu
                 ingredients.Add("Natural Flvaors");
                 ingredients.Add("Cane Sugar");
                 return ingredients;
+            }
+        }
+
+        public override string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                return special.ToArray();
             }
         }
 
