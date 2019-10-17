@@ -4,13 +4,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 /// <summary>
 /// Brontowurst(with peppers and onions in a bun)
 /// </summary>
 namespace DinoDiner.Menu
 {
-    public class Brontowurst : Entree
+    public class Brontowurst : Entree, IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
         /// Whether the Brontowurst has a bun
@@ -27,7 +28,12 @@ namespace DinoDiner.Menu
         /// </summary>
         private bool onions = true;
 
-        
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void NotifyPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         /// <summary>
         /// The ingredients of the Brontowurst, include brautwurst, whole wheat bun, peppers and onions
@@ -42,6 +48,35 @@ namespace DinoDiner.Menu
                 if (onions) ingredients.Add("Onion");
 
                 return ingredients;
+            }
+        }
+
+        public override string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!bun)
+                {
+                    special.Add("Hold Bun");
+                }
+                if (!peppers)
+                {
+                    special.Add("Hold Peppers");
+                }
+                if (!onions)
+                {
+                    special.Add("Hold Onion");
+                }
+                return special.ToArray();
             }
         }
 
@@ -60,6 +95,8 @@ namespace DinoDiner.Menu
         public void HoldBun()
         {
             this.bun = false;
+            NotifyPropertyChanged("Ingredients");
+            NotifyPropertyChanged("Special");
         }
 
         /// <summary>
@@ -68,6 +105,8 @@ namespace DinoDiner.Menu
         public void HoldPeppers()
         {
             this.peppers = false;
+            NotifyPropertyChanged("Ingredients");
+            NotifyPropertyChanged("Special");
         }
 
         /// <summary>
@@ -76,6 +115,8 @@ namespace DinoDiner.Menu
         public void HoldOnion()
         {
             this.onions = false;
+            NotifyPropertyChanged("Ingredients");
+            NotifyPropertyChanged("Special");
         }
 
         public override String ToString()

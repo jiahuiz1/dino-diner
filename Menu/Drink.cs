@@ -8,7 +8,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// The base class of Drinks
     /// </summary>
-    public abstract class Drink: IMenuItem
+    public abstract class Drink: IMenuItem, IOrderItem
     {
        
         /// <summary>
@@ -34,7 +34,17 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Whether the drink has ice
         /// </summary>
-        public bool Ice { get; set; } 
+        public bool Ice { get; set; }
+
+        /// <summary>
+        /// Get the description of the drink
+        /// </summary>
+        public abstract string Description { get; }
+
+        /// <summary>
+        /// Get the special instructions of the drink
+        /// </summary>
+        public abstract string[] Special { get; }
 
         /// <summary>
         /// Hold Ice to the drink
