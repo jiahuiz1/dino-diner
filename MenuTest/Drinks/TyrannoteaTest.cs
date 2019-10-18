@@ -170,7 +170,7 @@ namespace MenuTest.Drinks
             Tyrannotea tea = new Tyrannotea();
             tea.Size = Size.Small;
             tea.Sweet = true;
-            tea.Sweet = false;           
+            tea.Sweet = false;
             Assert.Equal<uint>(8, tea.Calories);
         }
 
@@ -215,5 +215,83 @@ namespace MenuTest.Drinks
             }
         }
 
+        [Fact]
+        public void AddLemonShouldAddToSpecial()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            tea.AddLemon();
+            Assert.Collection<string>(tea.Special, item =>
+            {
+                Assert.Equal("Add Lemon", item);
+            });
+        }
+
+        [Fact]
+        public void AddingLemonShouldNotifySpecialChange()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            Assert.PropertyChanged(tea, "Special", () =>
+            {
+                tea.AddLemon();
+            });
+        }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangeSizeShouldNotifySizeChange(Size size)
+        {
+            Tyrannotea tea = new Tyrannotea();
+            Assert.PropertyChanged(tea, "Size", () =>
+            {
+                tea.Size = size;
+            });
+        }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangeSizeShouldNotifyPriceChange(Size size)
+        {
+            Tyrannotea tea = new Tyrannotea();
+            Assert.PropertyChanged(tea, "Price", () =>
+            {
+                tea.Size = size;
+            });
+        }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangeSizeShouldNotifyDescriptionChange(Size size)
+        {
+            Tyrannotea tea = new Tyrannotea();
+            Assert.PropertyChanged(tea, "Description", () =>
+            {
+                tea.Size = size;
+            });
+        }
+
+        [Fact]
+        public void DescriptionShouldBeCorrect()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            Assert.Equal($"{tea.Size.ToString()} Tyrannotea", tea.Description);
+        }
+        [Fact]
+        public void SweetDescriptionShouldBeCorrect()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            tea.Sweet = true;
+            if (tea.Sweet)
+            {
+                Assert.Equal($"{tea.Size.ToString()} Sweet Tyrannotea", tea.Description);
+            }
+
+        }
     }
+    
 }

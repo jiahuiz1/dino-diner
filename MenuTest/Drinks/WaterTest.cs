@@ -138,5 +138,65 @@ namespace MenuTest.Drinks
             }
         }
 
+        [Fact]
+        public void AddLemonShouldAddToSpecial()
+        {
+            Water w = new Water();
+            w.AddLemon();
+            Assert.Collection<string>(w.Special, item =>
+            {
+                Assert.Equal("Add Lemon", item);
+            });
+        }
+
+        [Fact]
+        public void AddingLemonShouldNotifySpecialChange()
+        {
+            Water w = new Water();
+            Assert.PropertyChanged(w, "Special", () =>
+            {
+                w.AddLemon();
+            });
+        }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangingSizeShouldNotifyPriceChange(Size size)
+        {
+            Water w = new Water();
+            Assert.PropertyChanged(w, "Price", () =>
+            {
+                w.Size = size;
+            });
+        }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangingSizeShouldNotifyDescriptionChange(Size size)
+        {
+            Water w = new Water();
+            Assert.PropertyChanged(w, "Description", () =>
+            {
+                w.Size = size;
+            });
+        }
+
+        [Fact]
+        public void DescriptionShouldBeCorrect()
+        {
+            Water w = new Water();
+            Assert.Equal($"{w.Size.ToString()} Water", w.Description);
+        }
+
+        [Fact]
+        public void DefaultSpecialShouldBeEmpty()
+        {
+            Water w = new Water();
+            Assert.Empty(w.Special);
+        }
     }
 }
