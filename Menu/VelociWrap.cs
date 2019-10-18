@@ -26,8 +26,7 @@ namespace DinoDiner.Menu
         /// Whether the VelociWrap has cheese
         /// </summary>
         private bool cheese = true;
-
-        
+     
 
         /// <summary>
         /// The ingredients of the VelociWrap(flour tortilla, chicken breast, romaine lettuce, ceasar dressing, parmesan cheese)
@@ -42,6 +41,35 @@ namespace DinoDiner.Menu
                 if (dressing) ingredients.Add("Ceasar Dressing");
                 if (cheese) ingredients.Add("Parmesan Cheese");
                 return ingredients;
+            }
+        }
+
+        public override string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!dressing)
+                {
+                    special.Add("Hold Dressing");
+                }
+                if (!lettuce)
+                {
+                    special.Add("Hold Lettuce");
+                }
+                if (!cheese)
+                {
+                    special.Add("Hold Cheese");
+                }
+                return special.ToArray();
             }
         }
 
@@ -60,6 +88,8 @@ namespace DinoDiner.Menu
         public void HoldDressing()
         {
             this.dressing = false;
+            NotifyPropertyChanged("Ingredients");
+            NotifyPropertyChanged("Special");
         }
 
         /// <summary>
@@ -68,6 +98,8 @@ namespace DinoDiner.Menu
         public void HoldLettuce()
         {
             this.lettuce = false;
+            NotifyPropertyChanged("Ingredients");
+            NotifyPropertyChanged("Special");
         }
 
         /// <summary>
@@ -76,6 +108,8 @@ namespace DinoDiner.Menu
         public void HoldCheese()
         {
             this.cheese = false;
+            NotifyPropertyChanged("Ingredients");
+            NotifyPropertyChanged("Special");
         }
 
         public override string ToString()

@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// The sodasaurus class derived from DrinkBaseClass
     /// </summary>
-    public class Sodasaurus : Drink, IOrderItem, INotifyPropertyChanged
+    public class Sodasaurus : Drink, IOrderItem
     {
         /// <summary>
         /// The flavor of the drink
@@ -19,13 +18,7 @@ namespace DinoDiner.Menu
         /// The size of the drink
         /// </summary>
         private Size size;
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public void NotifyPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+     
 
         /// <summary>
         /// Gets the flavor or set up the flavor of the drink

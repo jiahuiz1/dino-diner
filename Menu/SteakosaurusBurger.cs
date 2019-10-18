@@ -10,7 +10,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Steakosaurus Burger(A 1/2 pound steakburger)
     /// </summary>
-    public class SteakosaurusBurger : Entree
+    public class SteakosaurusBurger : Entree, IOrderItem
     {
         /// <summary>
         /// Whether the Steakosaurus Burger has bun
@@ -31,7 +31,7 @@ namespace DinoDiner.Menu
         /// Whether the Steakosaurus Burger has mustard
         /// </summary>
         private bool mustard = true;
-
+   
 
         /// <summary>
         /// The ingredients of the Steakosaurus Burger(StreakBurger pattie, whole wheat bun, pickle, ketchup, mustard)
@@ -50,6 +50,39 @@ namespace DinoDiner.Menu
             }
         }
 
+        public override string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!bun)
+                {
+                    special.Add("Hold Bun");
+                }
+                if (!pickle)
+                {
+                    special.Add("Hold Pickle");
+                }
+                if (!ketchup)
+                {
+                    special.Add("Hold Ket Chup");
+                }
+                if (!mustard)
+                {
+                    special.Add("Hold Mustard");
+                }
+                return special.ToArray();
+            }
+        }
+
         /// <summary>
         /// The constructor that initializes the price and calories
         /// </summary>
@@ -65,6 +98,8 @@ namespace DinoDiner.Menu
         public void HoldBun()
         {
             this.bun = false;
+            NotifyPropertyChanged("Ingredients");
+            NotifyPropertyChanged("Special");
         }
 
         /// <summary>
@@ -73,6 +108,8 @@ namespace DinoDiner.Menu
         public void HoldPickle()
         {
             this.pickle = false;
+            NotifyPropertyChanged("Ingredients");
+            NotifyPropertyChanged("Special");
         }
 
         /// <summary>
@@ -81,6 +118,8 @@ namespace DinoDiner.Menu
         public void HoldKetchup()
         {
             this.ketchup = false;
+            NotifyPropertyChanged("Ingredients");
+            NotifyPropertyChanged("Special");
         }
 
         /// <summary>
@@ -89,6 +128,8 @@ namespace DinoDiner.Menu
         public void HoldMustard()
         {
             this.mustard = false;
+            NotifyPropertyChanged("Ingredients");
+            NotifyPropertyChanged("Special");
         }
 
         public override string ToString()

@@ -19,7 +19,7 @@ namespace DinoDiner.Menu
         /// Whether the drink is sweet
         /// </summary>
         private bool sweet = false;
-
+       
         /// <summary>
         /// Gets or sets the sweet of the drink
         /// </summary>
@@ -46,6 +46,9 @@ namespace DinoDiner.Menu
             set
             {
                 size = value;
+                NotifyPropertyChanged("Size");
+                NotifyPropertyChanged("Price");
+                NotifyPropertyChanged("Calories");
                if(size == Size.Small)
                 {
                     Price = 0.99;
@@ -99,13 +102,36 @@ namespace DinoDiner.Menu
             }
         }
 
+        public override string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (Lemon)
+                {
+                    special.Add("Add Lemon");
+                }
+                return special.ToArray();
+            }
+        }
+
         /// <summary>
         /// Add lemon to the drink
         /// </summary>
         /// <returns>boolean</returns>
         public bool AddLemon()
         {
-            Lemon = true;            
+            Lemon = true;
+            NotifyPropertyChanged("Ingredients");
+            NotifyPropertyChanged("Special");
             return Lemon;
         }
 

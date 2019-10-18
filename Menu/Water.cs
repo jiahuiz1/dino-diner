@@ -23,6 +23,10 @@ namespace DinoDiner.Menu
             set
             {
                 size = value;
+                NotifyPropertyChanged("Size");
+                NotifyPropertyChanged("Price");
+                NotifyPropertyChanged("Calories");
+
                 if(size == Size.Small || size == Size.Medium || size == Size.Large)
                 {
                     Price = 0.10;
@@ -46,6 +50,27 @@ namespace DinoDiner.Menu
                 return ingredients; }
         }
 
+        public override string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (Lemon)
+                {
+                    special.Add("Add Lemon");
+                }
+                return special.ToArray();
+            }
+        }
+
         /// <summary>
         /// Whether the drink has lemon
         /// </summary>
@@ -57,7 +82,9 @@ namespace DinoDiner.Menu
         /// <returns>boolean</returns>
         public bool AddLemon()
         {
-            Lemon = true;            
+            Lemon = true;
+            NotifyPropertyChanged("Ingredients");
+            NotifyPropertyChanged("Special");         
             return Lemon;
         }
 

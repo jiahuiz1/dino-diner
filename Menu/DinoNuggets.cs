@@ -4,27 +4,20 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// The DinoNuggets(six crispy fried breaded chicken nuggets)
     /// </summary>
-    public class DinoNuggets : Entree, IOrderItem, INotifyPropertyChanged
+    public class DinoNuggets : Entree, IOrderItem
     {
         /// <summary>
         /// The number of how many chicken nuggets in the entree
         /// </summary>
         private int count = 6;
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public void NotifyPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
+        
+      
 
         /// <summary>
         /// The ingredients of the DinoNuggets(only chicken nugget)
@@ -56,11 +49,10 @@ namespace DinoDiner.Menu
             get
             {
                 List<string> special = new List<string>();
-                int i = count;
-                while(i - 6 > 0)
+                int temp = count;
+                if(temp - 6 > 0)
                 {
-                    special.Add("Chicken Nugget");
-                    i--;
+                    special.Add(temp-6 + " Extra Nuggets");                  
                 }
                 return special.ToArray();
             }

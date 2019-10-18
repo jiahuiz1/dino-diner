@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
@@ -8,7 +9,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// The base class of Drinks
     /// </summary>
-    public abstract class Drink: IMenuItem, IOrderItem
+    public abstract class Drink: IMenuItem, IOrderItem, INotifyPropertyChanged
     {
        
         /// <summary>
@@ -45,6 +46,14 @@ namespace DinoDiner.Menu
         /// Get the special instructions of the drink
         /// </summary>
         public abstract string[] Special { get; }
+
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void NotifyPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         /// <summary>
         /// Hold Ice to the drink

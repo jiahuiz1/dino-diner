@@ -1,27 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// The JurrasicJava class that drived from DrinkBaseClass
     /// </summary>
-    public class JurassicJava: Drink, IOrderItem, INotifyPropertyChanged
+    public class JurassicJava: Drink, IOrderItem
     {
         /// <summary>
         /// The size of the drink
         /// </summary>
         private Size size;
 
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public void NotifyPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
 
         /// <summary>
         /// Gets or sets the size of the drink(different size has different price and calories)
@@ -109,7 +101,7 @@ namespace DinoDiner.Menu
         public bool LeaveRoomForCream()
         {
             RoomForCream = true;
-            NotifyPropertyChanged("Room For Cream");
+            NotifyPropertyChanged("Special");
             return RoomForCream;
         }
 
@@ -120,7 +112,7 @@ namespace DinoDiner.Menu
         public bool AddIce()
         {
             Ice = true;
-            NotifyPropertyChanged("Ice");          
+            NotifyPropertyChanged("Special");          
             return Ice;
         }
 

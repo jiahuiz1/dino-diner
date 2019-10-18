@@ -1,26 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// The MeteorMacAndCheese side(Macaroni and Cheese with Sausages)
     /// </summary>
-    public class MeteorMacAndCheese : Side, IOrderItem, INotifyPropertyChanged
+    public class MeteorMacAndCheese : Side, IOrderItem
     {
         /// <summary>
         /// The size of MeteorMacAndCheese
         /// </summary>
         private Size size;
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public void NotifyPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+      
 
         /// <summary>
         /// Determine the size of the MeteorMacAndCheese and set the price and calories, and also gets the size

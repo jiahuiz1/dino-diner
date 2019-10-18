@@ -4,14 +4,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using System.ComponentModel;
+
 
 /// <summary>
 /// Brontowurst(with peppers and onions in a bun)
 /// </summary>
 namespace DinoDiner.Menu
 {
-    public class Brontowurst : Entree, IOrderItem, INotifyPropertyChanged
+    public class Brontowurst : Entree, IOrderItem
     {
         /// <summary>
         /// Whether the Brontowurst has a bun
@@ -27,13 +27,7 @@ namespace DinoDiner.Menu
         /// Whether the Brontowurst has onions
         /// </summary>
         private bool onions = true;
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public void NotifyPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+      
 
         /// <summary>
         /// The ingredients of the Brontowurst, include brautwurst, whole wheat bun, peppers and onions

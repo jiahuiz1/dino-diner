@@ -1,26 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// The MezzorellaSticks side(Fried Breaded Mozzarella Sticks)
     /// </summary>
-    public class MezzorellaSticks : Side, IOrderItem, INotifyPropertyChanged
+    public class MezzorellaSticks : Side, IOrderItem
     {
         /// <summary>
         /// The size of MezzorellaSticks
         /// </summary>
         private Size size;
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public void NotifyPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+       
 
         /// <summary>
         /// Determine the size of MezzorellaSticks and sets the price and calories, and also gets the size

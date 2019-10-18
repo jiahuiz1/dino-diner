@@ -4,14 +4,13 @@
 using System.Collections.Generic;
 using System;
 using System.Text;
-using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// The PrehistoricPBJ(A peanut butter & jelly sandwich)
     /// </summary>
-    public class PrehistoricPBJ : Entree, INotifyPropertyChanged
+    public class PrehistoricPBJ : Entree
     {
         /// <summary>
         /// Whether the PrehistoricPBJ has peanutbutter
@@ -22,13 +21,7 @@ namespace DinoDiner.Menu
         /// Whether the PrehistoricPBJ has jelly
         /// </summary>
         private bool jelly = true;
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public void NotifyPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        
 
         /// <summary>
         /// The ingredients of the PrehistoricPBJ, include the bread, peanutbutter and jelly

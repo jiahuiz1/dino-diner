@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// The base class of Entrees
     /// </summary>
-    public abstract class Entree: IMenuItem, IOrderItem
+    public abstract class Entree: IMenuItem, IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
         /// Gets and sets the price
@@ -27,5 +28,12 @@ namespace DinoDiner.Menu
         public abstract string Description { get; }
 
         public abstract string[] Special { get; }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void NotifyPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }

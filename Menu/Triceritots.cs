@@ -13,6 +13,7 @@ namespace DinoDiner.Menu
         /// The size of Triceritots
         /// </summary>
         private Size size;
+       
 
         /// <summary>
         /// Determine the size of Triceritots and set the price and calories, and also gets the size 
@@ -24,6 +25,9 @@ namespace DinoDiner.Menu
             set
             {
                 size = value;
+                NotifyPropertyChanged("Size");
+                NotifyPropertyChanged("Price");
+                NotifyPropertyChanged("Calories");
                 switch (size)
                 {
                     case Size.Small:
@@ -54,6 +58,23 @@ namespace DinoDiner.Menu
                 ingredients.Add("Salt");
                 ingredients.Add("Vegetable Oil");
                 return ingredients;
+            }
+        }
+
+        public override string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                return special.ToArray();
             }
         }
 

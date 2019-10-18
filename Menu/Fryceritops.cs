@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System.ComponentModel;
 
 
 namespace DinoDiner.Menu
@@ -9,19 +8,13 @@ namespace DinoDiner.Menu
     /// <summary>
     /// The Fryceritops side(French Fries) 
     /// </summary>
-    public class Fryceritops : Side, IOrderItem, INotifyPropertyChanged
+    public class Fryceritops : Side, IOrderItem
     {
         /// <summary>
         /// The size of the Fryceritops
         /// </summary>
         private Size size;
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public void NotifyPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+       
 
         /// <summary>
         /// Determine the size of the Fryceritops and set its price and calories, and also gets the size

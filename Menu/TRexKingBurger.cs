@@ -56,6 +56,7 @@ namespace DinoDiner.Menu
         /// Whether the TRexKingBurger has mayo
         /// </summary>
         private bool mayo = true;
+        
 
         /// <summary>
         /// The ingredients of the TRexKingBurger(three streakburger patties, a whole wheat bun, lettuce, tomato, onion, pickle, ketchup, mustard, mayo)
@@ -82,6 +83,55 @@ namespace DinoDiner.Menu
             }
         }
 
+        public override string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!bun)
+                {
+                    special.Add("Hold Bun");
+                }
+                if (!lettuce)
+                {
+                    special.Add("Hold Lettuce");
+                }
+                if (!tomato)
+                {
+                    special.Add("Hold Tomato");
+                }
+                if (!onion)
+                {
+                    special.Add("Hold Onion");
+                }
+                if (!pickle)
+                {
+                    special.Add("Hold Pickle");
+                }
+                if (!ketchup)
+                {
+                    special.Add("Hold Ket Chup");
+                }
+                if (!mustard)
+                {
+                    special.Add("Hold Mustard");
+                }
+                if (!mayo)
+                {
+                    special.Add("Hold Mayo");
+                }
+                return special.ToArray();
+            }
+        }
+
         /// <summary>
         /// The constructor that initializes the price and calories
         /// </summary>
@@ -97,6 +147,8 @@ namespace DinoDiner.Menu
         public void HoldBun()
         {
             this.bun = false;
+            NotifyPropertyChanged("Ingredients");
+            NotifyPropertyChanged("Special");
         }
 
         /// <summary>
@@ -105,6 +157,8 @@ namespace DinoDiner.Menu
         public void HoldLettuce()
         {
             this.lettuce = false;
+            NotifyPropertyChanged("Ingredients");
+            NotifyPropertyChanged("Special");
         }
 
         /// <summary>
@@ -113,6 +167,8 @@ namespace DinoDiner.Menu
         public void HoldTomato()
         {
             this.tomato = false;
+            NotifyPropertyChanged("Ingredients");
+            NotifyPropertyChanged("Special");
         }
 
         /// <summary>
@@ -121,6 +177,8 @@ namespace DinoDiner.Menu
         public void HoldOnion()
         {
             this.onion = false;
+            NotifyPropertyChanged("Ingredients");
+            NotifyPropertyChanged("Special");
         }
 
         /// <summary>
@@ -129,6 +187,8 @@ namespace DinoDiner.Menu
         public void HoldPickle()
         {
             this.pickle = false;
+            NotifyPropertyChanged("Ingredients");
+            NotifyPropertyChanged("Special");
         }
 
         /// <summary>
@@ -137,6 +197,8 @@ namespace DinoDiner.Menu
         public void HoldKetchup()
         {
             this.ketchup = false;
+            NotifyPropertyChanged("Ingredients");
+            NotifyPropertyChanged("Special");
         }
 
         /// <summary>
@@ -145,6 +207,8 @@ namespace DinoDiner.Menu
         public void HoldMustard()
         {
             this.mustard = false;
+            NotifyPropertyChanged("Ingredients");
+            NotifyPropertyChanged("Special");
         }
 
         /// <summary>
@@ -153,6 +217,8 @@ namespace DinoDiner.Menu
         public void HoldMayo()
         {
             this.mayo = false;
+            NotifyPropertyChanged("Ingredients");
+            NotifyPropertyChanged("Special");
         }
 
         public override string ToString()
