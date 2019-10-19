@@ -27,7 +27,7 @@ namespace DinoDiner.Menu
                 size = value;
                 NotifyPropertyChanged("Size");
                 NotifyPropertyChanged("Price");
-                NotifyPropertyChanged("Calories");
+                NotifyPropertyChanged("Description");
                 switch (size)
                 {
                     case Size.Small:

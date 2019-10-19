@@ -75,6 +75,7 @@ namespace MenuTest.Sides
             tt.Size = Size.Large;
             Assert.Equal<uint>(590, tt.Calories);
         }
+       
 
         [Fact]
         public void ShouldBeAbleToSetSizeToLarge()
@@ -82,6 +83,19 @@ namespace MenuTest.Sides
             Triceritots tt = new Triceritots();
             tt.Size = Size.Large;
             Assert.Equal<Size>(Size.Large, tt.Size);
+        }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangingSizeShouldNotifySizeChange(Size size)
+        {
+            Triceritots tt = new Triceritots();
+            Assert.PropertyChanged(tt, "Size", () =>
+            {
+                tt.Size = size;
+            });
         }
 
         [Theory]

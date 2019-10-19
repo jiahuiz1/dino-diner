@@ -88,6 +88,19 @@ namespace MenuTest.Sides
         [InlineData(Size.Small)]
         [InlineData(Size.Medium)]
         [InlineData(Size.Large)]
+        public void ChangingSizeShouldNotifySizeChange(Size size)
+        {
+            Fryceritops ft = new Fryceritops();
+            Assert.PropertyChanged(ft, "Size", () =>
+            {
+                ft.Size = size;
+            });
+        }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
         public void ChangingSizeShouldNotifyPriceChange(Size size)
         {
             Fryceritops ft = new Fryceritops();

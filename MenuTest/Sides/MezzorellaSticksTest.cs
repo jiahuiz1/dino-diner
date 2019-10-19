@@ -88,6 +88,19 @@ namespace MenuTest.Sides
         [InlineData(Size.Small)]
         [InlineData(Size.Medium)]
         [InlineData(Size.Large)]
+        public void ChangingSizeShouldNotifySizeChange(Size size)
+        {
+            MezzorellaSticks ms = new MezzorellaSticks();
+            Assert.PropertyChanged(ms, "Size", () =>
+            {
+                ms.Size = size;
+            });
+        }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
         public void ChangingSizeShouldNotifyPriceChange(Size size)
         {
             MezzorellaSticks ms = new MezzorellaSticks();

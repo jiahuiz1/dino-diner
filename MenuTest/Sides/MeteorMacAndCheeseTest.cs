@@ -88,6 +88,19 @@ namespace MenuTest.Sides
         [InlineData(Size.Small)]
         [InlineData(Size.Medium)]
         [InlineData(Size.Large)]
+        public void ChangingSizeShouldNotifySizeChange(Size size)
+        {
+            MeteorMacAndCheese mc = new MeteorMacAndCheese();
+            Assert.PropertyChanged(mc, "Size", () =>
+            {
+                mc.Size = size;
+            });
+        }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
         public void ChangingSizeShouldNotifyPriceChange(Size size)
         {
             MeteorMacAndCheese mc = new MeteorMacAndCheese();

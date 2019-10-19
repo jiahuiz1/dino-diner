@@ -179,6 +179,19 @@ namespace MenuTest.Drinks
         [InlineData(Size.Small)]
         [InlineData(Size.Medium)]
         [InlineData(Size.Large)]
+        public void ChangingSizeShouldNotifySizeChange(Size size)
+        {
+            Sodasaurus soda = new Sodasaurus();
+            Assert.PropertyChanged(soda, "Size", () =>
+            {
+                soda.Size = size;
+            });
+        }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
         public void ChangingSizeShouldNotifyPriceChange(Size size)
         {
             Sodasaurus soda = new Sodasaurus();
@@ -198,6 +211,23 @@ namespace MenuTest.Drinks
             Assert.PropertyChanged(soda, "Description", () =>
             {
                 soda.Size = size;
+            });
+        }
+
+        [Theory]
+        [InlineData(SodasaurusFlavor.Cola)]
+        [InlineData(SodasaurusFlavor.Orange)]
+        [InlineData(SodasaurusFlavor.Vanilla)]
+        [InlineData(SodasaurusFlavor.Chocolate)]
+        [InlineData(SodasaurusFlavor.RootBeer)]
+        [InlineData(SodasaurusFlavor.Cherry)]
+        [InlineData(SodasaurusFlavor.Lime)]
+        public void ChangeFlavorShouldNotifyFlavorChange(SodasaurusFlavor flavor)
+        {
+            Sodasaurus soda = new Sodasaurus();
+            Assert.PropertyChanged(soda, "Flavor", () =>
+            {
+                soda.Flavor = flavor;
             });
         }
 

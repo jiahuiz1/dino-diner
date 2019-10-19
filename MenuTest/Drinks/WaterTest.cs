@@ -163,6 +163,19 @@ namespace MenuTest.Drinks
         [InlineData(Size.Small)]
         [InlineData(Size.Medium)]
         [InlineData(Size.Large)]
+        public void ChangingSizeShouldNotifySizeChange(Size size)
+        {
+            Water w = new Water();
+            Assert.PropertyChanged(w, "Size", () =>
+            {
+                w.Size = size;
+            });
+        }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
         public void ChangingSizeShouldNotifyPriceChange(Size size)
         {
             Water w = new Water();

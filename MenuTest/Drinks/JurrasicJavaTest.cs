@@ -207,6 +207,19 @@ namespace MenuTest.Drinks
         [InlineData(Size.Small)]
         [InlineData(Size.Medium)]
         [InlineData(Size.Large)]
+        public void ChangingSizeShouldNotifySizeChange(Size size)
+        {
+            JurassicJava jj = new JurassicJava();
+            Assert.PropertyChanged(jj, "Size", () =>
+            {
+                jj.Size = size;
+            });
+        }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
         public void ChangingSizeShouldNotifyPriceChange(Size size)
         {
             JurassicJava jj = new JurassicJava();

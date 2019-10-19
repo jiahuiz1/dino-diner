@@ -15,7 +15,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Gets and sets the price
         /// </summary>
-        public double Price { get; set; }
+        public abstract double Price { get; set; }
 
         /// <summary>
         /// Gets and sets the calories
