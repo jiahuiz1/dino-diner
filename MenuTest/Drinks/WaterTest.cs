@@ -150,12 +150,51 @@ namespace MenuTest.Drinks
         }
 
         [Fact]
+        public void HoldIceShouldAddToSpecial()
+        {
+            Water w = new Water();
+            w.HoldIce();
+            Assert.Collection<string>(w.Special, item =>
+            {
+                Assert.Equal("Hold Ice", item);
+            });
+        }
+
+        [Fact]
+        public void HoldIceAndAddLemonShouldAddToSpecial()
+        {
+            Water w = new Water();
+            w.AddLemon();
+            w.HoldIce();
+            Assert.Collection<string>(w.Special,
+                item =>
+                {
+                    Assert.Equal("Add Lemon", item);
+                },
+                item =>
+                {
+                    Assert.Equal("Hold Ice", item);
+                }
+                );
+        }
+
+        [Fact]
         public void AddingLemonShouldNotifySpecialChange()
         {
             Water w = new Water();
             Assert.PropertyChanged(w, "Special", () =>
             {
                 w.AddLemon();
+            });
+        }
+
+        [Fact]
+        public void HoldingIceShouldNotifySpecialChange()
+        {
+            Water w = new Water();
+            Assert.PropertyChanged(w, "Special", () =>
+            {
+                w.HoldIce();
             });
         }
 
@@ -204,12 +243,6 @@ namespace MenuTest.Drinks
             Water w = new Water();
             Assert.Equal($"{w.Size.ToString()} Water", w.Description);
         }
-
-        [Fact]
-        public void DefaultSpecialShouldBeEmpty()
-        {
-            Water w = new Water();
-            Assert.Empty(w.Special);
-        }
+      
     }
 }

@@ -5,15 +5,25 @@ using DinoDiner.Menu;
 
 namespace MenuTest
 {
+    /// <summary>
+    /// The MockEntree class added to the order
+    /// </summary>
     public class MockEntree: Entree
-    {
-        public override double Price { get; set; } = 5;
+    {    
+        
+        public override List<string> Ingredients { get; }
 
-        //for others properties needed to override, do i just give the default implementation
-        public override List<string> Ingredients => throw new NotImplementedException();
+        public override string Description { get; }
 
-        public override string Description => throw new NotImplementedException();
+        public override string[] Special { get; }
 
-        public override string[] Special => throw new NotImplementedException();
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="value">the price of the entree</param>
+        public MockEntree(double value)
+        {
+            this.Price = value;
+        }
     }
 }

@@ -13,12 +13,57 @@ namespace MenuTest
         public void SubTotalCostShouldBeCorrect()
         {
             Order order = new Order();
-            MockDrink md = new MockDrink();
-            MockEntree me = new MockEntree();
-            MockSide ms = new MockSide();
-            order.Items
+            MockDrink md = new MockDrink(5);
+            MockEntree me = new MockEntree(2.5);
+            MockSide ms = new MockSide(2.5);         
+            order.Items.Add(md);
+            order.Items.Add(me);
+            order.Items.Add(ms);
+            Assert.Equal<double>(10, order.SubtotalCost);
         }
 
         //how to check the negative case for subtotal, give it a negative price?
+
+        [Fact]
+        public void SubTotalShouldNeverBeNegative()
+        {
+            Order order = new Order();
+            MockDrink md = new MockDrink(-69);
+            MockEntree me = new MockEntree(-5);
+            MockSide ms = new MockSide(1);         
+            order.Items.Add(md);
+            order.Items.Add(me);
+            order.Items.Add(ms);
+            Assert.Equal<double>(0, order.SubtotalCost);
+        }
+
+        [Fact]
+        public void SalesTaxCostShouldBeCorrect()
+        {
+            Order order = new Order();
+            MockDrink md = new MockDrink(8.5);
+            MockEntree me = new MockEntree(0.5);
+            MockSide ms = new MockSide(1);
+            order.Items.Add(md);
+            order.Items.Add(me);
+            order.Items.Add(ms);
+            double salesTaxCost = order.SalesTaxRate * 10;
+            Assert.Equal<double>(salesTaxCost, order.SalesTaxCost);
+        }
+
+        [Fact]
+        public void TotalCostShouldBeCorrect()
+        {
+            Order order = new Order();
+            MockDrink md = new MockDrink(8);
+            MockEntree me = new MockEntree(1);
+            MockSide ms = new MockSide(1);
+            order.Items.Add(md);
+            order.Items.Add(me);
+            order.Items.Add(ms);
+            double salesTaxCost = order.SalesTaxRate * 10;
+            double total = salesTaxCost + 10;
+            Assert.Equal<double>(total, order.TotalCost);
+        }
     }
 }

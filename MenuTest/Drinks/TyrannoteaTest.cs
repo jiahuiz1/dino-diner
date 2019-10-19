@@ -216,6 +216,17 @@ namespace MenuTest.Drinks
         }
 
         [Fact]
+        public void HoldIceShouldAddToSpecial()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            tea.HoldIce();
+            Assert.Collection<string>(tea.Special, item =>
+            {
+                Assert.Equal("Hold Ice", item);
+            });
+        }
+
+        [Fact]
         public void AddLemonShouldAddToSpecial()
         {
             Tyrannotea tea = new Tyrannotea();
@@ -223,6 +234,34 @@ namespace MenuTest.Drinks
             Assert.Collection<string>(tea.Special, item =>
             {
                 Assert.Equal("Add Lemon", item);
+            });
+        }
+
+        [Fact]
+        public void HoldIceAndAddLemonShouldAddToSpecial()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            tea.AddLemon();
+            tea.HoldIce();
+            Assert.Collection<string>(tea.Special, 
+                item =>
+                {
+                    Assert.Equal("Add Lemon", item);
+                },
+                item =>
+                {
+                    Assert.Equal("Hold Ice", item);
+                }
+                );
+        }
+
+        [Fact]
+        public void HoldingIceShouldNotifySpecialChange()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            Assert.PropertyChanged(tea, "Special", () =>
+            {
+                tea.HoldIce();
             });
         }
 

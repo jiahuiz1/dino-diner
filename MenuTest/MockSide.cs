@@ -5,16 +5,27 @@ using DinoDiner.Menu;
 
 namespace MenuTest
 {
-    public class MockSide: Side
+    /// <summary>
+    /// The MockSide class added to the order
+    /// </summary>
+    public class MockSide : Side
     {
-        public override double Price { get; set; } = 4;
 
-        public override List<string> Ingredients => throw new NotImplementedException();
+        public override List<string> Ingredients { get; }
 
-        public override Size Size { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public override Size Size { get; set; }
 
-        public override string Description => throw new NotImplementedException();
+        public override string Description { get; }
 
-        public override string[] Special => throw new NotImplementedException();
+        public override string[] Special { get; }
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="value">price of the side</param>
+        public MockSide(double value)
+        {
+            this.Price = value;
+        }
     }
 }

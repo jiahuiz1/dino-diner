@@ -5,11 +5,19 @@ using System.Collections.ObjectModel;
 
 namespace DinoDiner.Menu
 {
+    /// <summary>
+    /// Create a order class to represent a new customer order
+    /// </summary>
     public class Order
-    {    
-        public ObservableCollection<IOrderItem> Items { get; set; }
+    {
+        /// <summary>
+        /// Items added to the order
+        /// </summary>
+        public ObservableCollection<IOrderItem> Items { get; set; } = new ObservableCollection<IOrderItem>();
         
-        //check this method
+        /// <summary>
+        /// The subtotal of all the items in the order
+        /// </summary>
         public double SubtotalCost
         {
             get
@@ -17,17 +25,24 @@ namespace DinoDiner.Menu
                 double subTotalCost = 0;
                 foreach(IOrderItem i in Items)
                 {
-                    if(subTotalCost > 0)
-                    {
-                        subTotalCost += i.Price;
-                    }                   
+                    subTotalCost += i.Price;     
+                }
+                if(subTotalCost < 0)
+                {
+                    return 0;
                 }
                 return subTotalCost;
             }
         }
 
+        /// <summary>
+        /// The tax rate 
+        /// </summary>
         public double SalesTaxRate { get; protected set; }
 
+        /// <summary>
+        /// The tax rate times the cost of the order
+        /// </summary>
         public double SalesTaxCost
         {
             get
@@ -36,6 +51,9 @@ namespace DinoDiner.Menu
             }
         }
 
+        /// <summary>
+        /// The total cost after the rate calculation
+        /// </summary>
         public double TotalCost
         {
             get

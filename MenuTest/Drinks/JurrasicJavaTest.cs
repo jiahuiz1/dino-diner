@@ -260,11 +260,5 @@ namespace MenuTest.Drinks
             }
         }
 
-        [Fact]
-        public void DefaultSpecialShouldBeEmpty()
-        {
-            JurassicJava jj = new JurassicJava();
-            Assert.Empty(jj.Special);
-        }
     }
 }

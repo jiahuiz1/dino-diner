@@ -15,7 +15,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// The Priec of the drink
         /// </summary>
-        public abstract double Price { get; set; }
+        public double Price { get; set; }
 
         /// <summary>
         /// The calories of the drink
@@ -47,9 +47,15 @@ namespace DinoDiner.Menu
         /// </summary>
         public abstract string[] Special { get; }
 
-
+        /// <summary>
+        /// The event that represents a property changed
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
+        /// <summary>
+        /// Notify that the property of the class changed
+        /// </summary>
+        /// <param name="propertyName">the property name</param>
         public void NotifyPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
@@ -62,6 +68,7 @@ namespace DinoDiner.Menu
         public bool HoldIce()
         {
             Ice = false;
+            NotifyPropertyChanged("Special");
             return Ice;
         }
 

@@ -93,6 +93,10 @@ namespace DinoDiner.Menu
             get
             {
                 List<string> special = new List<string>();
+                if (!Ice)
+                {
+                    special.Add("Hold Ice");
+                }
                 return special.ToArray();
             }
         }

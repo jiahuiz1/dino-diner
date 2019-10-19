@@ -127,7 +127,7 @@ namespace MenuTest.Sides
         public void DescriptionShouldBeCorrect()
         {
             Fryceritops ft = new Fryceritops();
-            Assert.Equal($"{ft.Size.ToString()} Friceritops", ft.Description);
+            Assert.Equal($"{ft.Size.ToString()} Fryceritops", ft.Description);
         }
 
         [Fact]
