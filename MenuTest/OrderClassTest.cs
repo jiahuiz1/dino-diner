@@ -7,8 +7,7 @@ using DinoDiner.Menu;
 namespace MenuTest
 {
     public class OrderClassTest
-    {
-        //how to use mock classes to test, like this?
+    {     
         [Fact]
         public void SubTotalCostShouldBeCorrect()
         {
@@ -22,7 +21,6 @@ namespace MenuTest
             Assert.Equal<double>(10, order.SubtotalCost);
         }
 
-        //how to check the negative case for subtotal, give it a negative price?
 
         [Fact]
         public void SubTotalShouldNeverBeNegative()

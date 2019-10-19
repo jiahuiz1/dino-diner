@@ -45,6 +45,9 @@ namespace DinoDiner.Menu
             }
         }
 
+        /// <summary>
+        /// Gets the description
+        /// </summary>
         public override string Description
         {
             get
@@ -53,6 +56,9 @@ namespace DinoDiner.Menu
             }
         }
 
+        /// <summary>
+        /// Gets the special items
+        /// </summary>
         public override string[] Special
         {
             get
@@ -90,9 +96,25 @@ namespace DinoDiner.Menu
         public bool RoomForCream { get; set; } = false;
 
         /// <summary>
+        /// private decaf to store the false value
+        /// </summary>
+        private bool decaf = false;
+
+        /// <summary>
         /// Whether the drink is decaf
         /// </summary>
-        public bool Decaf { get; set; } = false;
+        public bool Decaf
+        {
+            get
+            {
+                return decaf;
+            }
+            set
+            {
+                decaf = value;
+                NotifyPropertyChanged("Description");
+            }
+        }
 
         /// <summary>
         /// Leave some room for cream

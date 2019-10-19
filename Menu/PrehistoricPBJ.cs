@@ -66,11 +66,17 @@ namespace DinoDiner.Menu
             NotifyPropertyChanged("Special");
         }
 
+        /// <summary>
+        /// Gets the description
+        /// </summary>
         public override string Description
         {
             get { return this.ToString(); }
         }
 
+        /// <summary>
+        /// Gets the list of special items
+        /// </summary>
         public override string[] Special
         {
             get

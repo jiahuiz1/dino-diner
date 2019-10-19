@@ -203,6 +203,16 @@ namespace MenuTest.Drinks
             });
         }
 
+        [Fact]
+        public void ChangingDecafShouldNotifyDescriptionChange()
+        {
+            JurassicJava jj = new JurassicJava();
+            Assert.PropertyChanged(jj, "Description", () =>
+            {
+                jj.Decaf = true;
+            });
+        }
+
         [Theory]
         [InlineData(Size.Small)]
         [InlineData(Size.Medium)]

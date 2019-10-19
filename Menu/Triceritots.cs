@@ -61,6 +61,9 @@ namespace DinoDiner.Menu
             }
         }
 
+        /// <summary>
+        /// Gets the description
+        /// </summary>
         public override string Description
         {
             get
@@ -69,6 +72,9 @@ namespace DinoDiner.Menu
             }
         }
 
+        /// <summary>
+        /// Gets the special items
+        /// </summary>
         public override string[] Special
         {
             get

@@ -96,6 +96,7 @@ namespace DinoDiner.Menu
                 NotifyOfPropertyChanged("Special");
                 NotifyOfPropertyChanged("Price");
                 NotifyOfPropertyChanged("Calories");
+                NotifyOfPropertyChanged("Description");
             }
         }
 
@@ -114,6 +115,9 @@ namespace DinoDiner.Menu
             }
         }
 
+        /// <summary>
+        /// Gets the special items
+        /// </summary>
         public string[] Special
         {
             get
@@ -128,7 +132,9 @@ namespace DinoDiner.Menu
             }
         }
 
-        //check
+        /// <summary>
+        /// Gets the description
+        /// </summary>
         public string Description
         {
             get

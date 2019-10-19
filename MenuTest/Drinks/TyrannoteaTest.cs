@@ -275,6 +275,16 @@ namespace MenuTest.Drinks
             });
         }
 
+        [Fact]
+        public void ChangingSweetShouldNotifyDescriptionChange()
+        {
+            Tyrannotea tea = new Tyrannotea();
+            Assert.PropertyChanged(tea, "Description", () =>
+            {
+                tea.Sweet = true;
+            });
+        }
+
 
 
         [Theory]
