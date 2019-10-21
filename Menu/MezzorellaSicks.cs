@@ -45,6 +45,9 @@ namespace DinoDiner.Menu
             }
         }
 
+        /// <summary>
+        /// Return the ingredienst of the MezzorellaSicks
+        /// </summary>
         public override List<string> Ingredients
         {
             get
@@ -89,6 +92,10 @@ namespace DinoDiner.Menu
             Calories = 540;          
         }
 
+        /// <summary>
+        /// Override the ToString method to return the description
+        /// </summary>
+        /// <returns></returns>
         public override String ToString()
         {
             return $"{size.ToString()} Mezzorella Sticks";

@@ -11,6 +11,9 @@ namespace MenuTest
     public class MockDrink : Drink
     {
 
+        /// <summary>
+        /// The description of the drink
+        /// </summary>
         public override string Description { get; }
 
         public override string[] Special { get; }

@@ -10,13 +10,24 @@ namespace MenuTest
     /// </summary>
     public class MockSide : Side
     {
-
+        /// <summary>
+        /// The ingredients of the side
+        /// </summary>
         public override List<string> Ingredients { get; }
 
+        /// <summary>
+        /// The size of the side
+        /// </summary>
         public override Size Size { get; set; }
 
+        /// <summary>
+        /// The description of the side
+        /// </summary>
         public override string Description { get; }
 
+        /// <summary>
+        /// The special list of the side
+        /// </summary>
         public override string[] Special { get; }
 
         /// <summary>

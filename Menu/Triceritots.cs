@@ -94,6 +94,10 @@ namespace DinoDiner.Menu
             
         }
 
+        /// <summary>
+        /// Override the ToString method to return the description
+        /// </summary>
+        /// <returns></returns>
         public override String ToString()
         {
             return $"{size.ToString()} Triceritots";

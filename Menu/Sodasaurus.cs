@@ -117,6 +117,10 @@ namespace DinoDiner.Menu
             Calories = 112;               
         }
 
+        /// <summary>
+        /// Override the ToString method to return the description
+        /// </summary>
+        /// <returns></returns>
         public override String ToString()
         {
             return $"{size.ToString()} {flavor.ToString()} Sodasaurus";

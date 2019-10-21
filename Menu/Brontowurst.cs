@@ -6,11 +6,12 @@ using System.Collections.Generic;
 using System.Text;
 
 
-/// <summary>
-/// Brontowurst(with peppers and onions in a bun)
-/// </summary>
+
 namespace DinoDiner.Menu
 {
+    /// <summary>
+    /// Brontowurst(with peppers and onions in a bun)
+    /// </summary>
     public class Brontowurst : Entree, IOrderItem
     {
         /// <summary>
@@ -119,6 +120,10 @@ namespace DinoDiner.Menu
             NotifyPropertyChanged("Special");
         }
 
+        /// <summary>
+        /// Override the ToString method to return the description
+        /// </summary>
+        /// <returns></returns>
         public override String ToString()
         {
             return "Brontowurst";

@@ -91,6 +91,10 @@ namespace DinoDiner.Menu
             Calories = 222;
         }
 
+        /// <summary>
+        /// Override the ToString method to return the description
+        /// </summary>
+        /// <returns></returns>
         public override String ToString()
         {
             return $"{size.ToString()} Fryceritops";

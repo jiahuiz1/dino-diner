@@ -156,6 +156,10 @@ namespace DinoDiner.Menu
             Ice = true;                                   
         }
 
+        /// <summary>
+        /// Override the ToString method to return the description
+        /// </summary>
+        /// <returns></returns>
         public override String ToString()
         {
             if (sweet)
