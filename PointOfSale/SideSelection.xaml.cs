@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DinoDiner.Menu;
+using DDSize = DinoDiner.Menu.Size;
 
 namespace PointOfSale
 {
@@ -20,14 +22,33 @@ namespace PointOfSale
     /// </summary>
     public partial class SideSelection : Page
     {
+        private Side side { get; set; }
+
         public SideSelection()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs args)
         {
 
+        }
+
+        private void OnSelectFryceritops(object sender, RoutedEventArgs args)
+        {
+            if(DataContext is Order order)
+            {
+                side = new Fryceritops();
+                order.Items.Add(side);
+            } 
+        }
+
+        private void OnChangeSize(object sender, RoutedEventArgs args)
+        {
+            if(sender is FrameworkElement element)
+            {
+                side.Size = (DDSize)Enum.Parse(typeof(DDSize), element.Tag.ToString());
+            }
         }
     }
 }

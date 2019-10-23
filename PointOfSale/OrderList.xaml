@@ -25,10 +25,7 @@
                   Grid.Column ="1"
                   Margin="5,0,0,0"
                    />
-        <ListBox Grid.Row="1"
-                 Grid.ColumnSpan="2"
-                 ItemsSource="{Binding Path=Items}"
-                 >
+        <ListBox Name="OrderItems"  Grid.Row="1" Grid.ColumnSpan="2" ItemsSource="{Binding Path=Items}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>

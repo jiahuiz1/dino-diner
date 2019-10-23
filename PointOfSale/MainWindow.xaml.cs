@@ -25,13 +25,29 @@ namespace PointOfSale
         {
             InitializeComponent();
             Order order = DataContext as Order;
-            order.Items.Add(new PrehistoricPBJ());
-            order.Items.Add(new Sodasaurus());
-            order.Items.Add(new Fryceritops());
-            SteakosaurusBurger sb = new SteakosaurusBurger();
-            sb.HoldPickle();
-            sb.HoldBun();
-            order.Items.Add(sb);
+           
+          
+        }
+
+        /// <summary>
+        /// Inherit the datacontext from the Windows(OrderUI) to the child(page)
+        /// </summary>
+        private void PassDataContentToPage()
+        {
+            if(OrderUI.Content is Page page)
+            {
+                page.DataContext = OrderUI.DataContext;
+            }
+        }     
+
+        private void OnLoadCompleted(object sender, NavigationEventArgs agrs)
+        {
+            PassDataContentToPage();
+        }
+
+        private void OnDataContextChanged(object sender, DependencyPropertyChangedEventArgs args)
+        {
+            PassDataContentToPage();
         }
     }
 }
