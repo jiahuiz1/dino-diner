@@ -20,11 +20,19 @@ namespace PointOfSale
     /// </summary>
     public partial class ComboSelection : Page
     {
+        /// <summary>
+        /// The constructor
+        /// </summary>
         public ComboSelection()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Navigate to the Customize page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         void SelectCombo(object sender, RoutedEventArgs args)
         {
             NavigationService.Navigate(new CustomizeCombo());

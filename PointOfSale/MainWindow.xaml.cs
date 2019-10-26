@@ -21,12 +21,13 @@ namespace PointOfSale
     /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// The constructor
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
-            Order order = DataContext as Order;
-           
-          
+            OrderControl.NavigationService = OrderUI.NavigationService;
         }
 
         /// <summary>
@@ -40,11 +41,21 @@ namespace PointOfSale
             }
         }     
 
+        /// <summary>
+        /// Load is completed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="agrs"></param>
         private void OnLoadCompleted(object sender, NavigationEventArgs agrs)
         {
             PassDataContentToPage();
         }
 
+        /// <summary>
+        /// Once data context is changed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void OnDataContextChanged(object sender, DependencyPropertyChangedEventArgs args)
         {
             PassDataContentToPage();

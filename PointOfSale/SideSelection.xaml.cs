@@ -22,11 +22,27 @@ namespace PointOfSale
     /// </summary>
     public partial class SideSelection : Page
     {
+        /// <summary>
+        /// current side
+        /// </summary>
         private Side side { get; set; }
 
+        /// <summary>
+        /// The constructor
+        /// </summary>
         public SideSelection()
         {
             InitializeComponent();
+        }
+
+        /// <summary>
+        /// The other constructor
+        /// </summary>
+        /// <param name="side">a side</param>
+        public SideSelection(Side side)
+        {
+            InitializeComponent();
+            this.side = side;
         }
 
         private void Button_Click(object sender, RoutedEventArgs args)
@@ -34,47 +50,73 @@ namespace PointOfSale
 
         }
 
+        /// <summary>
+        /// Add Fryceritops to the OrderList if the button is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void OnSelectFryceritops(object sender, RoutedEventArgs args)
         {
             if(DataContext is Order order)
             {
                 side = new Fryceritops();
-                order.Items.Add(side);
+                order.Add(side);
             } 
         }
 
+        /// <summary>
+        /// Add MeterMacAndCheeese to the OrderList if the button is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void OnSelectMeteorMacAndCheese(object sender, RoutedEventArgs args)
         {
             if (DataContext is Order order)
             {
                 side = new MeteorMacAndCheese();
-                order.Items.Add(side);
+                order.Add(side);
             }
         }
 
+        /// <summary>
+        /// Add MezzorellaSticks to the OrderList if the button is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void OnSelectMezzorellaSticks(object sender, RoutedEventArgs args)
         {
             if (DataContext is Order order)
             {
                 side = new MezzorellaSticks();
-                order.Items.Add(side);
+                order.Add(side);
             }
         }
 
+        /// <summary>
+        /// Add Triceritots to the OrderList if the button is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void OnSelectTriceritots(object sender, RoutedEventArgs args)
         {
             if (DataContext is Order order)
             {
                 side = new Triceritots();
-                order.Items.Add(side);
+                order.Add(side);
             }
         }
 
+        /// <summary>
+        /// Apply the change of size to the description of the side if the button is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void OnChangeSize(object sender, RoutedEventArgs args)
         {
             if(sender is FrameworkElement element)
             {
                 side.Size = (DDSize)Enum.Parse(typeof(DDSize), element.Tag.ToString());
+                NavigationService?.Navigate(new MenuCategorySelection());
             }
         }
     }

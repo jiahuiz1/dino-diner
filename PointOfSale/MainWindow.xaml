@@ -11,7 +11,7 @@
         <menu:Order/> 
     </Window.DataContext>
     <DockPanel>
-        <local:OrderList DockPanel.Dock="Right" Width="200">
+        <local:OrderList DockPanel.Dock="Right" Width="200" x:Name="OrderControl">
             
         </local:OrderList>
         <Frame Name ="OrderUI" 

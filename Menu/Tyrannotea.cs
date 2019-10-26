@@ -32,10 +32,19 @@ namespace DinoDiner.Menu
             }
         }
 
+        private bool lemon = false;
         /// <summary>
         /// Whether the drink has lemon
         /// </summary>
-        public bool Lemon { get; set; } = false;
+        public bool Lemon
+        {
+            get { return lemon; }
+            set
+            {
+                lemon = value;
+                NotifyPropertyChanged("Description");
+            }
+        }
 
         /// <summary>
         /// Gets or sets the size of the drink(different size has different price and calories)
@@ -162,6 +171,10 @@ namespace DinoDiner.Menu
         /// <returns></returns>
         public override String ToString()
         {
+            if (lemon)
+            {
+
+            }
             if (sweet)
             {
                 return $"{size.ToString()} Sweet Tyrannotea";

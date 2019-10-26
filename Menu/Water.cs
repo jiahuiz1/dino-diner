@@ -81,10 +81,20 @@ namespace DinoDiner.Menu
             }
         }
 
+        private bool lemon = false;
+
         /// <summary>
         /// Whether the drink has lemon
         /// </summary>
-        public bool Lemon { get; set; } = false;
+        public bool Lemon
+        {
+            get { return lemon; }
+            set
+            {
+                lemon = value;
+                NotifyPropertyChanged("Description");
+            }
+        }
 
         /// <summary>
         /// Add lemon to the drink

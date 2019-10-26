@@ -28,12 +28,18 @@ namespace PointOfSale
             InitializeComponent();
         }
 
+        public EntreeSelection(Entree entree)
+        {
+            InitializeComponent();
+            this.entree = entree;
+        }
+
         private void OnSelectBrontoWurst(object sender, RoutedEventArgs args)
         {
             if (DataContext is Order order)
             {
                 entree = new Brontowurst();
-                order.Items.Add(entree);
+                order.Add(entree);
             }
         }
 
@@ -42,7 +48,7 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 entree = new DinoNuggets();
-                order.Items.Add(entree);
+                order.Add(entree);
             }
         }
 
@@ -51,7 +57,7 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 entree = new PrehistoricPBJ();
-                order.Items.Add(entree);
+                order.Add(entree);
             }
         }
 
@@ -60,7 +66,7 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 entree = new PterodactylWings();
-                order.Items.Add(entree);
+                order.Add(entree);
             }
         }
 
@@ -69,7 +75,7 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 entree = new SteakosaurusBurger();
-                order.Items.Add(entree);
+                order.Add(entree);
             }
         }
 
@@ -78,7 +84,7 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 entree = new TRexKingBurger();
-                order.Items.Add(entree);
+                order.Add(entree);
             }
         }
 
@@ -87,7 +93,7 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 entree = new VelociWrap();
-                order.Items.Add(entree);
+                order.Add(entree);
             }
         }
     }

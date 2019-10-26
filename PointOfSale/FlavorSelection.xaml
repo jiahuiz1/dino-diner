@@ -25,13 +25,13 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Width="150" Height="60" Grid.Row="0" Grid.Column="0">Cherry</Button>
-            <Button Width="150" Height="60" Grid.Row="0" Grid.Column="1">Chocolate</Button>
-            <Button Width="150" Height="60" Grid.Row="0" Grid.Column="2">Cola</Button>
-            <Button Width="150" Height="60" Grid.Row="1" Grid.Column="0">Lime</Button>
-            <Button Width="150" Height="60" Grid.Row="1" Grid.Column="1">Orange</Button>
-            <Button Width="150" Height="60" Grid.Row="1" Grid.Column="2">Root Bear</Button>
-            <Button Width="150" Height="60" Grid.Row="2" Grid.Column="0">Vanilla</Button>
+            <Button Width="150" Height="60" Grid.Row="0" Grid.Column="0" Tag="Cherry" Click="OnChangeFlavor">Cherry</Button>
+            <Button Width="150" Height="60" Grid.Row="0" Grid.Column="1" Tag="Chocolate" Click="OnChangeFlavor">Chocolate</Button>
+            <Button Width="150" Height="60" Grid.Row="0" Grid.Column="2" Tag="Cola" Click="OnChangeFlavor">Cola</Button>
+            <Button Width="150" Height="60" Grid.Row="1" Grid.Column="0" Tag="Lime" Click="OnChangeFlavor">Lime</Button>
+            <Button Width="150" Height="60" Grid.Row="1" Grid.Column="1" Tag="Orange" Click="OnChangeFlavor">Orange</Button>
+            <Button Width="150" Height="60" Grid.Row="1" Grid.Column="2" Tag="RootBeer" Click="OnChangeFlavor">Root Beer</Button>
+            <Button Width="150" Height="60" Grid.Row="2" Grid.Column="0" Tag="Vanilla" Click="OnChangeFlavor">Vanilla</Button>
             <Label Content="Flavor" Grid.Column="1" HorizontalAlignment="Left" Margin="78,14,0,0" VerticalAlignment="Top" Width="97"/>
         </Grid>
     </Grid>
