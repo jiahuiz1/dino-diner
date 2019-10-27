@@ -41,11 +41,7 @@ namespace PointOfSale
         /// <param name="args"></param>
         private void OnSelectionChanged(object sender, SelectionChangedEventArgs args)
         {
-            if(OrderItems.SelectedItem is Side side)
-            {
-                NavigationService?.Navigate(new SideSelection(side));               
-            }
-            else if(OrderItems.SelectedItem is Entree entree)
+            if(OrderItems.SelectedItem is Entree entree)
             {
                 NavigationService?.Navigate(new MenuCategorySelection());
             }         
