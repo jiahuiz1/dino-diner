@@ -14,6 +14,14 @@
         <local:OrderList DockPanel.Dock="Right" Width="200" x:Name="OrderControl">
             
         </local:OrderList>
+        <Grid DockPanel.Dock="Bottom">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Click="OnReturnToCategorySelection" Grid.Column="1">Return To Category Selection</Button>
+        </Grid>
         <Frame Name ="OrderUI" 
                Source="MenuCategorySelection.xaml"
                LoadCompleted="OnLoadCompleted"

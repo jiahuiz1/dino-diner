@@ -96,5 +96,15 @@ namespace PointOfSale
                 order.Add(entree);
             }
         }
+
+        void OnAddPrehistoricPBJ(object sender, RoutedEventArgs args)
+        {
+            if(DataContext is Order order)
+            {
+                PrehistoricPBJ pbj = new PrehistoricPBJ();
+                order.Add(pbj);
+                NavigationService.Navigate(new CustomizePrehistoricPBJ(pbj));
+            }
+        }
     }
 }
