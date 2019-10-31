@@ -22,9 +22,9 @@
             <Button Click="SelectSide" Width="160" Height="80" Grid.Row="0" Grid.Column="0">Friceritops</Button>
             <Button Click="SelectDrink" Width="160" Height="80" Grid.Row="0" Grid.Column="1">Sodasaurus</Button>
             <Button Click="SelectEntree" Width="160" Height="80" Grid.Row="0" Grid.Column="2">Entree</Button>
-            <RadioButton Width="100" Height="80" Grid.Row="1" Grid.Column="0">Small</RadioButton>
-            <RadioButton Width="100" Height="80" Grid.Row="1" Grid.Column="1">Medium</RadioButton>
-            <RadioButton Width="100" Height="80" Grid.Row="1" Grid.Column="2">Large</RadioButton>
+            <RadioButton Click="ChangeComboSizeSmall" Width="100" Height="80" Grid.Row="1" Grid.Column="0">Small</RadioButton>
+            <RadioButton Click="ChangeComboSizeMedium" Width="100" Height="80" Grid.Row="1" Grid.Column="1">Medium</RadioButton>
+            <RadioButton Click="ChangeComboSizeLarge" Width="100" Height="80" Grid.Row="1" Grid.Column="2">Large</RadioButton>
             <Label Content="Side" HorizontalAlignment="Left" Margin="84,27,0,0" VerticalAlignment="Top" Width="96"/>
             <Label Content="Drink" HorizontalAlignment="Left" Margin="83,27,0,0" VerticalAlignment="Top" Width="96" Grid.Column="1"/>
             <Label Content="Size" HorizontalAlignment="Left" Margin="62,25,0,0" VerticalAlignment="Top" Width="96" Grid.Column="1" Grid.Row="1"/>

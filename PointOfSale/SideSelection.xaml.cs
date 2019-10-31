@@ -27,6 +27,8 @@ namespace PointOfSale
         /// </summary>
         private Side side { get; set; }
 
+        private DDSize size { get; set; }
+
         /// <summary>
         /// The constructor
         /// </summary>
@@ -43,6 +45,7 @@ namespace PointOfSale
         {
             InitializeComponent();
             this.side = side;
+            this.size = side.Size;
         }
 
         private void Button_Click(object sender, RoutedEventArgs args)
@@ -60,8 +63,9 @@ namespace PointOfSale
             if(DataContext is Order order)
             {
                 side = new Fryceritops();
+                side.Size = size;
                 order.Add(side);
-                NavigationService.Navigate(new CustomizeCombo());
+                NavigationService.GoBack();
             } 
         }
 
@@ -75,8 +79,9 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 side = new MeteorMacAndCheese();
+                side.Size = size;
                 order.Add(side);
-                NavigationService.Navigate(new CustomizeCombo());
+                NavigationService.GoBack();
             }
         }
 
@@ -90,8 +95,9 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 side = new MezzorellaSticks();
+                side.Size = size;
                 order.Add(side);
-                NavigationService.Navigate(new CustomizeCombo());
+                NavigationService.GoBack();
             }
         }
 
@@ -105,8 +111,9 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 side = new Triceritots();
+                side.Size = size;
                 order.Add(side);
-                NavigationService.Navigate(new CustomizeCombo());
+                NavigationService.GoBack();
             }
         }
 
@@ -120,7 +127,6 @@ namespace PointOfSale
             if(sender is FrameworkElement element)
             {
                 side.Size = (DDSize)Enum.Parse(typeof(DDSize), element.Tag.ToString());
-                NavigationService?.Navigate(new MenuCategorySelection());
             }
         }
     }

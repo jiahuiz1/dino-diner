@@ -29,6 +29,8 @@ namespace PointOfSale
         /// </summary>
         private Drink drink { get; set; }
 
+        private DDSize size { get; set; }
+
         /// <summary>
         /// The constructor
         /// </summary>
@@ -38,6 +40,16 @@ namespace PointOfSale
             SweetDecafFlavor.IsEnabled = false;
             AddLemon.IsEnabled = false;
             HoldIce.IsEnabled = false;
+        }
+
+        public DrinkSelection(Drink drink)
+        {
+            InitializeComponent();
+            SweetDecafFlavor.IsEnabled = false;
+            AddLemon.IsEnabled = false;
+            HoldIce.IsEnabled = false;
+            this.drink = drink;
+            this.size = drink.Size;
         }
 
         /// <summary>
@@ -50,6 +62,7 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 drink = new JurassicJava();
+                drink.Size = size;
                 order.Add(drink);
                 SweetDecafFlavor.IsEnabled = true;
                 AddLemon.IsEnabled = false;
@@ -67,6 +80,7 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 drink = new Sodasaurus();
+                drink.Size = size;
                 order.Add(drink);
                 SweetDecafFlavor.IsEnabled = true;
                 HoldIce.IsEnabled = true;
@@ -84,6 +98,7 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 drink = new Tyrannotea();
+                drink.Size = size;
                 order.Add(drink);
                 SweetDecafFlavor.IsEnabled = true;
                 HoldIce.IsEnabled = true;
@@ -101,6 +116,7 @@ namespace PointOfSale
             if (DataContext is Order order)
             {
                 drink = new Water();
+                drink.Size = size;
                 order.Add(drink);
                 SweetDecafFlavor.IsEnabled = false;
                 HoldIce.IsEnabled = true;
@@ -185,7 +201,7 @@ namespace PointOfSale
 
         private void BackToMenu(object sender, RoutedEventArgs args)
         {
-            NavigationService?.Navigate(new MenuCategorySelection());
+            NavigationService?.GoBack();
         }
     }
 }

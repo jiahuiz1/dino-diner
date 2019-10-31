@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DinoDiner.Menu;
 
+
 namespace PointOfSale
 {
     /// <summary>
@@ -23,9 +24,6 @@ namespace PointOfSale
     {
         private Entree entree { get; set; }
 
-        private Side side { get; set; }
-
-        private Drink drink { get; set; }
         /// <summary>
         /// The constructor
         /// </summary>
@@ -35,13 +33,14 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// Navigate to the Customize page
+        /// Navigate to the Customize page, with the PterodactylWings object passed in 
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
-        void SelectCombo(object sender, RoutedEventArgs args)
-        {          
-            //NavigationService.Navigate(new CustomizeCombo());
+        void SelectPterodactylWingsCombo(object sender, RoutedEventArgs args)
+        {
+            PterodactylWings wings = new PterodactylWings();
+            NavigationService.Navigate(new CustomizeCombo(wings));
         }
 
         void SelectBrontowurstCombo(object sender, RoutedEventArgs args)
@@ -55,5 +54,33 @@ namespace PointOfSale
             entree = new DinoNuggets();
             NavigationService.Navigate(new CustomizeCombo(entree));
         }
+
+        void SelectPrehistoricPBJCombo(object sender, RoutedEventArgs args)
+        {
+            entree = new PrehistoricPBJ();
+            NavigationService.Navigate(new CustomizeCombo(entree));
+        }
+
+
+        void SelectSteakosaurusBurgerCombo(object sender, RoutedEventArgs args)
+        {
+            entree = new SteakosaurusBurger();
+            NavigationService.Navigate(new CustomizeCombo(entree));
+        }
+
+
+        void SelectTRexKingBurgerCombo(object sender, RoutedEventArgs args)
+        {
+            entree = new TRexKingBurger();
+            NavigationService.Navigate(new CustomizeCombo(entree));
+        }
+
+
+        void SelectVelociWrapCombo(object sender, RoutedEventArgs args)
+        {
+            entree = new VelociWrap();
+            NavigationService.Navigate(new CustomizeCombo(entree));
+        }
+      
     }
 }

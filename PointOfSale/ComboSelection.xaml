@@ -22,12 +22,12 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Button Click="SelectBrontowurstCombo" Grid.Row="0" Grid.Column="0" Width="150" Height="100">Brontowurst Combo</Button>
-            <Button Click="SelectDinoNuggetsCombo" Grid.Row="0" Grid.Column="1" Width="150" Height="100">Dion-Nuggets Combo</Button>
-            <Button Click="SelectCombo" Grid.Row="0" Grid.Column="3" Width="150" Height="100">Steakosaurus Combo</Button>
-            <Button Click="SelectCombo" Grid.Row="1" Grid.Column="0" Width="150" Height="100">T-Rex King Burger Combo</Button>
-            <Button Click="SelectCombo" Grid.Row="1" Grid.Column="1" Width="150" Height="100">Prehistoric PB&amp;J Combo</Button>
-            <Button Click="SelectCombo" Grid.Row="1" Grid.Column="2" Width="150" Height="100">Pterodactyl Wings Combo</Button>
-            <Button Click="SelectCombo" Grid.Row="2" Grid.Column="0" Width="150" Height="100">Veloci-Wrap Combo</Button>
+            <Button Click="SelectDinoNuggetsCombo" Grid.Row="0" Grid.Column="1" Width="150" Height="100">Dino-Nuggets Combo</Button>
+            <Button Click="SelectSteakosaurusBurgerCombo" Grid.Row="0" Grid.Column="3" Width="150" Height="100">Steakosaurus Combo</Button>
+            <Button Click="SelectTRexKingBurgerCombo" Grid.Row="1" Grid.Column="0" Width="150" Height="100">T-Rex KingBurger Combo</Button>
+            <Button Click="SelectPrehistoricPBJCombo" Grid.Row="1" Grid.Column="1" Width="150" Height="100">Prehisotric PB&amp;J Combo</Button>
+            <Button Click="SelectPterodactylWingsCombo" Grid.Row="1" Grid.Column="2" Width="150" Height="100">Pterodactyl Wings Combo</Button>
+            <Button Click="SelectVelociWrapCombo" Grid.Row="2" Grid.Column="0" Width="150" Height="100">Veloci-Wrap Combo</Button>
         </Grid>
     </Grid>
 </Page>

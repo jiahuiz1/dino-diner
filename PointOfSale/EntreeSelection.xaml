@@ -21,7 +21,7 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Button Width="150" Height="100" Grid.Row="0" Grid.Column="0" Click="OnAddBrontowurst">Brontowurst</Button>
-            <Button Width="150" Height="100" Grid.Row="0" Grid.Column="1" Click="OnAddDinoNuggets">Dion-Nuggets</Button>
+            <Button Width="150" Height="100" Grid.Row="0" Grid.Column="1" Click="OnAddDinoNuggets">Dino-Nuggets</Button>
             <Button Width="150" Height="100" Grid.Row="0" Grid.Column="2" Click="OnAddPrehistoricPBJ">Prehisotric PB&amp;J</Button>
             <Button Width="150" Height="100" Grid.Row="1" Grid.Column="0" Click="OnSelectPterdactyIWings">Pterodactyl Wings</Button>
             <Button Width="150" Height="100" Grid.Row="1" Grid.Column="1" Click="OnAddSteakosaurusBurger">Steakosaurus Burger</Button>
