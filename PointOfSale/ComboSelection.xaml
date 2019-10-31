@@ -21,8 +21,8 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Click="SelectCombo" Grid.Row="0" Grid.Column="0" Width="150" Height="100">Brontowurst Combo</Button>
-            <Button Click="SelectCombo" Grid.Row="0" Grid.Column="1" Width="150" Height="100">Dion-Nuggets Combo</Button>
+            <Button Click="SelectBrontowurstCombo" Grid.Row="0" Grid.Column="0" Width="150" Height="100">Brontowurst Combo</Button>
+            <Button Click="SelectDinoNuggetsCombo" Grid.Row="0" Grid.Column="1" Width="150" Height="100">Dion-Nuggets Combo</Button>
             <Button Click="SelectCombo" Grid.Row="0" Grid.Column="3" Width="150" Height="100">Steakosaurus Combo</Button>
             <Button Click="SelectCombo" Grid.Row="1" Grid.Column="0" Width="150" Height="100">T-Rex King Burger Combo</Button>
             <Button Click="SelectCombo" Grid.Row="1" Grid.Column="1" Width="150" Height="100">Prehistoric PB&amp;J Combo</Button>

@@ -1,4 +1,4 @@
-﻿`using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using Xunit;
@@ -15,9 +15,9 @@ namespace MenuTest
             MockDrink md = new MockDrink(5);
             MockEntree me = new MockEntree(2.5);
             MockSide ms = new MockSide(2.5);         
-            order.Items.Add(md);
-            order.Items.Add(me);
-            order.Items.Add(ms);
+            order.Add(md);
+            order.Add(me);
+            order.Add(ms);
             Assert.Equal<double>(10, order.SubtotalCost);
         }
 
@@ -29,9 +29,9 @@ namespace MenuTest
             MockDrink md = new MockDrink(-69);
             MockEntree me = new MockEntree(-5);
             MockSide ms = new MockSide(1);         
-            order.Items.Add(md);
-            order.Items.Add(me);
-            order.Items.Add(ms);
+            order.Add(md);
+            order.Add(me);
+            order.Add(ms);
             Assert.Equal<double>(0, order.SubtotalCost);
         }
 
@@ -42,9 +42,9 @@ namespace MenuTest
             MockDrink md = new MockDrink(8.5);
             MockEntree me = new MockEntree(0.5);
             MockSide ms = new MockSide(1);
-            order.Items.Add(md);
-            order.Items.Add(me);
-            order.Items.Add(ms);
+            order.Add(md);
+            order.Add(me);
+            order.Add(ms);
             double salesTaxCost = order.SalesTaxRate * 10;
             Assert.Equal<double>(salesTaxCost, order.SalesTaxCost);
         }
@@ -56,9 +56,9 @@ namespace MenuTest
             MockDrink md = new MockDrink(8);
             MockEntree me = new MockEntree(1);
             MockSide ms = new MockSide(1);
-            order.Items.Add(md);
-            order.Items.Add(me);
-            order.Items.Add(ms);
+            order.Add(md);
+            order.Add(me);
+            order.Add(ms);
             double salesTaxCost = order.SalesTaxRate * 10;
             double total = salesTaxCost + 10;
             Assert.Equal<double>(total, order.TotalCost);

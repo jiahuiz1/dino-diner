@@ -20,13 +20,13 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Width="150" Height="100" Grid.Row="0" Grid.Column="0" Click="OnSelectBrontoWurst">Brontowurst</Button>
-            <Button Width="150" Height="100" Grid.Row="0" Grid.Column="1" Click="OnSelectDinoNuggets">Dion-Nuggets</Button>
+            <Button Width="150" Height="100" Grid.Row="0" Grid.Column="0" Click="OnAddBrontowurst">Brontowurst</Button>
+            <Button Width="150" Height="100" Grid.Row="0" Grid.Column="1" Click="OnAddDinoNuggets">Dion-Nuggets</Button>
             <Button Width="150" Height="100" Grid.Row="0" Grid.Column="2" Click="OnAddPrehistoricPBJ">Prehisotric PB&amp;J</Button>
             <Button Width="150" Height="100" Grid.Row="1" Grid.Column="0" Click="OnSelectPterdactyIWings">Pterodactyl Wings</Button>
-            <Button Width="150" Height="100" Grid.Row="1" Grid.Column="1" Click="OnSelectSteakosaurusBurger">Steakosaurus Burger</Button>
-            <Button Width="150" Height="100" Grid.Row="1" Grid.Column="2" Click="OnSelectTRexKingBurger">T-Rex Kingburger</Button>
-            <Button Width="150" Height="100" Grid.Row="2" Grid.Column="0" Click="OnSelectVelociWrap">Veloci-Wrap</Button>
+            <Button Width="150" Height="100" Grid.Row="1" Grid.Column="1" Click="OnAddSteakosaurusBurger">Steakosaurus Burger</Button>
+            <Button Width="150" Height="100" Grid.Row="1" Grid.Column="2" Click="OnAddTRexKingBurger">T-Rex Kingburger</Button>
+            <Button Width="150" Height="100" Grid.Row="2" Grid.Column="0" Click="OnAddVelociWrap">Veloci-Wrap</Button>
         </Grid>
     </Grid>
 </Page>

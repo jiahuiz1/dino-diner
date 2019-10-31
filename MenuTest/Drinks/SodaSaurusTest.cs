@@ -246,7 +246,7 @@ namespace MenuTest.Drinks
         public void ChangeFlavorShouldNotifyFlavorChange(SodasaurusFlavor flavor)
         {
             Sodasaurus soda = new Sodasaurus();
-            Assert.PropertyChanged(soda, "Flavor", () =>
+            Assert.PropertyChanged(soda, "Description", () =>
             {
                 soda.Flavor = flavor;
             });

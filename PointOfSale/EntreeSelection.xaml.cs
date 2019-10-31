@@ -106,5 +106,55 @@ namespace PointOfSale
                 NavigationService.Navigate(new CustomizePrehistoricPBJ(pbj));
             }
         }
+
+        void OnAddVelociWrap(object sender, RoutedEventArgs args)
+        {
+            if (DataContext is Order order)
+            {
+                VelociWrap wrap = new VelociWrap();
+                order.Add(wrap);
+                NavigationService.Navigate(new CustomizeVelociWrap(wrap));
+            }
+        }
+
+        void OnAddBrontowurst(object sender, RoutedEventArgs args)
+        {
+            if (DataContext is Order order)
+            {
+                Brontowurst bw = new Brontowurst();
+                order.Add(bw);
+                NavigationService.Navigate(new CustomizeBrontowurst(bw));
+            }
+        }
+
+        void OnAddDinoNuggets(object sender, RoutedEventArgs args)
+        {
+            if (DataContext is Order order)
+            {
+                DinoNuggets nuggets = new DinoNuggets();
+                order.Add(nuggets);
+                NavigationService.Navigate(new CustomizeDinoNuggets(nuggets));
+            }
+        }
+
+        void OnAddSteakosaurusBurger(object sender, RoutedEventArgs args)
+        {
+            if (DataContext is Order order)
+            {
+                SteakosaurusBurger burger = new SteakosaurusBurger();
+                order.Add(burger);
+                NavigationService.Navigate(new CustomizeSteakosaurusBurger(burger));
+            }
+        }
+        void OnAddTRexKingBurger(object sender, RoutedEventArgs args)
+        {
+            if (DataContext is Order order)
+            {
+                TRexKingBurger TRburger = new TRexKingBurger();
+                order.Add(TRburger);
+                NavigationService.Navigate(new CustomizeTRexKingBurger(TRburger));
+            }
+        }
+
     }
 }
