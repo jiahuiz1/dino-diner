@@ -25,6 +25,7 @@
             <Button Width="150" Height="60" Grid.Row="1" Grid.Column="0" Margin="0,25,0,10" Click="OnSelectMeteorMacAndCheese">Meteor Mac &amp; Cheese</Button>
             <Button Width="150" Height="60" Grid.Row="2" Grid.Column="0" Margin="0,25,0,10" Click="OnSelectMezzorellaSticks">Mezzorella Sticks</Button>
             <Button Width="150" Height="60" Grid.Row="3" Grid.Column="0" Margin="0,25,0,10" Click="OnSelectTriceritots">Triceritots</Button>
+            <Button Width="150" Height="60" Grid.Row="3" Grid.Column="1" Margin="0,25,0,10" Click="OnDone">Done</Button>
             <RadioButton Width="150" Height="60" Grid.Row="0" Grid.Column="1" Margin="19,46,97,32" Tag="Small" Name="MakeSmall" Click="OnChangeSize">Small</RadioButton>
             <RadioButton Width="150" Height="80" Grid.Row="1" Grid.Column="1" Margin="19,46,97,11" Tag="Medium" Name="MakeMedium" Click="OnChangeSize">Medium</RadioButton>
             <RadioButton Width="150" Height="80" Grid.Row="2" Grid.Column="1" Margin="19,48,97,10" Tag="Large" Name="MakeLarge" Click="OnChangeSize">Large</RadioButton>

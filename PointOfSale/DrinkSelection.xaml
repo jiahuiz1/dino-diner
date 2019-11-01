@@ -28,7 +28,8 @@
             <RadioButton Width="150" Height="60" Grid.Row="0" Grid.Column="1" Margin="48,52,68,0" Tag="Small" Name="MakeSmall" Click="OnChangeSize">Small</RadioButton>
             <RadioButton Width="150" Height="60" Grid.Row="1" Grid.Column="1" Margin="48,53,68,0" Tag="Medium" Name="MakeMedium" Click="OnChangeSize">Medium</RadioButton>
             <RadioButton Width="150" Height="60" Grid.Row="2" Grid.Column="1" Margin="48,52,68,0" Tag="Large" Name="MakeLarge" Click="OnChangeSize">Large</RadioButton>
-            <Button Name="Done" Click="BackToMenu" Width="100" Height="50" Grid.Row="3" Grid.Column="1" Margin="0,25,0,10">Done</Button>
+            <Button Name="Done" Click="BackToMenu" Width="100" Height="50" Grid.Row="3" Grid.Column="1" Margin="0,25,0,10">BackToMenu</Button>
+            <Button Name="ToCombo" Click="BackToCombo" Width="100" Height="50" Grid.Row="3" Grid.Column="2" Margin="0,25,0,10">BackToCombo</Button>
             <Button Click="ChangeSweetDecafFlavorButton" Width="150" Grid.Row="0" Grid.Column="2" Margin="0,25,0,5" Name="SweetDecafFlavor">Sweet/Decaf/Flavor</Button>
             <Button Click="ChangeAddLemonButton" Width="150" Height="60" Grid.Row="1" Grid.Column="2" Margin="0,25,0,5" Name="AddLemon">AddLemon</Button>
             <Button Click="ChangeHoldIceButton" Width="150" Height="60" Grid.Row="2" Grid.Column="2" Margin="0,25,0,5" Name="HoldIce">Hold Ice</Button>

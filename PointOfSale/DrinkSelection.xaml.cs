@@ -29,6 +29,9 @@ namespace PointOfSale
         /// </summary>
         private Drink drink { get; set; }
 
+        /// <summary>
+        /// current size
+        /// </summary>
         private DDSize size { get; set; }
 
         /// <summary>
@@ -42,6 +45,10 @@ namespace PointOfSale
             HoldIce.IsEnabled = false;
         }
 
+        /// <summary>
+        /// Another constructor that passes an object of drink
+        /// </summary>
+        /// <param name="drink"></param>
         public DrinkSelection(Drink drink)
         {
             InitializeComponent();
@@ -125,7 +132,7 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// The size button is pressed, 
+        /// The size button is pressed, apply the size to the drink
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
@@ -137,6 +144,11 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Event handler for Hold Ice button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void HoldIceChange(object sender, RoutedEventArgs args)
         {
             if(sender is FrameworkElement element)
@@ -145,6 +157,11 @@ namespace PointOfSale
             }
         }
        
+        /// <summary>
+        /// Event handler for SweetDecafFlavor button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void ChangeSweetDecafFlavorButton(object sender, RoutedEventArgs args)
         {
             if(sender is FrameworkElement element)
@@ -164,6 +181,11 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Event handler for Add Lemon
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void ChangeAddLemonButton(object sender, RoutedEventArgs args)
         {
             if (sender is FrameworkElement element)
@@ -179,6 +201,11 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Event handler for Hold Ice
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void ChangeHoldIceButton(object sender, RoutedEventArgs args)
         {
             if(sender is FrameworkElement element)
@@ -198,10 +225,19 @@ namespace PointOfSale
             }
         }
      
-
+        /// <summary>
+        /// Event handler for Done button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void BackToMenu(object sender, RoutedEventArgs args)
         {
-            NavigationService?.GoBack();
+            NavigationService?.Navigate(new MenuCategorySelection());
+        }
+
+        private void BackToCombo(object sender, RoutedEventArgs args)
+        {
+            NavigationService?.Navigate(new CustomizeCombo());
         }
     }
 }

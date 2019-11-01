@@ -21,24 +21,46 @@ namespace PointOfSale
     /// </summary>
     public partial class CustomizePrehistoricPBJ : Page
     {
+        /// <summary>
+        /// private field to store an object of PrehistoricPBJ
+        /// </summary>
         private PrehistoricPBJ pbj;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="pbj">an object of Prehistoric</param>
         public CustomizePrehistoricPBJ(PrehistoricPBJ pbj)
         {
             InitializeComponent();
             this.pbj = pbj;
         }
 
+        /// <summary>
+        /// Event handler for Hold Peanut button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void OnHoldPeanutButter(object sender, RoutedEventArgs args)
         {
             this.pbj.HoldPeanutButter();
         }
 
+        /// <summary>
+        /// Event handler for Hold Jelly button
+        /// </summary>
+        /// <param name="sende"></param>
+        /// <param name="args"></param>
         private void OnHoldJelly(object sende, RoutedEventArgs args)
         {
             pbj.HoldJelly();
         }
 
+        /// <summary>
+        /// Event handler for Done button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void OnDone(object sender, RoutedEventArgs args)
         {
             //go back to the previous page

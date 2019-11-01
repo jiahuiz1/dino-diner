@@ -22,15 +22,31 @@ namespace PointOfSale
     /// </summary>
     public partial class CustomizeCombo : Page
     {
-
+        /// <summary>
+        /// private property to store the entree
+        /// </summary>
         private Entree entree { get; set; }
 
+        /// <summary>
+        /// private property to store the side
+        /// </summary>
         private Side side { get; set; } = new Fryceritops();
 
+        /// <summary>
+        /// private property to store the drink
+        /// </summary>
         private Drink drink { get; set; } = new Sodasaurus();
 
         /// <summary>
-        /// The constructor
+        /// Constructor
+        /// </summary>
+        public CustomizeCombo()
+        {
+            InitializeComponent();
+        }
+
+        /// <summary>
+        /// The other constructor that passes an entree
         /// </summary>
         public CustomizeCombo(Entree entree)
         {
@@ -104,18 +120,33 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Change the size of combo to small
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void ChangeComboSizeSmall(object sender, RoutedEventArgs args)
         {
             side.Size = DDSize.Small;
             drink.Size = DDSize.Small;
         }    
         
+        /// <summary>
+        /// change the size of combo to medium
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void ChangeComboSizeMedium(object sender, RoutedEventArgs args)
         {
             side.Size = DDSize.Medium;
             drink.Size = DDSize.Medium;
         }
 
+        /// <summary>
+        /// change the size of combo to large
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void ChangeComboSizeLarge(object sender, RoutedEventArgs args)
         {
             side.Size = DDSize.Large;

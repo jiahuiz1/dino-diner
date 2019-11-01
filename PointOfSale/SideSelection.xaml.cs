@@ -27,6 +27,10 @@ namespace PointOfSale
         /// </summary>
         private Side side { get; set; }
 
+
+        /// <summary>
+        /// current size
+        /// </summary>
         private DDSize size { get; set; }
 
         /// <summary>
@@ -65,7 +69,6 @@ namespace PointOfSale
                 side = new Fryceritops();
                 side.Size = size;
                 order.Add(side);
-                NavigationService.GoBack();
             } 
         }
 
@@ -81,7 +84,6 @@ namespace PointOfSale
                 side = new MeteorMacAndCheese();
                 side.Size = size;
                 order.Add(side);
-                NavigationService.GoBack();
             }
         }
 
@@ -97,7 +99,6 @@ namespace PointOfSale
                 side = new MezzorellaSticks();
                 side.Size = size;
                 order.Add(side);
-                NavigationService.GoBack();
             }
         }
 
@@ -113,7 +114,6 @@ namespace PointOfSale
                 side = new Triceritots();
                 side.Size = size;
                 order.Add(side);
-                NavigationService.GoBack();
             }
         }
 
@@ -129,5 +129,16 @@ namespace PointOfSale
                 side.Size = (DDSize)Enum.Parse(typeof(DDSize), element.Tag.ToString());
             }
         }
+
+        /// <summary>
+        /// Event handler for Done button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void OnDone(object sender, RoutedEventArgs args)
+        {
+            NavigationService.GoBack();
+        }
+        
     }
 }
