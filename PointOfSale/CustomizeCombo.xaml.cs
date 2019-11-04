@@ -22,6 +22,7 @@ namespace PointOfSale
     /// </summary>
     public partial class CustomizeCombo : Page
     {
+       
         /// <summary>
         /// private property to store the entree
         /// </summary>
@@ -37,6 +38,7 @@ namespace PointOfSale
         /// </summary>
         private Drink drink { get; set; } = new Sodasaurus();
 
+
         /// <summary>
         /// Constructor
         /// </summary>
@@ -48,10 +50,10 @@ namespace PointOfSale
         /// <summary>
         /// The other constructor that passes an entree
         /// </summary>
-        public CustomizeCombo(Entree entree)
+        public CustomizeCombo(CretaceousCombo combo)
         {
             InitializeComponent();
-            this.entree = entree;
+            this.entree = combo.Entree;
         }
 
         /// <summary>

@@ -237,7 +237,7 @@ namespace PointOfSale
 
         private void BackToCombo(object sender, RoutedEventArgs args)
         {
-            NavigationService?.Navigate(new CustomizeCombo());
+            NavigationService?.GoBack();
         }
     }
 }
