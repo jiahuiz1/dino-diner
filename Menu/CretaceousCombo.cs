@@ -33,12 +33,27 @@ namespace DinoDiner.Menu
                 NotifyOfPropertyChanged("Entree");
             }
         }
-       
+
+        private Side side = new Fryceritops();
 
         /// <summary>
         /// Gets and sets the side
         /// </summary>
-        public Side Side { get; set; } = new Fryceritops();
+        public Side Side
+        {
+            get { return side; }
+            set
+            {
+                side = value;
+                side.PropertyChanged += OnItemChange;
+                side.Size = size;
+                NotifyOfPropertyChanged("Ingredients");
+                NotifyOfPropertyChanged("Special");
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Calories");
+                NotifyOfPropertyChanged("Description");
+            }
+        }
 
         private Drink drink = new Sodasaurus();
 
@@ -51,10 +66,13 @@ namespace DinoDiner.Menu
             set
             {
                 drink = value;
+                drink.PropertyChanged += OnItemChange;
+                drink.Size = size;
                 NotifyOfPropertyChanged("Ingredients");
                 NotifyOfPropertyChanged("Special");
                 NotifyOfPropertyChanged("Price");
                 NotifyOfPropertyChanged("Calories");
+                NotifyOfPropertyChanged("Description");
             }
         }
 
@@ -92,7 +110,7 @@ namespace DinoDiner.Menu
                 Drink.Size = value;
                 Side.Size = value;
 
-                NotifyOfPropertyChanged("Size");
+                NotifyOfPropertyChanged("Ingredients");
                 NotifyOfPropertyChanged("Special");
                 NotifyOfPropertyChanged("Price");
                 NotifyOfPropertyChanged("Calories");
@@ -138,12 +156,8 @@ namespace DinoDiner.Menu
         public string Description
         {
             get
-            {
-                StringBuilder sb = new StringBuilder();
-                sb.Append(Side.ToString());
-                sb.Append(" ");
-                sb.Append(Drink.ToString());
-                return sb.ToString();
+            {               
+                return this.ToString();
             }
         }
 
@@ -155,6 +169,7 @@ namespace DinoDiner.Menu
         public CretaceousCombo(Entree entree)
         {
             this.Entree = entree;
+            entree.PropertyChanged += OnItemChange;
         }
 
         /// <summary>
@@ -164,6 +179,15 @@ namespace DinoDiner.Menu
         public override string ToString()
         {
             return $"{Entree.ToString()} Combo";
+        }
+
+        private void OnItemChange(object sender, PropertyChangedEventArgs args)
+        {
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
+            NotifyOfPropertyChanged("Price");
+            NotifyOfPropertyChanged("Calories");
+            NotifyOfPropertyChanged("Description");
         }
     }
 }

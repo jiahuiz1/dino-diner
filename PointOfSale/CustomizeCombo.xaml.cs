@@ -22,7 +22,11 @@ namespace PointOfSale
     /// </summary>
     public partial class CustomizeCombo : Page
     {
-       
+        /// <summary>
+        /// Combo to store the drink, side and entree
+        /// </summary>
+        private CretaceousCombo combo;
+        
         /// <summary>
         /// private property to store the entree
         /// </summary>
@@ -53,7 +57,10 @@ namespace PointOfSale
         public CustomizeCombo(CretaceousCombo combo)
         {
             InitializeComponent();
+            this.combo = combo;
             this.entree = combo.Entree;
+            this.combo.Drink = drink;
+            this.combo.Side = side;
         }
 
         /// <summary>
@@ -63,7 +70,7 @@ namespace PointOfSale
         /// <param name="args"></param>
         void SelectSide(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new SideSelection(side));
+            NavigationService.Navigate(new SideSelection(combo));
         }
 
         /// <summary>
@@ -73,7 +80,7 @@ namespace PointOfSale
         /// <param name="args"></param>
         void SelectDrink(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new DrinkSelection(drink));
+            NavigationService.Navigate(new DrinkSelection(combo));
         }
 
         /// <summary>
@@ -83,40 +90,33 @@ namespace PointOfSale
         /// <param name="args"></param>
         void SelectEntree(object sender, RoutedEventArgs args)
         {
-            if(DataContext is Order order)
+            if(combo.Entree is Entree entree)
             {
                 if (entree is Brontowurst bw)
                 {
-                    order.Add(bw);
                     NavigationService.Navigate(new CustomizeBrontowurst(bw));
                 }
                 else if (entree is DinoNuggets nuggets)
                 {
-                    order.Add(nuggets);
                     NavigationService.Navigate(new CustomizeDinoNuggets(nuggets));
                 }
                 else if(entree is PrehistoricPBJ pbj)
                 {
-                    order.Add(pbj);
                     NavigationService.Navigate(new CustomizePrehistoricPBJ(pbj));
                 }
                 else if(entree is PterodactylWings wings)
-                {
-                    order.Add(wings);                  
+                {             
                 }
                 else if(entree is SteakosaurusBurger burger)
                 {
-                    order.Add(burger);
                     NavigationService.Navigate(new CustomizeSteakosaurusBurger(burger));
                 }
                 else if(entree is TRexKingBurger TRburger)
                 {
-                    order.Add(TRburger);
                     NavigationService.Navigate(new CustomizeTRexKingBurger(TRburger));
                 }
                 else if(entree is VelociWrap wrap)
                 {
-                    order.Add(wrap);
                     NavigationService.Navigate(new CustomizeVelociWrap(wrap));
                 }
             }

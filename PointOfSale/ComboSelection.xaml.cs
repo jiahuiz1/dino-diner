@@ -39,58 +39,83 @@ namespace PointOfSale
         /// <param name="args"></param>
         void SelectPterodactylWingsCombo(object sender, RoutedEventArgs args)
         {
-            PterodactylWings wings = new PterodactylWings();
-            CretaceousCombo combo = new CretaceousCombo(wings);
             if(DataContext is Order order)
             {
+                PterodactylWings wings = new PterodactylWings();
+                CretaceousCombo combo = new CretaceousCombo(wings);
                 order.Add(combo);
+                NavigationService.Navigate(new CustomizeCombo(combo));
             }
-            NavigationService.Navigate(new CustomizeCombo(combo));
         }
 
         void SelectBrontowurstCombo(object sender, RoutedEventArgs args)
         {
-            Brontowurst wurst = new Brontowurst();
-            CretaceousCombo combo = new CretaceousCombo(wurst);
-            NavigationService.Navigate(new CustomizeCombo(combo));
+            
+            if (DataContext is Order order)
+            {
+                Brontowurst wurst = new Brontowurst();
+                CretaceousCombo combo = new CretaceousCombo(wurst);
+                order.Add(combo);
+                NavigationService.Navigate(new CustomizeCombo(combo));
+            }          
         }
 
         void SelectDinoNuggetsCombo(object sender, RoutedEventArgs args)
         {
-            DinoNuggets nuggets = new DinoNuggets();
-            CretaceousCombo combo = new CretaceousCombo(nuggets);
-            NavigationService.Navigate(new CustomizeCombo(combo));
+            if (DataContext is Order order)
+            {
+                DinoNuggets nuggets = new DinoNuggets();
+                CretaceousCombo combo = new CretaceousCombo(nuggets);
+                order.Add(combo);
+                NavigationService.Navigate(new CustomizeCombo(combo));
+            }
         }
 
         void SelectPrehistoricPBJCombo(object sender, RoutedEventArgs args)
         {
-            PrehistoricPBJ pbj = new PrehistoricPBJ();
-            CretaceousCombo combo = new CretaceousCombo(pbj);
-            NavigationService.Navigate(new CustomizeCombo(combo));
+            if (DataContext is Order order)
+            {
+                PrehistoricPBJ pbj = new PrehistoricPBJ();
+                CretaceousCombo combo = new CretaceousCombo(pbj);
+                order.Add(combo);
+                NavigationService.Navigate(new CustomizeCombo(combo));
+            }          
         }
 
 
         void SelectSteakosaurusBurgerCombo(object sender, RoutedEventArgs args)
-        {
-            SteakosaurusBurger burger = new SteakosaurusBurger();
-            CretaceousCombo combo = new CretaceousCombo(burger);
-            NavigationService.Navigate(new CustomizeCombo(combo));
+        {           
+            if (DataContext is Order order)
+            {
+                SteakosaurusBurger burger = new SteakosaurusBurger();
+                CretaceousCombo combo = new CretaceousCombo(burger);
+                order.Add(combo);
+                NavigationService.Navigate(new CustomizeCombo(combo));
+            }
         }
 
 
         void SelectTRexKingBurgerCombo(object sender, RoutedEventArgs args)
         {
-            TRexKingBurger tr = new TRexKingBurger();
-            CretaceousCombo combo = new CretaceousCombo(tr);
-            NavigationService.Navigate(new CustomizeCombo(combo));
+            if (DataContext is Order order)
+            {
+                TRexKingBurger tr = new TRexKingBurger();
+                CretaceousCombo combo = new CretaceousCombo(tr);
+                order.Add(combo);
+                NavigationService.Navigate(new CustomizeCombo(combo));
+            }
         }
 
 
         void SelectVelociWrapCombo(object sender, RoutedEventArgs args)
         {
-            VelociWrap wrap = new VelociWrap();
-            CretaceousCombo combo = new CretaceousCombo(wrap);
-            NavigationService.Navigate(new CustomizeCombo(combo));
+            if (DataContext is Order order)
+            {
+                VelociWrap wrap = new VelociWrap();
+                CretaceousCombo combo = new CretaceousCombo(wrap);
+                order.Add(combo);
+                NavigationService.Navigate(new CustomizeCombo(combo));
+            }
         }
       
     }

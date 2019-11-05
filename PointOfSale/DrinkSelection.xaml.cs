@@ -25,6 +25,11 @@ namespace PointOfSale
     public partial class DrinkSelection : Page
     {
         /// <summary>
+        /// combo to store drinks
+        /// </summary>
+        private CretaceousCombo combo { get; set; }
+        
+        /// <summary>
         /// current drink
         /// </summary>
         private Drink drink { get; set; }
@@ -49,16 +54,17 @@ namespace PointOfSale
         /// Another constructor that passes an object of drink
         /// </summary>
         /// <param name="drink"></param>
-        public DrinkSelection(Drink drink)
+        public DrinkSelection(CretaceousCombo combo)
         {
             InitializeComponent();
             SweetDecafFlavor.IsEnabled = false;
             AddLemon.IsEnabled = false;
             HoldIce.IsEnabled = false;
-            this.drink = drink;
-            this.size = drink.Size;
+            this.drink = combo.Drink;
+            this.size = combo.Drink.Size;
+            this.combo = combo;
         }
-
+        
         /// <summary>
         /// The JurrasicJava Button is pressed, enable its associated buttons
         /// </summary>
@@ -68,12 +74,22 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                drink = new JurassicJava();
-                drink.Size = size;
-                order.Add(drink);
-                SweetDecafFlavor.IsEnabled = true;
-                AddLemon.IsEnabled = false;
-                HoldIce.IsEnabled = false;         
+                if(combo != null)
+                {
+                    combo.Drink = new JurassicJava();
+                    SweetDecafFlavor.IsEnabled = true;
+                    AddLemon.IsEnabled = false;
+                    HoldIce.IsEnabled = false;
+                }
+                else
+                {
+                    drink = new JurassicJava();
+                    drink.Size = size;
+                    order.Add(drink);
+                    SweetDecafFlavor.IsEnabled = true;
+                    AddLemon.IsEnabled = false;
+                    HoldIce.IsEnabled = false;
+                }                 
             }
         }
 
@@ -86,12 +102,22 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                drink = new Sodasaurus();
-                drink.Size = size;
-                order.Add(drink);
-                SweetDecafFlavor.IsEnabled = true;
-                HoldIce.IsEnabled = true;
-                AddLemon.IsEnabled = false;
+                if(combo != null)
+                {
+                    combo.Drink = new Sodasaurus();
+                    SweetDecafFlavor.IsEnabled = true;
+                    HoldIce.IsEnabled = true;
+                    AddLemon.IsEnabled = false;
+                }
+                else
+                {
+                    drink = new Sodasaurus();
+                    drink.Size = size;
+                    order.Add(drink);
+                    SweetDecafFlavor.IsEnabled = true;
+                    HoldIce.IsEnabled = true;
+                    AddLemon.IsEnabled = false;
+                }              
             }
         }
 
@@ -104,12 +130,23 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                drink = new Tyrannotea();
-                drink.Size = size;
-                order.Add(drink);
-                SweetDecafFlavor.IsEnabled = true;
-                HoldIce.IsEnabled = true;
-                AddLemon.IsEnabled = true;
+                if(combo != null)
+                {
+                    combo.Drink = new Tyrannotea();
+                    SweetDecafFlavor.IsEnabled = true;
+                    HoldIce.IsEnabled = true;
+                    AddLemon.IsEnabled = true;
+                }
+                else
+                {
+                    drink = new Tyrannotea();
+                    drink.Size = size;
+                    order.Add(drink);
+                    SweetDecafFlavor.IsEnabled = true;
+                    HoldIce.IsEnabled = true;
+                    AddLemon.IsEnabled = true;
+
+                }               
             }
         }
 
@@ -122,12 +159,22 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                drink = new Water();
-                drink.Size = size;
-                order.Add(drink);
-                SweetDecafFlavor.IsEnabled = false;
-                HoldIce.IsEnabled = true;
-                AddLemon.IsEnabled = true;
+                if(combo != null)
+                {
+                    combo.Drink = new Water();
+                    SweetDecafFlavor.IsEnabled = false;
+                    HoldIce.IsEnabled = true;
+                    AddLemon.IsEnabled = true;
+                }
+                else
+                {
+                    drink = new Water();
+                    drink.Size = size;
+                    order.Add(drink);
+                    SweetDecafFlavor.IsEnabled = false;
+                    HoldIce.IsEnabled = true;
+                    AddLemon.IsEnabled = true;
+                }                
             }
         }
 
@@ -140,7 +187,15 @@ namespace PointOfSale
         {
             if (sender is FrameworkElement element)
             {
-                drink.Size = (DDSize)Enum.Parse(typeof(DDSize), element.Tag.ToString());                           
+                if(combo == null)
+                {
+                    drink.Size = (DDSize)Enum.Parse(typeof(DDSize), element.Tag.ToString());
+                }
+                else
+                {
+                    combo.Drink.Size = (DDSize)Enum.Parse(typeof(DDSize), element.Tag.ToString());
+                }
+                
             }
         }
 
@@ -176,7 +231,14 @@ namespace PointOfSale
                 }
                 else if(drink is Sodasaurus soda)
                 {
-                    NavigationService.Navigate(new FlavorSelection(soda));
+                    if(combo == null)
+                    {
+                        NavigationService.Navigate(new FlavorSelection(soda));
+                    }
+                    else
+                    {
+                        NavigationService.Navigate(new FlavorSelection(combo));
+                    }
                 }
             }
         }
@@ -235,9 +297,22 @@ namespace PointOfSale
             NavigationService?.Navigate(new MenuCategorySelection());
         }
 
+        /// <summary>
+        /// Event handler for backing to combo
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void BackToCombo(object sender, RoutedEventArgs args)
         {
-            NavigationService?.GoBack();
+            if(combo == null)
+            {
+                NavigationService.Navigate(new MenuCategorySelection());
+            }
+            else
+            {
+                NavigationService?.Navigate(new CustomizeCombo(combo));
+            }
+           
         }
     }
 }

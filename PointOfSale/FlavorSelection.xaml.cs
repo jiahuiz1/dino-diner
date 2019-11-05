@@ -23,6 +23,16 @@ namespace PointOfSale
     public partial class FlavorSelection : Page
     {
         /// <summary>
+        /// private field to store soda
+        /// </summary>
+        private Sodasaurus soda;
+
+        /// <summary>
+        /// private field to store combo
+        /// </summary>
+        private CretaceousCombo combo;
+
+        /// <summary>
         /// Current drink
         /// </summary>
         private Drink drink;     
@@ -33,6 +43,17 @@ namespace PointOfSale
         public FlavorSelection()
         {
             InitializeComponent();
+        }
+
+        /// <summary>
+        /// Anthor constructor 
+        /// </summary>
+        /// <param name="combo">combo</param>
+        public FlavorSelection(CretaceousCombo combo)
+        {
+            InitializeComponent();
+            this.combo = combo;
+            soda = (Sodasaurus)combo.Drink;
         }
 
         /// <summary>
@@ -57,11 +78,16 @@ namespace PointOfSale
         {
             if(sender is FrameworkElement element)
             {
-                if(drink is Sodasaurus soda)
+                if(combo == null)
                 {
                     soda.Flavor = (DDFlavor)Enum.Parse(typeof(DDFlavor), element.Tag.ToString());
+                    NavigationService?.Navigate(new DrinkSelection());
                 }
-                NavigationService?.Navigate(new DrinkSelection());
+                else
+                {
+                    soda.Flavor = (DDFlavor)Enum.Parse(typeof(DDFlavor), element.Tag.ToString());
+                    NavigationService?.Navigate(new DrinkSelection(combo));
+                }             
             }
         }
 
