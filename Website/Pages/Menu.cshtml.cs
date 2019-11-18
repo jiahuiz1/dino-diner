@@ -8,6 +8,9 @@ using DinoDiner.Menu;
 
 namespace Website.Pages
 {
+    /// <summary>
+    /// MenuPage class
+    /// </summary>
     public class MenuModel : PageModel
     {
         /// <summary>
