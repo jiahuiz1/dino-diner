@@ -22,3 +22,19 @@ body {
     flex-direction: row;
 }
 
+.content{
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+}
+
+.menu-category{
+    display: flex;
+    flex-direction: column;
+}
+
+.number{
+    display: flex;
+    flex-direction: row;
+}
+

@@ -4,72 +4,121 @@
     ViewData["Title"] = "Menu";
 }
 
-<h1>Menu</h1>
+    <div class="content">
+        <h1>Menu</h1>
+        
+        <div class="menu-item">
+            <h2>Combos</h2>
+            @for (int i = 0; i < Model.combos.Count; i++)
+            {
+                <h3>@Model.combos[i].ToString()</h3>
+                <div>Price: @Model.combos[i].Price</div>
+                <div>Calories: @Model.combos[i].Calories</div>
+                <div>
+                    Ingredients:
+                    @for (int j = 0; j < Model.combos[i].Ingredients.Count; j++)
+                    {
+                        <div>@Model.combos[i].Ingredients[j].ToString()</div>
+                    }
+                </div>
+                <p>drink of combo: @Model.combos[i].Drink</p>
+                <p>side of combo: @Model.combos[i].Side</p>
+            }
 
-<h2>Combos</h2>
-<div class="menu-item">
-    @for (int i = 0; i < Model.combos.Count; i++)
-    {
-        <h3>@Model.combos[i].ToString()</h3>
-        <div>Price: @Model.combos[i].Price</div>
-        <div>Calories: @Model.combos[i].Calories</div>
-        <div> 
-            Ingredients:
-           @for (int j = 0; j < Model.combos[i].Ingredients.Count; j++)
+            <h2>Entrees</h2>
+            @for (int i = 0; i < Model.entrees.Count; i++)
             {
-               <div>@Model.combos[i].Ingredients[j].ToString()</div>
+                <h3>@Model.entrees[i].ToString()</h3>
+                <div>Price: @Model.entrees[i].Price</div>
+                <div>Calories: @Model.entrees[i].Calories</div>
+                <div>
+                    Ingredients:
+                    @for (int j = 0; j < Model.entrees[i].Ingredients.Count; j++)
+                    {
+                        <div>  @Model.entrees[i].Ingredients[j].ToString()</div>
+                    }
+                </div>
             }
-         </div>
-        <p>drink of combo: @Model.combos[i].Drink</p>
-        <p>side of combo: @Model.combos[i].Side</p>
-    }
-</div>
-<h2>Entrees</h2>
-<div class="menu-item">
-    @for (int i = 0; i < Model.entrees.Count; i++)
-     {
-        <h3>@Model.entrees[i].ToString()</h3>
-        <div>Price: @Model.entrees[i].Price</div>
-        <div>Calories: @Model.entrees[i].Calories</div>
-        <div>
-            Ingredients:
-           @for (int j = 0; j < Model.entrees[i].Ingredients.Count; j++)
+
+            <h2>Sides</h2>
+            @for (int i = 0; i < Model.sides.Count; i++)
             {
-               <div>  @Model.entrees[i].Ingredients[j].ToString()</div>
+                <h3>@Model.sides[i].ToString()</h3>
+                <div>Price: @Model.sides[i].Price</div>
+                <div>Calories: @Model.sides[i].Calories</div>
+                <div>
+                    Ingredients:
+                    @for (int j = 0; j < Model.sides[i].Ingredients.Count; j++)
+                    {
+                        <div>  @Model.sides[i].Ingredients[j].ToString()</div>
+                    }
+                </div>
             }
-        </div>       
-     }
-</div>
-<h2>Sides</h2>
-<div class="menu-item">
-    @for(int i = 0; i < Model.sides.Count; i++)
-    {
-        <h3>@Model.sides[i].ToString()</h3>
-        <div>Price: @Model.sides[i].Price</div>
-        <div>Calories: @Model.sides[i].Calories</div>
-        <div>
-            Ingredients:
-            @for(int j = 0; j < Model.sides[i].Ingredients.Count; j++)
+
+            <h2>Drinks</h2>
+            @for (int i = 0; i < Model.drinks.Count; i++)
             {
-                <div>  @Model.sides[i].Ingredients[j].ToString()</div>
+                <h3>@Model.drinks[i].ToString()</h3>
+                <div>Price: @Model.drinks[i].Price</div>
+                <div>Calories: @Model.drinks[i].Calories</div>
+                <div>
+                    Ingredients:
+                    @for (int j = 0; j < Model.drinks[i].Ingredients.Count; j++)
+                    {
+                        <div>  @Model.drinks[i].Ingredients[j].ToString()</div>
+                    }
+                </div>
             }
         </div>
-    }
-</div>
-<h2>Drinks</h2>
-<div class="menu-item">
-    @for (int i = 0; i < Model.drinks.Count; i++)
-    {
-        <h3>@Model.drinks[i].ToString()</h3>
-        <div>Price: @Model.drinks[i].Price</div>
-        <div>Calories: @Model.drinks[i].Calories</div>
-        <div>
-            Ingredients:
-            @for (int j = 0; j < Model.drinks[i].Ingredients.Count; j++)
-            {
-                <div>  @Model.drinks[i].Ingredients[j].ToString()</div>
-            }
-        </div>
-}
-</div>
+
+        <form method="post">
+            <input type="text" name="search" id="search" value="@Model.search" />
+            <input type="submit" value="Search" />
+            <input type="submit" name="filter" id="filter" value="Apply Filter(s)" />
+
+            <h4>Menu Category</h4>
+            <div class="menu-category">
+                <label>
+                    <input type="checkbox" name="menuCategory" value="Combo" checked="" />
+                </label>
+                <label>
+                    <input type="checkbox" name="menuCategory" value="Entree" checked="" />
+                </label>
+                <label>
+                    <input type="checkbox" name="menuCategory" value="Side" checked="" />
+                </label>
+                <label>
+                    <input type="checkbox" name="menuCategory" value="Drink " checked="" />
+                </label>
+
+            </div>
+
+            <h4>Price</h4>
+            <div class="number">
+                <label>
+                    Min: <input type="number" min="0" max="10" id="minimum-price" name="minimumPrice" value="@Model.minPrice" />
+                </label>
+                <label>
+                    Min: <input type="number" min="0" max="10" id="maximum-price" name="maximumPrice" value="@Model.maxPrice" />
+                </label>
+            </div>
+
+            <div class="checkbox-list">
+                <h4>Excluding Ingredients</h4>
+                <label>
+                    <input type="checkbox" name="ingredients" value="Bread" checked="" />
+                </label>
+                <label>
+                    <input type="checkbox" name="ingredients" value="Chicken" checked="" />
+                </label>
+                <label>
+                    <input type="checkbox" name="ingredients" value="Bread" checked="" />
+                </label>
+                <label>
+                    <input type="checkbox" name="ingredients" value="Bread" checked="" />
+                </label>
+            </div>
+        </form>
+
+    </div>
 

@@ -18,6 +18,14 @@ namespace Website.Pages
         /// </summary>
         Menu menu = new Menu();
 
+        [BindProperty]
+        public string search { get; set; }
+
+        [BindProperty]
+        public float? minPrice { get; set; }
+
+        [BindProperty]
+        public float? maxPrice { get; set; }
         /// <summary>
         /// Read only property to access the private menu field
         /// </summary>
@@ -76,6 +84,14 @@ namespace Website.Pages
         public void OnGet()
         {
 
+        }
+
+        public void OnPost()
+        {
+            if(search != null)
+            {
+                
+            }
         }
     }
 }

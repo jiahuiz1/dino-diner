@@ -138,5 +138,70 @@ namespace DinoDiner.Menu
 
             return sb.ToString();
         }
+
+        public List<IMenuItem> Search(List<IMenuItem> menus, string searchString)
+        {
+            List<IMenuItem> result = new List<IMenuItem>();
+
+            foreach(IMenuItem item in menus)
+            {
+                //check this if only have one parameter
+                if (item.ToString().Contains(searchString))
+                {
+                    result.Add(item);
+                }
+            }
+
+            return result;
+        }
+
+        //how to check if the menuitem is a category. if do nested foreach, there could be duplicate
+        public List<IMenuItem> Filter(List<IMenuItem> menus, List<string> categories)
+        {
+            List<IMenuItem> result = new List<IMenuItem>();
+
+            foreach(string category in categories)
+            {
+                foreach(IMenuItem item in menus)
+                {
+                    if(item is category)
+                    {
+                        result.Add(item);
+                    }
+                }
+            }
+
+            return result;
+        }
+
+        public List<IMenuItem> FilterByMinPrice(List<IMenuItem> menus, float? minPrice)
+        {
+            List<IMenuItem> results = new List<IMenuItem>();
+
+            foreach(IMenuItem item in menus)
+            {
+                if(item.Price >= minPrice)
+                {
+                    results.Add(item);
+                }
+            }
+
+            return results;
+        }
+
+        public List<IMenuItem> FilterByMaxPrice(List<IMenuItem> menus, float? maxPrice)
+        {
+            List<IMenuItem> results = new List<IMenuItem>();
+
+            foreach (IMenuItem item in menus)
+            {
+                if (item.Price <= maxPrice)
+                {
+                    results.Add(item);
+                }
+            }
+
+            return results;
+        }
     }
 }
