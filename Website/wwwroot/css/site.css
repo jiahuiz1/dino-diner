@@ -26,6 +26,7 @@ body {
     display: flex;
     flex-direction: row;
     width: 100vw;
+    justify-content: space-between;
 }
 
 .menu-category{
@@ -36,5 +37,10 @@ body {
 .number{
     display: flex;
     flex-direction: row;
+}
+
+.exclude-ingredient{
+    display: flext;
+    flex-direction: column;
 }
 

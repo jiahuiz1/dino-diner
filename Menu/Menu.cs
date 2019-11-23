@@ -26,9 +26,9 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Return all available entrees as a list 
         /// </summary>
-        public List<Entree> AvailableEntrees {
+        public List<IMenuItem> AvailableEntrees {
             get {
-                List<Entree> ingredients = new List<Entree>();
+                List<IMenuItem> ingredients = new List<IMenuItem>();
                 Brontowurst bt = new Brontowurst();
                 DinoNuggets dn = new DinoNuggets();
                 PrehistoricPBJ pbj = new PrehistoricPBJ();
@@ -52,9 +52,9 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Return all available sides as a list
         /// </summary>
-        public List<Side> AvailableSides {
+        public List<IMenuItem> AvailableSides {
             get {
-                List<Side> list = new List<Side>();
+                List<IMenuItem> list = new List<IMenuItem>();
                 Fryceritops ff = new Fryceritops();
                 MeteorMacAndCheese mmc = new MeteorMacAndCheese();
                 Triceritots tt = new Triceritots();
@@ -71,9 +71,9 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Return all available drinks as a list
         /// </summary>
-        public List<Drink> AvailableDrinks {
+        public List<IMenuItem> AvailableDrinks {
             get {
-                List<Drink> list = new List<Drink>();
+                List<IMenuItem> list = new List<IMenuItem>();
                 Sodasaurus ss = new Sodasaurus();
                 Tyrannotea ttea = new Tyrannotea();
                 JurassicJava jj = new JurassicJava();
@@ -90,9 +90,9 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Return all available combos as a list
         /// </summary>
-        public List<CretaceousCombo> AvailableCombos {
+        public List<IMenuItem> AvailableCombos {
             get {
-                List<CretaceousCombo> ingredients = new List<CretaceousCombo>();
+                List<IMenuItem> ingredients = new List<IMenuItem>();
                 Brontowurst bt = new Brontowurst();
                 DinoNuggets dn = new DinoNuggets();
                 PrehistoricPBJ pbj = new PrehistoricPBJ();
@@ -122,6 +122,11 @@ namespace DinoDiner.Menu
 
             }
         }
+
+        public string PossibleIngredients { get; set; }
+
+
+
 
         /// <summary>
         /// override the ToString() method that contains the string of all MenuItems
@@ -156,19 +161,28 @@ namespace DinoDiner.Menu
         }
 
         //how to check if the menuitem is a category. if do nested foreach, there could be duplicate
-        public List<IMenuItem> Filter(List<IMenuItem> menus, List<string> categories)
+        public List<IMenuItem> SearchAndFilter(List<IMenuItem> menus, List<string> categories, string searchString)
         {
             List<IMenuItem> result = new List<IMenuItem>();
-
-            foreach(string category in categories)
+            
+            foreach (IMenuItem item in menus)
             {
-                foreach(IMenuItem item in menus)
+                if (item is CretaceousCombo && categories.Contains("Combo") && item.ToString().Contains(searchString))
                 {
-                    if(item is category)
-                    {
-                        result.Add(item);
-                    }
+                    result.Add(item);
                 }
+                if(item is Entree && categories.Contains("Entree") && item.ToString().Contains(searchString))
+                {
+                    result.Add(item);
+                }
+                if (item is Side && categories.Contains("Side") && item.ToString().Contains(searchString))
+                {
+                    result.Add(item);
+                }
+                if (item is Drink && categories.Contains("Drink") && item.ToString().Contains(searchString))
+                {
+                    result.Add(item);
+                }               
             }
 
             return result;

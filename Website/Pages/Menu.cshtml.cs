@@ -16,7 +16,9 @@ namespace Website.Pages
         /// <summary>
         /// private field to store the menu object
         /// </summary>
-        Menu menu = new Menu();
+       
+
+        public List<IMenuItem> items;
 
         [BindProperty]
         public string search { get; set; }
@@ -26,72 +28,71 @@ namespace Website.Pages
 
         [BindProperty]
         public float? maxPrice { get; set; }
+
+        [BindProperty]
+        public List<string> filters { get; set; } = new List<string>();
+
+
+        public List<IMenuItem> Combos { get; set; }
+
+        public List<IMenuItem> Entrees { get; set; }
+
+        public List<IMenuItem> Sides { get; set; }
+
+        public List<IMenuItem> Drinks { get; set; }
+
         /// <summary>
         /// Read only property to access the private menu field
         /// </summary>
-        public Menu Menu
-        {
-            get
-            {
-                return this.menu;
-            }
-        }
+        public Menu Menu { get; } = new Menu();
 
-        /// <summary>
-        /// Gets the available combos of the menu
-        /// </summary>
-        public List<CretaceousCombo> combos
-        {
-            get
-            {
-                return Menu.AvailableCombos;
-            }
-        }
 
-        /// <summary>
-        /// Gets the available entrees of the menu
-        /// </summary>
-        public List<Entree> entrees
-        {
-            get
-            {
-                return Menu.AvailableEntrees;
-            }
-        }
-
-        /// <summary>
-        /// Gets the available sides of the menu
-        /// </summary>
-        public List<Side> sides
-        {
-            get
-            {
-                return Menu.AvailableSides;
-            }
-        }
-
-        /// <summary>
-        /// Gets the available drinks of the menu
-        /// </summary>
-        public List<Drink> drinks
-        {
-            get
-            {
-                return Menu.AvailableDrinks;
-            }
-        }
+            
 
         public void OnGet()
         {
-
+            items = Menu.AvailableMenuItems;
+            Combos = Menu.AvailableCombos;
+            Entrees = Menu.AvailableEntrees;
+            Sides = Menu.AvailableSides;
+            Drinks = Menu.AvailableDrinks;
         }
 
         public void OnPost()
         {
-            if(search != null)
+            items = Menu.AvailableMenuItems;
+            Combos = Menu.AvailableCombos;
+            Entrees = Menu.AvailableEntrees;
+            Sides = Menu.AvailableSides;
+            Drinks = Menu.AvailableDrinks;
+
+            if (search != null)
             {
-                
+                Combos = Menu.Search(Combos, search);
+                Entrees = Menu.Search(Entrees, search);
+                Sides = Menu.Search(Sides, search);
+                Drinks = Menu.Search(Drinks, search);
             }
+
+            if(filters.Count != 0)
+            {
+                items = Menu.SearchAndFilter(items, filters, search);
+            }
+
+            if(minPrice != null)
+            {
+                items = Menu.FilterByMinPrice(items, minPrice);
+                Combos = Menu.FilterByMinPrice(Combos, minPrice);
+                Entrees = Menu.FilterByMinPrice(Entrees, minPrice);
+                Sides = Menu.FilterByMinPrice(Sides, minPrice);
+                Drinks = Menu.FilterByMinPrice(Drinks, minPrice);
+            }
+
+            if(maxPrice != null)
+            {
+                items = Menu.FilterByMaxPrice(items, maxPrice);
+            }
+
         }
     }
 }
