@@ -33,58 +33,55 @@
                 <h2>Entrees</h2>
                 @for (int i = 0; i < Model.Entrees.Count; i++)
                 {
-                    @if (Model.items.Contains(Model.Entrees[i]))
-                    {
+                    Entree entree = Model.Entrees[i] as Entree;
                 
-                    <h3>@Model.Entrees[i].ToString()</h3>
-                    <div>Price: @Model.Entrees[i].Price</div>
-                    <div>Calories: @Model.Entrees[i].Calories</div>
+                    <h3>@entree.ToString()</h3>
+                    <div>Price: @entree.Price</div>
+                    <div>Calories: @entree.Calories</div>
                     <div>
                         Ingredients:
-                        @for (int j = 0; j < Model.Entrees[i].Ingredients.Count; j++)
+                        @for (int j = 0; j < @entree.Ingredients.Count; j++)
                         {
-                            <div>  @Model.Entrees[i].Ingredients[j].ToString()</div>
+                            <div>@entree.Ingredients[j].ToString()</div>
                         }
                     </div>
-                    }
+                    
                 }
 
                 <h2>Sides</h2>
                 @for (int i = 0; i < Model.Sides.Count; i++)
                 {
-                    @if (Model.items.Contains(Model.Sides[i]))
-                    {
+                    Side side = Model.Sides[i] as Side;
 
-                    <h3>@Model.Sides[i].ToString()</h3>
-                    <div>Price: @Model.Sides[i].Price</div>
-                    <div>Calories: @Model.Sides[i].Calories</div>
+                    <h3>@side.ToString()</h3>
+                    <div>Price: @side.Price</div>
+                    <div>Calories: @side.Calories</div>
                     <div>
                         Ingredients:
-                        @for (int j = 0; j < Model.Sides[i].Ingredients.Count; j++)
+                        @for (int j = 0; j < @side.Ingredients.Count; j++)
                         {
-                            <div>  @Model.Sides[i].Ingredients[j].ToString()</div>
+                            <div>@side.Ingredients[j].ToString()</div>
                         }
                     </div>
-                    }
+                    
                 }
 
                 <h2>Drinks</h2>
                 @for (int i = 0; i < Model.Drinks.Count; i++)
                 {
-                    @if (Model.items.Contains(Model.Drinks[i]))
-                    {
+                    Drink drink = Model.Drinks[i] as Drink;
 
-                    <h3>@Model.Drinks.[i].ToString()</h3>
-                    <div>Price: @Model.Drinks.[i].Price</div>
-                    <div>Calories: @Model.Drinks.[i].Calories</div>
+                    <h3>@drink.ToString()</h3>
+                    <div>Price: @drink.Price</div>
+                    <div>Calories: @drink.Calories</div>
                     <div>
                         Ingredients:
                         @for (int j = 0; j < Model.Drinks[i].Ingredients.Count; j++)
                         {
-                        <div>  @Model.Drinks.[i].Ingredients[j].ToString()</div>
+                        <div>@drink.Ingredients[j].ToString()</div>
                         }
                     </div>
-                    }
+                    
                 }
             </div>
         </div>
