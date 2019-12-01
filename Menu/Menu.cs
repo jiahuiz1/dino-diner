@@ -123,7 +123,47 @@ namespace DinoDiner.Menu
             }
         }
 
-        public string PossibleIngredients { get; set; }
+        public List<string> PossibleIngredients
+        {
+            get
+            {
+                List<string> ingredients = new List<string>();
+                ingredients.Add("Whole Wheat Bun");
+                ingredients.Add("Peppers");
+                ingredients.Add("Onion");
+                ingredients.Add("Potato");
+                ingredients.Add("Salt");
+                ingredients.Add("Vegetable Oil");
+                ingredients.Add("Macaroni Noodles");
+                ingredients.Add("Pork Sausage");
+                ingredients.Add("Breading");
+                ingredients.Add("Bread");
+                ingredients.Add("Peanut Butter");
+                ingredients.Add("Jelly");
+                ingredients.Add("Chicken");
+                ingredients.Add("Wing Sauce");
+                ingredients.Add("Natural Flavors");
+                ingredients.Add("Cane Sugar");
+                ingredients.Add("Coffee");
+                ingredients.Add("Steakburger Pattie");
+                ingredients.Add("Pickle");
+                ingredients.Add("Ketchup");
+                ingredients.Add("Mustard");
+                ingredients.Add("Lettuce");
+                ingredients.Add("Tomato");
+                ingredients.Add("Mayo");
+                ingredients.Add("Lemon");
+                ingredients.Add("Tea");
+                ingredients.Add("Flour Tortilla");
+                ingredients.Add("Chicken Breast");
+                ingredients.Add("Romaine Lettuce");
+                ingredients.Add("Ceasar Dressing");
+                ingredients.Add("Parmesan Cheese");
+                ingredients.Add("Water");
+
+                return ingredients;
+            }
+        }
 
 
 
@@ -160,26 +200,26 @@ namespace DinoDiner.Menu
             return result;
         }
 
-        //how to check if the menuitem is a category. if do nested foreach, there could be duplicate
-        public List<IMenuItem> SearchAndFilter(List<IMenuItem> menus, List<string> categories, string searchString)
+       //if I combine search and filter, the search string can't be empty?
+        public List<IMenuItem> SearchAndFilter(List<IMenuItem> menus, List<string> filters, string searchString)
         {
             List<IMenuItem> result = new List<IMenuItem>();
             
             foreach (IMenuItem item in menus)
             {
-                if (item is CretaceousCombo && categories.Contains("Combo") && item.ToString().Contains(searchString))
+                if (item is CretaceousCombo && filters.Contains("Combo") && item.ToString().Contains(searchString))
                 {
                     result.Add(item);
                 }
-                if(item is Entree && categories.Contains("Entree") && item.ToString().Contains(searchString))
+                if(item is Entree && filters.Contains("Entree") && item.ToString().Contains(searchString))
                 {
                     result.Add(item);
                 }
-                if (item is Side && categories.Contains("Side") && item.ToString().Contains(searchString))
+                if (item is Side && filters.Contains("Side") && item.ToString().Contains(searchString))
                 {
                     result.Add(item);
                 }
-                if (item is Drink && categories.Contains("Drink") && item.ToString().Contains(searchString))
+                if (item is Drink && filters.Contains("Drink") && item.ToString().Contains(searchString))
                 {
                     result.Add(item);
                 }               
@@ -188,7 +228,7 @@ namespace DinoDiner.Menu
             return result;
         }
 
-        public List<IMenuItem> FilterByMinPrice(List<IMenuItem> menus, float? minPrice)
+        public List<IMenuItem> FilterByMinPrice(List<IMenuItem> menus, double? minPrice)
         {
             List<IMenuItem> results = new List<IMenuItem>();
 
@@ -203,7 +243,7 @@ namespace DinoDiner.Menu
             return results;
         }
 
-        public List<IMenuItem> FilterByMaxPrice(List<IMenuItem> menus, float? maxPrice)
+        public List<IMenuItem> FilterByMaxPrice(List<IMenuItem> menus, double? maxPrice)
         {
             List<IMenuItem> results = new List<IMenuItem>();
 
@@ -216,6 +256,23 @@ namespace DinoDiner.Menu
             }
 
             return results;
+        }
+
+        public List<IMenuItem> FilterByIngredients(List<IMenuItem> menus, List<string> ingredients)
+        {           
+            for(int i = 0; i < menus.Count; i++)
+            {
+                for(int j = 0; j < ingredients.Count; j++)
+                {
+                    //index out of range problem, menus[i].Ingredients out of range
+                    if (menus[i].Ingredients.Contains(ingredients[j]))
+                    {
+                        menus.Remove(menus[i]);
+                    }
+                }
+            }
+
+            return menus;
         }
     }
 }

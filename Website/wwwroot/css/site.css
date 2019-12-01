@@ -40,7 +40,7 @@ body {
 }
 
 .exclude-ingredient{
-    display: flext;
+    display: flex;
     flex-direction: column;
 }
 

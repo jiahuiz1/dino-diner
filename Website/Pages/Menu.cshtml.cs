@@ -24,13 +24,16 @@ namespace Website.Pages
         public string search { get; set; }
 
         [BindProperty]
-        public float? minPrice { get; set; }
+        public double? minPrice { get; set; }
 
         [BindProperty]
-        public float? maxPrice { get; set; }
+        public double? maxPrice { get; set; }
 
         [BindProperty]
         public List<string> filters { get; set; } = new List<string>();
+
+        [BindProperty]
+        public List<string> ingredients { get; set; } = new List<string>();
 
 
         public List<IMenuItem> Combos { get; set; }
@@ -67,21 +70,24 @@ namespace Website.Pages
             Drinks = Menu.AvailableDrinks;
 
             if (search != null)
-            {
+            {                
                 Combos = Menu.Search(Combos, search);
                 Entrees = Menu.Search(Entrees, search);
                 Sides = Menu.Search(Sides, search);
                 Drinks = Menu.Search(Drinks, search);
             }
 
-            if(filters.Count != 0)
+            if(filters.Count != 0 && search != null)
             {
-                items = Menu.SearchAndFilter(items, filters, search);
+               
+                Combos = Menu.SearchAndFilter(Combos, filters, search);
+                Entrees = Menu.SearchAndFilter(Entrees, filters, search);
+                Sides = Menu.SearchAndFilter(Sides, filters, search);
+                Drinks = Menu.SearchAndFilter(Drinks, filters, search);
             }
 
             if(minPrice != null)
-            {
-                items = Menu.FilterByMinPrice(items, minPrice);
+            {               
                 Combos = Menu.FilterByMinPrice(Combos, minPrice);
                 Entrees = Menu.FilterByMinPrice(Entrees, minPrice);
                 Sides = Menu.FilterByMinPrice(Sides, minPrice);
@@ -90,9 +96,19 @@ namespace Website.Pages
 
             if(maxPrice != null)
             {
-                items = Menu.FilterByMaxPrice(items, maxPrice);
+                Combos = Menu.FilterByMaxPrice(Combos, maxPrice);
+                Entrees = Menu.FilterByMaxPrice(Entrees, maxPrice);
+                Sides = Menu.FilterByMaxPrice(Sides, maxPrice);
+                Drinks = Menu.FilterByMaxPrice(Drinks, maxPrice);
             }
 
+            if(ingredients.Count != 0)
+            {
+                Combos = Menu.FilterByIngredients(Combos, ingredients);
+                Entrees = Menu.FilterByIngredients(Entrees, ingredients);
+                Sides = Menu.FilterByIngredients(Sides, ingredients);
+                Drinks = Menu.FilterByIngredients(Drinks, ingredients);
+            }
         }
     }
 }
