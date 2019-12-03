@@ -123,49 +123,25 @@ namespace DinoDiner.Menu
             }
         }
 
-        public List<string> PossibleIngredients
-        {
-            get
-            {
-                List<string> ingredients = new List<string>();
-                ingredients.Add("Whole Wheat Bun");
-                ingredients.Add("Peppers");
-                ingredients.Add("Onion");
-                ingredients.Add("Potato");
-                ingredients.Add("Salt");
-                ingredients.Add("Vegetable Oil");
-                ingredients.Add("Macaroni Noodles");
-                ingredients.Add("Pork Sausage");
-                ingredients.Add("Breading");
-                ingredients.Add("Bread");
-                ingredients.Add("Peanut Butter");
-                ingredients.Add("Jelly");
-                ingredients.Add("Chicken");
-                ingredients.Add("Wing Sauce");
-                ingredients.Add("Natural Flavors");
-                ingredients.Add("Cane Sugar");
-                ingredients.Add("Coffee");
-                ingredients.Add("Steakburger Pattie");
-                ingredients.Add("Pickle");
-                ingredients.Add("Ketchup");
-                ingredients.Add("Mustard");
-                ingredients.Add("Lettuce");
-                ingredients.Add("Tomato");
-                ingredients.Add("Mayo");
-                ingredients.Add("Lemon");
-                ingredients.Add("Tea");
-                ingredients.Add("Flour Tortilla");
-                ingredients.Add("Chicken Breast");
-                ingredients.Add("Romaine Lettuce");
-                ingredients.Add("Ceasar Dressing");
-                ingredients.Add("Parmesan Cheese");
-                ingredients.Add("Water");
+        /// <summary>
+        /// All possible ingredients
+        /// </summary>
+        public HashSet<string> PossibleIngredients = new HashSet<string>();
 
-                return ingredients;
+        /// <summary>
+        /// Add ingredients to the possibleingredients
+        /// </summary>
+        /// <param name="AllItems"></param>
+        public void AllIngredients(List<IMenuItem> AllItems)
+        {
+            foreach(IMenuItem item in AllItems){
+                foreach(string ingredient in item.Ingredients)
+                {
+                    PossibleIngredients.Add(ingredient);
+                }
             }
         }
-
-
+       
 
 
         /// <summary>
@@ -184,6 +160,12 @@ namespace DinoDiner.Menu
             return sb.ToString();
         }
 
+        /// <summary>
+        /// Search the Menu from the given search string and the given list
+        /// </summary>
+        /// <param name="menus">the given list</param>
+        /// <param name="searchString">the searchString</param>
+        /// <returns></returns>
         public List<IMenuItem> Search(List<IMenuItem> menus, string searchString)
         {
             List<IMenuItem> result = new List<IMenuItem>();
@@ -200,26 +182,31 @@ namespace DinoDiner.Menu
             return result;
         }
 
-       //if I combine search and filter, the search string can't be empty?
-        public List<IMenuItem> SearchAndFilter(List<IMenuItem> menus, List<string> filters, string searchString)
+       /// <summary>
+       /// Find all the MenuItems from the given filters and the given list
+       /// </summary>
+       /// <param name="menus">the given list</param>
+       /// <param name="filters">given filters</param>
+       /// <returns></returns>
+        public List<IMenuItem> Filter(List<IMenuItem> menus, List<string> filters)
         {
             List<IMenuItem> result = new List<IMenuItem>();
             
             foreach (IMenuItem item in menus)
             {
-                if (item is CretaceousCombo && filters.Contains("Combo") && item.ToString().Contains(searchString))
+                if (item is CretaceousCombo && filters.Contains("Combo"))
                 {
                     result.Add(item);
                 }
-                if(item is Entree && filters.Contains("Entree") && item.ToString().Contains(searchString))
+                else if(item is Entree && filters.Contains("Entree"))
                 {
                     result.Add(item);
                 }
-                if (item is Side && filters.Contains("Side") && item.ToString().Contains(searchString))
+                else if (item is Side && filters.Contains("Side"))
                 {
                     result.Add(item);
                 }
-                if (item is Drink && filters.Contains("Drink") && item.ToString().Contains(searchString))
+                else if (item is Drink && filters.Contains("Drink"))
                 {
                     result.Add(item);
                 }               
@@ -228,6 +215,12 @@ namespace DinoDiner.Menu
             return result;
         }
 
+        /// <summary>
+        /// Find all the MenuItems that greater or equal to the minimumPrice
+        /// </summary>
+        /// <param name="menus">the given list</param>
+        /// <param name="minPrice">minimum price</param>
+        /// <returns></returns>
         public List<IMenuItem> FilterByMinPrice(List<IMenuItem> menus, double? minPrice)
         {
             List<IMenuItem> results = new List<IMenuItem>();
@@ -243,6 +236,12 @@ namespace DinoDiner.Menu
             return results;
         }
 
+        /// <summary>
+        /// Find all the MenuItems that less or equal to the maximumPrice
+        /// </summary>
+        /// <param name="menus"></param>
+        /// <param name="maxPrice">maximum price</param>
+        /// <returns></returns>
         public List<IMenuItem> FilterByMaxPrice(List<IMenuItem> menus, double? maxPrice)
         {
             List<IMenuItem> results = new List<IMenuItem>();
@@ -258,21 +257,33 @@ namespace DinoDiner.Menu
             return results;
         }
 
+        /// <summary>
+        /// Find all MenuItems that do not include the given ingredients
+        /// </summary>
+        /// <param name="menus">the given list</param>
+        /// <param name="ingredients">exclude-ingredients</param>
+        /// <returns></returns>
         public List<IMenuItem> FilterByIngredients(List<IMenuItem> menus, List<string> ingredients)
-        {           
+        {
+            List<IMenuItem> results = new List<IMenuItem>();
             for(int i = 0; i < menus.Count; i++)
             {
-                for(int j = 0; j < ingredients.Count; j++)
-                {
-                    //index out of range problem, menus[i].Ingredients out of range
+                bool safeToAdd = true;
+                for (int j = 0; j < ingredients.Count; j++)
+                {                   
                     if (menus[i].Ingredients.Contains(ingredients[j]))
                     {
-                        menus.Remove(menus[i]);
+                        safeToAdd = false;
+                        break;
                     }
+                }
+                if (safeToAdd)
+                {
+                    results.Add(menus[i]);
                 }
             }
 
-            return menus;
+            return results;
         }
     }
 }

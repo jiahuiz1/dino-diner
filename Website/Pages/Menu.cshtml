@@ -23,7 +23,7 @@
                         Ingredients:
                         @for (int j = 0; j < @combo.Ingredients.Count; j++)
                         {
-                        <div>@combo.Ingredients[j].ToString()</div>
+                            <div>@combo.Ingredients[j].ToString()</div>
                         }
                     </div>
                     <p>drink of combo: @combo.Drink</p>
@@ -43,6 +43,7 @@
                         @for (int j = 0; j < @entree.Ingredients.Count; j++)
                         {
                             <div>@entree.Ingredients[j].ToString()</div>
+                            
                         }
                     </div>
                     
@@ -61,6 +62,7 @@
                         @for (int j = 0; j < @side.Ingredients.Count; j++)
                         {
                             <div>@side.Ingredients[j].ToString()</div>
+
                         }
                     </div>
                     
@@ -76,9 +78,9 @@
                     <div>Calories: @drink.Calories</div>
                     <div>
                         Ingredients:
-                        @for (int j = 0; j < Model.Drinks[i].Ingredients.Count; j++)
+                        @for (int j = 0; j < @drink.Ingredients.Count; j++)
                         {
-                        <div>@drink.Ingredients[j].ToString()</div>
+                            <div>@drink.Ingredients[j].ToString()</div>
                         }
                     </div>
                     
@@ -105,7 +107,7 @@
                     Side
                 </label>
                 <label>
-                    <input type="checkbox" name="filters" value="Drink " checked="@Model.filters.Contains("Drink")" />
+                    <input type="checkbox" name="filters" value="Drink" checked="@Model.filters.Contains("Drink")" />
                     Drink
                 </label>
 
@@ -122,140 +124,18 @@
             </div>
 
             <h4>Excluding Ingredients</h4>
-                <div class="exclude-ingredient">
+            <div class="exclude-ingredient">
+                <h4>Excluding Ingredients</h4>
+                @foreach (string ingredient in Model.Ingre)
+                {
                     <label>
-                        <input type="checkbox" name="ingredients" value="Whole Wheat Bun" checked="@Model.ingredients.Contains("Bread")" />
-                        Whole Wheat Bun
+                        <input type="checkbox" name="ingredients" value="@ingredient.ToString()" checked="@Model.ingredients.Contains(ingredient.ToString())" />
+                        @ingredient
                     </label>
-                    <label>
-                        <input type="checkbox" name="ingredients" value="Peppers" checked="@Model.ingredients.Contains("Peppers")" />
-                        Peppers
-                    </label>
-                    <label>
-                        <input type="checkbox" name="ingredients" value="Onion" checked="@Model.ingredients.Contains("Onion")" />
-                        Onion
-                    </label>
-                    <label>
-                        <input type="checkbox" name="ingredients" value="Chicken Nugget" checked="@Model.ingredients.Contains("Chicken Nugget")" />
-                        Chicken Nugget
-                    </label>
-                    <label>
-                        <input type="checkbox" name="ingredients" value="Potato" checked="@Model.ingredients.Contains("Potato")" />
-                        Potato
-                    </label>
-                    <label>
-                        <input type="checkbox" name="ingredients" value="Salt" checked="@Model.ingredients.Contains("Salt")" />
-                        Salt
-                    </label>
-                    <label>
-                        <input type="checkbox" name="ingredients" value="Vegetable Oil" checked="@Model.ingredients.Contains("Vegetable Oil")" />
-                        Vegetable Oil
-                    </label>
-                    <label>
-                        <input type="checkbox" name="ingredients" value="Macaroni Noodles" checked="@Model.ingredients.Contains("Macaroni Noodles")" />
-                        Macaroni Noodles
-                    </label>
-                    <label>
-                        <input type="checkbox" name="ingredients" value="Pork Sausage" checked="@Model.ingredients.Contains("Pork Sausage")" />
-                        Pork Sausage
-                    </label>
-                    <label>
-                        <input type="checkbox" name="ingredients" value="Breading" checked="@Model.ingredients.Contains("Breading")" />
-                        Breading
-                    </label>
-                    <label>
-                        <input type="checkbox" name="ingredients" value="Bread" checked="@Model.ingredients.Contains("Bread")" />
-                        Bread
-                    </label>
-                    <label>
-                        <input type="checkbox" name="ingredients" value="Peanut Butter" checked="@Model.ingredients.Contains("Peanut Butter")" />
-                        Peanut Butter
-                    </label>
-                    <label>
-                        <input type="checkbox" name="ingredients" value="Jelly" checked="@Model.ingredients.Contains("Jelly")" />
-                        Jelly
-                    </label>
-                    <label>
-                        <input type="checkbox" name="ingredients" value="Chicken" checked="@Model.ingredients.Contains("Chicken")" />
-                        Chicken
-                    </label>
-                    <label>
-                        <input type="checkbox" name="ingredients" value="Wing Sauce" checked="@Model.ingredients.Contains("Wing Sauce")" />
-                        Wing Sauce
-                    </label>
-                    <label>
-                        <input type="checkbox" name="ingredients" value="Natural Flvaors" checked="@Model.ingredients.Contains("Natural Flavors")" />
-                        Natural Flvaors
-                    </label>
-                    <label>
-                        <input type="checkbox" name="ingredients" value="Cane Sugar" checked="@Model.ingredients.Contains("Cane Sugar")" />
-                        Cane Sugar
-                    </label>
-                    <label>
-                        <input type="checkbox" name="ingredients" value="Coffee" checked="@Model.ingredients.Contains("Coffee")" />
-                        Coffee
-                    </label>
-                    <label>
-                        <input type="checkbox" name="ingredients" value="Steakburger Pattie" checked="@Model.ingredients.Contains("Steakburger Pattie")" />
-                        Steakburger Pattie
-                    </label>
-                    <label>
-                        <input type="checkbox" name="ingredients" value="Pickle" checked="@Model.ingredients.Contains("Pickle")" />
-                        Pickle
-                    </label>
-                    <label>
-                        <input type="checkbox" name="ingredients" value="Ketchup" checked="@Model.ingredients.Contains("Ketchup")" />
-                        Ketchup
-                    </label>
-                    <label>
-                        <input type="checkbox" name="ingredients" value="Mustard" checked="@Model.ingredients.Contains("Mustard")" />
-                        Mustard
-                    </label>
-                    <label>
-                        <input type="checkbox" name="ingredients" value="Lettuce" checked="@Model.ingredients.Contains("Lettuce")" />
-                        Lettuce
-                    </label>
-                    <label>
-                        <input type="checkbox" name="ingredients" value="Tomato" checked="@Model.ingredients.Contains("Tomato")" />
-                        Tomato
-                    </label>
-                    <label>
-                        <input type="checkbox" name="ingredients" value="Mayo" checked="@Model.ingredients.Contains("Mayo")" />
-                        Mayo
-                    </label>
-                    <label>
-                        <input type="checkbox" name="ingredients" value="Lemon" checked="@Model.ingredients.Contains("Lemon")" />
-                        Lemon
-                    </label>
-                    <label>
-                        <input type="checkbox" name="ingredients" value="Tea" checked="@Model.ingredients.Contains("Tea")" />
-                        Tea
-                    </label>
-                    <label>
-                        <input type="checkbox" name="ingredients" value="Flour Tortilla" checked="@Model.ingredients.Contains("Flour Tortilla")" />
-                        Flour Tortilla
-                    </label>
-                    <label>
-                        <input type="checkbox" name="ingredients" value="Chicken Breast" checked="@Model.ingredients.Contains("Chicken Breast")" />
-                        Chicken Breast
-                    </label>
-                    <label>
-                        <input type="checkbox" name="ingredients" value="Romaine Lettuce" checked="@Model.ingredients.Contains("Romaine Lettuce")" />
-                        Romaine Lettuce
-                    </label>
-                    <label>
-                        <input type="checkbox" name="ingredients" value="Ceasar Dressing" checked="@Model.ingredients.Contains("Ceasar Dressing")" />
-                        Ceasar Dressing
-                    </label>
-                    <label>
-                        <input type="checkbox" name="ingredients" value="Parmesan Cheese" checked="@Model.ingredients.Contains("Parmesan Cheese")" />
-                        Parmesan Cheese
-                    </label>
-                    <label>
-                        <input type="checkbox" name="ingredients" value="Water" checked="@Model.ingredients.Contains("Water")" />
-                        Water
-                    </label>
-                </div>
+                }
+
+            </div>
+
         </form>
 
     </div>

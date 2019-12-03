@@ -17,31 +17,62 @@ namespace Website.Pages
         /// private field to store the menu object
         /// </summary>
        
-
         public List<IMenuItem> items;
 
+        /// <summary>
+        /// Bind the search string with cshtml
+        /// </summary>
         [BindProperty]
         public string search { get; set; }
 
+        /// <summary>
+        /// Bind the minimum price with the cshtml
+        /// </summary>
         [BindProperty]
         public double? minPrice { get; set; }
 
+        /// <summary>
+        /// Bind the maximum price with the cshtml
+        /// </summary>
         [BindProperty]
         public double? maxPrice { get; set; }
 
+        /// <summary>
+        /// Bind the list of filters with the cshtml
+        /// </summary>
         [BindProperty]
         public List<string> filters { get; set; } = new List<string>();
 
+        /// <summary>
+        /// Bind the list of ingredients with the cshtml
+        /// </summary>
         [BindProperty]
         public List<string> ingredients { get; set; } = new List<string>();
 
+        /// <summary>
+        /// list of ingredients that are not repeatable
+        /// </summary>
+        public HashSet<string> Ingre { get; set; } = new HashSet<string>();
+ 
 
+        /// <summary>
+        /// List of combos
+        /// </summary>
         public List<IMenuItem> Combos { get; set; }
 
+        /// <summary>
+        /// List of entrees
+        /// </summary>
         public List<IMenuItem> Entrees { get; set; }
 
+        /// <summary>
+        /// List of sides
+        /// </summary>
         public List<IMenuItem> Sides { get; set; }
 
+        /// <summary>
+        /// List of drinks
+        /// </summary>
         public List<IMenuItem> Drinks { get; set; }
 
         /// <summary>
@@ -51,7 +82,9 @@ namespace Website.Pages
 
 
             
-
+        /// <summary>
+        /// The Get method responses to the server
+        /// </summary>
         public void OnGet()
         {
             items = Menu.AvailableMenuItems;
@@ -59,8 +92,16 @@ namespace Website.Pages
             Entrees = Menu.AvailableEntrees;
             Sides = Menu.AvailableSides;
             Drinks = Menu.AvailableDrinks;
+            Menu.AllIngredients(Combos);
+            Menu.AllIngredients(Entrees);
+            Menu.AllIngredients(Sides);
+            Menu.AllIngredients(Drinks);            
+            Ingre = Menu.PossibleIngredients;
         }
 
+        /// <summary>
+        /// The Post method responses to the server
+        /// </summary>
         public void OnPost()
         {
             items = Menu.AvailableMenuItems;
@@ -68,6 +109,11 @@ namespace Website.Pages
             Entrees = Menu.AvailableEntrees;
             Sides = Menu.AvailableSides;
             Drinks = Menu.AvailableDrinks;
+            Menu.AllIngredients(Combos);
+            Menu.AllIngredients(Entrees);
+            Menu.AllIngredients(Sides);
+            Menu.AllIngredients(Drinks);            
+            Ingre = Menu.PossibleIngredients;
 
             if (search != null)
             {                
@@ -77,13 +123,12 @@ namespace Website.Pages
                 Drinks = Menu.Search(Drinks, search);
             }
 
-            if(filters.Count != 0 && search != null)
-            {
-               
-                Combos = Menu.SearchAndFilter(Combos, filters, search);
-                Entrees = Menu.SearchAndFilter(Entrees, filters, search);
-                Sides = Menu.SearchAndFilter(Sides, filters, search);
-                Drinks = Menu.SearchAndFilter(Drinks, filters, search);
+            if(filters.Count != 0)
+            {              
+                Combos = Menu.Filter(Combos, filters);
+                Entrees = Menu.Filter(Entrees, filters);
+                Sides = Menu.Filter(Sides, filters);
+                Drinks = Menu.Filter(Drinks, filters);
             }
 
             if(minPrice != null)
