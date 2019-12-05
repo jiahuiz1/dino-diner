@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace DinoDiner.Menu
 {
@@ -12,7 +13,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Return all MenuItem Items as a list
         /// </summary>
-        public List<IMenuItem> AvailableMenuItems {
+        public static List<IMenuItem> AvailableMenuItems {
             get {
                 List<IMenuItem> list = new List<IMenuItem>();
                 list.AddRange(AvailableEntrees);
@@ -26,7 +27,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Return all available entrees as a list 
         /// </summary>
-        public List<IMenuItem> AvailableEntrees {
+        public static List<IMenuItem> AvailableEntrees {
             get {
                 List<IMenuItem> ingredients = new List<IMenuItem>();
                 Brontowurst bt = new Brontowurst();
@@ -52,7 +53,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Return all available sides as a list
         /// </summary>
-        public List<IMenuItem> AvailableSides {
+        public static List<IMenuItem> AvailableSides {
             get {
                 List<IMenuItem> list = new List<IMenuItem>();
                 Fryceritops ff = new Fryceritops();
@@ -71,7 +72,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Return all available drinks as a list
         /// </summary>
-        public List<IMenuItem> AvailableDrinks {
+        public static List<IMenuItem> AvailableDrinks {
             get {
                 List<IMenuItem> list = new List<IMenuItem>();
                 Sodasaurus ss = new Sodasaurus();
@@ -90,7 +91,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Return all available combos as a list
         /// </summary>
-        public List<IMenuItem> AvailableCombos {
+        public static List<IMenuItem> AvailableCombos {
             get {
                 List<IMenuItem> ingredients = new List<IMenuItem>();
                 Brontowurst bt = new Brontowurst();
@@ -126,13 +127,13 @@ namespace DinoDiner.Menu
         /// <summary>
         /// All possible ingredients
         /// </summary>
-        public HashSet<string> PossibleIngredients = new HashSet<string>();
+        public static HashSet<string> PossibleIngredients = new HashSet<string>();
 
         /// <summary>
         /// Add ingredients to the possibleingredients
         /// </summary>
         /// <param name="AllItems"></param>
-        public void AllIngredients(List<IMenuItem> AllItems)
+        public static void AllIngredients(List<IMenuItem> AllItems)
         {
             foreach(IMenuItem item in AllItems){
                 foreach(string ingredient in item.Ingredients)
@@ -151,7 +152,7 @@ namespace DinoDiner.Menu
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            foreach(object item in this.AvailableMenuItems)
+            foreach(object item in AvailableMenuItems)
             {
                 sb.Append(item.ToString());
                 sb.Append("\n");
@@ -166,7 +167,7 @@ namespace DinoDiner.Menu
         /// <param name="menus">the given list</param>
         /// <param name="searchString">the searchString</param>
         /// <returns></returns>
-        public List<IMenuItem> Search(List<IMenuItem> menus, string searchString)
+        public static List<IMenuItem> Search(List<IMenuItem> menus, string searchString)
         {
             List<IMenuItem> result = new List<IMenuItem>();
 
@@ -188,7 +189,7 @@ namespace DinoDiner.Menu
        /// <param name="menus">the given list</param>
        /// <param name="filters">given filters</param>
        /// <returns></returns>
-        public List<IMenuItem> Filter(List<IMenuItem> menus, List<string> filters)
+        public static List<IMenuItem> Filter(List<IMenuItem> menus, List<string> filters)
         {
             List<IMenuItem> result = new List<IMenuItem>();
             
@@ -221,7 +222,7 @@ namespace DinoDiner.Menu
         /// <param name="menus">the given list</param>
         /// <param name="minPrice">minimum price</param>
         /// <returns></returns>
-        public List<IMenuItem> FilterByMinPrice(List<IMenuItem> menus, double? minPrice)
+        public static List<IMenuItem> FilterByMinPrice(List<IMenuItem> menus, double? minPrice)
         {
             List<IMenuItem> results = new List<IMenuItem>();
 
@@ -242,7 +243,7 @@ namespace DinoDiner.Menu
         /// <param name="menus"></param>
         /// <param name="maxPrice">maximum price</param>
         /// <returns></returns>
-        public List<IMenuItem> FilterByMaxPrice(List<IMenuItem> menus, double? maxPrice)
+        public static List<IMenuItem> FilterByMaxPrice(List<IMenuItem> menus, double? maxPrice)
         {
             List<IMenuItem> results = new List<IMenuItem>();
 
@@ -263,7 +264,7 @@ namespace DinoDiner.Menu
         /// <param name="menus">the given list</param>
         /// <param name="ingredients">exclude-ingredients</param>
         /// <returns></returns>
-        public List<IMenuItem> FilterByIngredients(List<IMenuItem> menus, List<string> ingredients)
+        public static List<IMenuItem> FilterByIngredients(List<IMenuItem> menus, List<string> ingredients)
         {
             List<IMenuItem> results = new List<IMenuItem>();
             for(int i = 0; i < menus.Count; i++)

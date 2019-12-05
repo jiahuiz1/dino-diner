@@ -9,16 +9,37 @@
         <div>
             <h1>Menu</h1>
         
-            <div class="menu-item">
-                <h2>Combos</h2>
-                @for (int i = 0; i < Model.Combos.Count; i++)
+            <td class="menu-item">
+                <h2>Combos</h2>                
+                @foreach (IMenuItem item in Model.Combos)
                 {
-                     CretaceousCombo combo = Model.Combos[i] as CretaceousCombo;
+                     CretaceousCombo combo = item as CretaceousCombo;
                                  
 
                     <h3>@combo.ToString()</h3>
-                    <div>Price: @combo.Price</div>
-                    <div>Calories: @combo.Calories</div>
+                    <table>
+                        <tr>
+                            <th>Size</th>
+                            <th>Price</th>
+                            <th>Calories</th>
+                        </tr>
+                        <tr>
+                            <td>Small</td>
+                            <td>@combo.Price</td>
+                            <td>@combo.Calories</td>
+                        </tr>
+                        <tr>
+                            <td>Medium</td>
+                            <td>@combo.Price</td>
+                            <td>@combo.Calories</td>
+                        </tr>
+                        <tr>
+                            <td>Large</td>
+                            <td>@combo.Price</td>
+                            <td>@combo.Calories</td>
+                        </tr>
+                    </table>                       
+                    
                     <div>
                         Ingredients:
                         @for (int j = 0; j < @combo.Ingredients.Count; j++)
@@ -31,9 +52,9 @@
                 }
 
                 <h2>Entrees</h2>
-                @for (int i = 0; i < Model.Entrees.Count; i++)
+                @foreach (IMenuItem item in Model.Entrees)
                 {
-                    Entree entree = Model.Entrees[i] as Entree;
+                    Entree entree = item as Entree;
                 
                     <h3>@entree.ToString()</h3>
                     <div>Price: @entree.Price</div>
@@ -50,9 +71,9 @@
                 }
 
                 <h2>Sides</h2>
-                @for (int i = 0; i < Model.Sides.Count; i++)
+                @foreach (IMenuItem item in Model.Sides)
                 {
-                    Side side = Model.Sides[i] as Side;
+                    Side side = item as Side;
 
                     <h3>@side.ToString()</h3>
                     <div>Price: @side.Price</div>
@@ -69,9 +90,9 @@
                 }
 
                 <h2>Drinks</h2>
-                @for (int i = 0; i < Model.Drinks.Count; i++)
+                @foreach (IMenuItem item in Model.Drinks)
                 {
-                    Drink drink = Model.Drinks[i] as Drink;
+                    Drink drink = item as Drink;
 
                     <h3>@drink.ToString()</h3>
                     <div>Price: @drink.Price</div>
