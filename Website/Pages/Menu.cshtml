@@ -9,12 +9,12 @@
         <div>
             <h1>Menu</h1>
         
-            <td class="menu-item">
-                <h2>Combos</h2>                
+            <div class="menu-item">
+                <h2>Combos</h2>
                 @foreach (IMenuItem item in Model.Combos)
                 {
-                     CretaceousCombo combo = item as CretaceousCombo;
-                                 
+                    CretaceousCombo combo = item as CretaceousCombo;
+
 
                     <h3>@combo.ToString()</h3>
                     <table>
@@ -28,18 +28,20 @@
                             <td>@combo.Price</td>
                             <td>@combo.Calories</td>
                         </tr>
+                        @{ combo.Size = Size.Medium; }
                         <tr>
                             <td>Medium</td>
                             <td>@combo.Price</td>
                             <td>@combo.Calories</td>
                         </tr>
+                        @{ combo.Size = Size.Large; }
                         <tr>
                             <td>Large</td>
                             <td>@combo.Price</td>
                             <td>@combo.Calories</td>
                         </tr>
-                    </table>                       
-                    
+                    </table>
+
                     <div>
                         Ingredients:
                         @for (int j = 0; j < @combo.Ingredients.Count; j++)
@@ -55,8 +57,9 @@
                 @foreach (IMenuItem item in Model.Entrees)
                 {
                     Entree entree = item as Entree;
-                
+
                     <h3>@entree.ToString()</h3>
+
                     <div>Price: @entree.Price</div>
                     <div>Calories: @entree.Calories</div>
                     <div>
@@ -64,10 +67,10 @@
                         @for (int j = 0; j < @entree.Ingredients.Count; j++)
                         {
                             <div>@entree.Ingredients[j].ToString()</div>
-                            
+
                         }
                     </div>
-                    
+
                 }
 
                 <h2>Sides</h2>
@@ -76,6 +79,30 @@
                     Side side = item as Side;
 
                     <h3>@side.ToString()</h3>
+                    <table>
+                        <tr>
+                            <th>Size</th>
+                            <th>Price</th>
+                            <th>Calories</th>
+                        </tr>
+                        <tr>
+                            <td>Small</td>
+                            <td>@side.Price</td>
+                            <td>@side.Calories</td>
+                        </tr>
+                        @{ side.Size = Size.Medium; }
+                        <tr>
+                            <td>Medium</td>
+                            <td>@side.Price</td>
+                            <td>@side.Calories</td>
+                        </tr>
+                        @{ side.Size = Size.Large; }
+                        <tr>
+                            <td>Large</td>
+                            <td>@side.Price</td>
+                            <td>@side.Calories</td>
+                        </tr>
+                    </table>
                     <div>Price: @side.Price</div>
                     <div>Calories: @side.Calories</div>
                     <div>
@@ -86,7 +113,7 @@
 
                         }
                     </div>
-                    
+
                 }
 
                 <h2>Drinks</h2>
@@ -95,6 +122,30 @@
                     Drink drink = item as Drink;
 
                     <h3>@drink.ToString()</h3>
+                    <table>
+                        <tr>
+                            <th>Size</th>
+                            <th>Price</th>
+                            <th>Calories</th>
+                        </tr>
+                        <tr>
+                            <td>Small</td>
+                            <td>@drink.Price</td>
+                            <td>@drink.Calories</td>
+                        </tr>
+                        @{ drink.Size = Size.Medium; }
+                        <tr>
+                            <td>Medium</td>
+                            <td>@drink.Price</td>
+                            <td>@drink.Calories</td>
+                        </tr>
+                        @{ drink.Size = Size.Large; }
+                        <tr>
+                            <td>Large</td>
+                            <td>@drink.Price</td>
+                            <td>@drink.Calories</td>
+                        </tr>
+                    </table>
                     <div>Price: @drink.Price</div>
                     <div>Calories: @drink.Calories</div>
                     <div>
@@ -104,7 +155,7 @@
                             <div>@drink.Ingredients[j].ToString()</div>
                         }
                     </div>
-                    
+
                 }
             </div>
         </div>
@@ -146,7 +197,6 @@
 
             <h4>Excluding Ingredients</h4>
             <div class="exclude-ingredient">
-                <h4>Excluding Ingredients</h4>
                 @foreach (string ingredient in Model.Ingre)
                 {
                     <label>

@@ -122,31 +122,99 @@ namespace Website.Pages
 
             if (search != null)
             {
-                Combos = Menu.AvailableCombos.Where(combo => combo.ToString().Contains(search));
-                Entrees = Menu.AvailableEntrees.Where(entree => entree.ToString().Contains(search));
-                Sides = Menu.AvailableSides.Where(side => side.ToString().Contains(search));
-                Drinks = Menu.AvailableDrinks.Where(drink => drink.ToString().Contains(search));
+                Combos = Combos.Where(combo => combo.ToString().Contains(search));
+                Entrees = Entrees.Where(entree => entree.ToString().Contains(search));
+                Sides = Sides.Where(side => side.ToString().Contains(search));
+                Drinks = Drinks.Where(drink => drink.ToString().Contains(search));
+            }
+
+            if(filters.Count != 0)
+            {
+                Combos = Combos.Where(combo => combo is CretaceousCombo && filters.Contains("Combo"));
+                Entrees = Entrees.Where(entree => entree is Entree && filters.Contains("Entree"));
+                Sides = Sides.Where(side => side is Side && filters.Contains("Side"));
+                Drinks = Drinks.Where(drink => drink is Drink && filters.Contains("Drink"));
             }
 
             if(minPrice != null)
             {
-                Combos = Menu.AvailableCombos.Where(combo => combo.Price >= minPrice);
-                Entrees = Menu.AvailableEntrees.Where(entree => entree.Price >= minPrice);
-                Sides = Menu.AvailableSides.Where(side => side.Price >= minPrice);
-                Drinks = Menu.AvailableDrinks.Where(drink => drink.Price >= minPrice);
+                Combos = Combos.Where(combo => combo.Price >= minPrice);
+                Entrees = Entrees.Where(entree => entree.Price >= minPrice);
+                Sides = Sides.Where(side => side.Price >= minPrice);
+                Drinks = Drinks.Where(drink => drink.Price >= minPrice);
             }
 
             if(maxPrice != null)
             {
-                Combos = Menu.AvailableCombos.Where(combo => combo.Price <= maxPrice);
-                Entrees = Menu.AvailableEntrees.Where(entree => entree.Price <= maxPrice);
-                Sides = Menu.AvailableSides.Where(side => side.Price <= maxPrice);
-                Drinks = Menu.AvailableDrinks.Where(drink => drink.Price <= maxPrice);
+                Combos = Combos.Where(combo => combo.Price <= maxPrice);
+                Entrees = Entrees.Where(entree => entree.Price <= maxPrice);
+                Sides = Sides.Where(side => side.Price <= maxPrice);
+                Drinks = Drinks.Where(drink => drink.Price <= maxPrice);
             }
+            
 
             if(ingredients.Count != 0)
             {
-                
+
+                Combos = Combos.Where(combo =>
+                {
+                    List<IMenuItem> results = new List<IMenuItem>();
+                    bool safeToAdd = true;
+                    for (int j = 0; j < ingredients.Count; j++)
+                    {
+                        if (combo.Ingredients.Contains(ingredients[j]))
+                        {
+                            safeToAdd = false;
+                            break;
+                        }
+                    }
+                    return safeToAdd;                   
+                });
+
+                Entrees = Entrees.Where(entree =>
+                {
+                    List<IMenuItem> results = new List<IMenuItem>();
+                    bool safeToAdd = true;
+                    for (int j = 0; j < ingredients.Count; j++)
+                    {
+                        if (entree.Ingredients.Contains(ingredients[j]))
+                        {
+                            safeToAdd = false;
+                            break;
+                        }
+                    }
+                    return safeToAdd;
+                });
+
+                Sides = Sides.Where(side =>
+                {
+                    List<IMenuItem> results = new List<IMenuItem>();
+                    bool safeToAdd = true;
+                    for (int j = 0; j < ingredients.Count; j++)
+                    {
+                        if (side.Ingredients.Contains(ingredients[j]))
+                        {
+                            safeToAdd = false;
+                            break;
+                        }
+                    }
+                    return safeToAdd;
+                });
+
+                Drinks = Drinks.Where(drink =>
+                {
+                    List<IMenuItem> results = new List<IMenuItem>();
+                    bool safeToAdd = true;
+                    for (int j = 0; j < ingredients.Count; j++)
+                    {
+                        if (drink.Ingredients.Contains(ingredients[j]))
+                        {
+                            safeToAdd = false;
+                            break;
+                        }
+                    }
+                    return safeToAdd;
+                });
             }
           
         }
