@@ -105,7 +105,7 @@ namespace Website.Pages
         }
 
         /// <summary>
-        /// The Post method responses to the server
+        /// The Post method responses to the server, use the LINQ Enumberable.Where method
         /// </summary>
         public void OnPost()
         {
